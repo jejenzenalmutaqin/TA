@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+  "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="jipi.model.UserModel" table="user_tbl">
+        <id name="kduser" column="kduser" length="8">
+            <generator class="native"/>
+        </id>
+        <property name="username" column="username" length="50"/>
+        <property name="password" column="password" length="10"/>
+        <property name="akses" column="akses" length="3"/>
+        <property name="nim" column="nim" length="16"/>
+        <property name="nip" column="nip" length="16"/>
+        <property name="keterangan" column="keterangan" length="16"/>
+    </class>
+</hibernate-mapping>

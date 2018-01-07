@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+  "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="jipi.model.DosenModel" table="mst_dosen">
+        <id name="nip" column="nip" length="16">
+            <generator class="assigned"/>
+        </id>
+        <property name="namadosen" column="namadosen" length="50"/>
+        <property name="alamat" column="alamat"/>
+        <property name="tempatlahir" column="tempatlahir" length="30"/>
+        <property name="tgllahir" column="tgllahir"/>
+        <property name="kdjenkel" column="kdjenkel" length="1"/>
+        <property name="kdstawin" column="kdstawin" length="1"/>
+        <property name="kdagama" column="kdagama" length="1"/>
+        <property name="glrdepan" column="glrdepan" length="30"/>
+        <property name="glrbelakang" column="glrbelakang" length="30"/>
+        <property name="kdstatusdosen" column="kdstatusdosen" length="1"/>
+        <property name="kdjabatan" column="kdjabatan" length="1"/>
+        <property name="kdpendidikan" column="kdpendidikan" length="1"/>
+        
+        
+    </class>
+</hibernate-mapping>

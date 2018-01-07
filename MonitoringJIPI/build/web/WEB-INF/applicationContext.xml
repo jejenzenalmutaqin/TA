@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!-- was: <?xml version="1.0" encoding="UTF-8"?> -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:p="http://www.springframework.org/schema/p"
+        xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans     
+        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+        http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context-3.0.xsd
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
+
+    <context:component-scan base-package="jipi.dao" />
+<!--    <context:component-scan base-package="p.service" />-->
+
+    <tx:annotation-driven transaction-manager="transactionManager"/>
+    
+    <bean id="transactionManager"
+          class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    
+    <bean id = "sessionFactory" class = "org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"></property>
+        <property name="mappingResources">  
+            <list>                
+                <value>jipi/model/StawinModel.hbm.xml</value>
+                <value>jipi/model/StatusDosenModel.hbm.xml</value>
+                <value>jipi/model/PendidikanModel.hbm.xml</value>
+                <value>jipi/model/FakultasModel.hbm.xml</value>
+                <value>jipi/model/JenkelModel.hbm.xml</value>
+                <value>jipi/model/JenisPengajuanModel.hbm.xml</value>
+                <value>jipi/model/JabatanModel.hbm.xml</value>
+                <value>jipi/model/AksesModel.hbm.xml</value>
+                <value>jipi/model/AgamaModel.hbm.xml</value>
+                <value>jipi/model/JurusanModel.hbm.xml</value>
+                <value>jipi/model/DosenModel.hbm.xml</value>
+                <value>jipi/model/MahasiswaModel.hbm.xml</value>
+                <value>jipi/model/ProposalModel.hbm.xml</value>
+                <value>jipi/model/SidangModel.hbm.xml</value>
+                <value>jipi/model/KelulusanModel.hbm.xml</value>
+                <value>jipi/model/AlumniModel.hbm.xml</value>
+                <value>jipi/model/UserModel.hbm.xml</value>
+            </list>  
+        </property>  
+        <property name="hibernateProperties">  
+            <props>  
+                <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>  
+                <prop key="hibernate.hbm2ddl.auto">update</prop>  
+                <prop key="hibernate.show_sql">true</prop>                    
+            </props>  
+        </property>
+    </bean>
+    
+   <bean id="propertyConfigurer"
+          class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"
+          p:location="/WEB-INF/jdbc.properties" />
+   
+   <bean id="dataSource"
+          class="org.springframework.jdbc.datasource.DriverManagerDataSource"          
+          p:driverClassName="${jdbc.driverClassName}"
+          p:url="${jdbc.url}"
+          p:username="${jdbc.username}"
+          p:password="${jdbc.password}" />
+   
+    <bean id="proposalService" class="jipi.service.impl.ProposalServiceImpl"></bean>
+    <bean id="proposalDao" class="jipi.dao.impl.ProposalDaoImpl"></bean>
+    
+</beans>

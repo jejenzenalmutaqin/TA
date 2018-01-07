@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+  "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="jipi.model.MahasiswaModel" table="mst_mahasiswa">
+        <id name="nim" column="nim" length="16">
+            <generator class="assigned"/>
+        </id>
+        <property name="namamahasiswa" column="namamahasiswa" length="50"/>
+        <property name="tempatlahir" column="tempatlahir" length="50"/>
+        <property name="tgllahir" column="tgllahir" length="50"/>
+        <property name="kdjenkel" column="kdjenkel" length="1"/>
+        <property name="kdagama" column="kdagama" length="1"/>
+        <property name="alamat" column="alamat" length="50"/>
+        <property name="daerahasal" column="daerahasal" length="50"/>
+        <property name="asalsekolah" column="asalsekolah" length="50"/>
+        <property name="jurusanasalsekolah" column="jurusanasalsekolah" length="50"/>
+        <property name="namaayah" column="namaayah" length="50"/>
+        <property name="namaibu" column="namaibu" length="50"/>
+        <property name="pendidikanayah" column="pendidikanayah" length="2"/>
+        <property name="pendidikanibu" column="pendidikanibu" length="2"/>
+        <property name="alamatortu" column="alamatortu" length="50"/>
+        <property name="tlportu" column="tlportu" length="13"/>
+        <property name="angkatan" column="angkatan" length="4"/>
+        <property name="kdjurusan" column="kdjurusan" length="2"/>
+    </class>
+</hibernate-mapping>

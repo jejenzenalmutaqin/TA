@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+  "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="jipi.model.StatusDosenModel" table="statusdosen_tbl">
+        <id name="kdstatusdosen" column="kdstatusdosen" length="1">
+            <generator class="native"/>
+        </id>
+        <property name="namastatusdosen" column="namastatusdosen" length="50"/>
+    </class>
+</hibernate-mapping>

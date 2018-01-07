@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+  "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="jipi.model.KelulusanModel" table="kelulusan_tbl">
+        <id name="kdkelulusan" column="kdkelulusan" length="8">
+            <generator class="assigned"/>
+        </id>
+        <property name="nim" column="nim" length="16"/>
+        <property name="kdsidang" column="kdsidang"/>
+        <property name="tgllulus" column="tgllulus" />
+        <property name="ipk" column="ipk" />
+        <property name="revisi" column="revisi" />
+        <property name="mulairevisi" column="mulairevisi" length="50"/>
+        <property name="akhirrevisi" column="akhirrevisi"/>
+        <property name="penyerahanrevisi" column="penyerahanrevisi" />
+    </class> 
+</hibernate-mapping>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+  "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="jipi.model.AlumniModel" table="alumni_tbl">
+        <id name="kdalumni" column="kdalumni" length="8">
+            <generator class="assigned"/>
+        </id>
+        <property name="nim" column="nim" length="16"/>
+        <property name="kdkelulusan" column="kdkelulusan"/>
+        <property name="perusahaan" column="perusahaan" />
+        <property name="alamatperusahaan" column="alamatperusahaan" />
+        <property name="daerahkerja" column="daerahkerja" />
+        <property name="sektor" column="sektor"/>
+        <property name="profesi" column="profesi"/>
+        <property name="testimoni" column="testimoni" />
+        <property name="foto" column="foto"/>
+    </class> 
+</hibernate-mapping>

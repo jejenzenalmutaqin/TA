@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+  "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="jipi.model.AgamaModel" table="agama_tbl">
+        <id name="kdagama" column="kdagama" length="1">
+            <generator class="native"/>
+        </id>
+        <property name="namaagama" column="namaagama" length="50"/>
+    </class>
+</hibernate-mapping>

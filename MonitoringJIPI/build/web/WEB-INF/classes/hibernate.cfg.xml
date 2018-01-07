@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/monitoring_db</property>
+    <property name="hibernate.connection.username">root</property>
+    <property name="hibernate.current_session_context_class">thread</property>
+    <mapping resource="jipi/model/StawinModel.hbm.xml"/>
+    <mapping resource="jipi/model/StatusDosenModel.hbm.xml"/>
+    <mapping resource="jipi/model/PendidikanModel.hbm.xml"/>
+    <mapping resource="jipi/model/FakultasModel.hbm.xml"/>
+    <mapping resource="jipi/model/JenkelModel.hbm.xml"/>
+    <mapping resource="jipi/model/JenisPengajuanModel.hbm.xml"/>
+    <mapping resource="jipi/model/JabatanModel.hbm.xml"/>
+    <mapping resource="jipi/model/AksesModel.hbm.xml"/>
+    <mapping resource="jipi/model/AgamaModel.hbm.xml"/>
+    <mapping resource="jipi/model/JurusanModel.hbm.xml"/>
+    <mapping resource="jipi/model/DosenModel.hbm.xml"/>
+    <mapping resource="jipi/model/MahasiswaModel.hbm.xml"/>
+    <mapping resource="jipi/model/ProposalModel.hbm.xml"/>
+    <mapping resource="jipi/model/SidangModel.hbm.xml"/>
+    <mapping resource="jipi/model/KelulusanModel.hbm.xml"/>
+    <mapping resource="jipi/model/AlumniModel.hbm.xml"/>
+    <mapping resource="jipi/model/UserModel.hbm.xml"/>
+  </session-factory>
+</hibernate-configuration>
