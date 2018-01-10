@@ -14,7 +14,7 @@
         http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
 
     <context:component-scan base-package="jipi.dao" />
-<!--    <context:component-scan base-package="p.service" />-->
+    <context:component-scan base-package="jipi.service" />
 
     <tx:annotation-driven transaction-manager="transactionManager"/>
     
@@ -67,6 +67,8 @@
           p:password="${jdbc.password}" />
    
     <bean id="proposalService" class="jipi.service.impl.ProposalServiceImpl"></bean>
+    <bean id="jenisPengajuanService" class="jipi.service.impl.JenisPengajuanServiceImpl"></bean>
     <bean id="proposalDao" class="jipi.dao.impl.ProposalDaoImpl"></bean>
+    <bean id="jenisPengajuanDao" class="jipi.dao.impl.JenisPengajuanDaoImpl"></bean>
     
 </beans>

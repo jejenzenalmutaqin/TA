@@ -15,6 +15,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.portlet.ModelAndView;
 
 /**
  *
@@ -38,8 +39,8 @@ public class AkdController {
     public String tampilanProposalAkd(ModelMap model){
         List<ProposalDto> listDto = proposalService.getListDataProposal();
         model.addAttribute("listDto", listDto);
-        List<JenisPengajuanDto> listJns = jenisPengajuanService.getListDataJenisPengajuan();
-        model.addAttribute("listJns", listJns);
+//        List<JenisPengajuanDto> listJns = jenisPengajuanService.getListDataJenisPengajuan();
+//        model.addAttribute("listJns", listJns);
         return "akd_pengajuanproposal";
     }
     
@@ -48,4 +49,45 @@ public class AkdController {
         proposalService.deleteDataProposal(kdproposal);
         return "redirect:akd_pengajuanproposal.htm";
     }
+    
+    
+//    @RequestMapping(value = "/tambahProposal", method = RequestMethod.GET)
+//    public String tampilanTambahProposal(ModelMap model){               
+//        ProposalDto dto = null;
+//        List<JenisPengajuanDto> listJenisPengajuan = null; 
+//        try {
+//            dto = new ProposalDto();
+//            listJenisPengajuan = jenisPengajuanService.getListDataJenisPengajuan();
+//            model.addAttribute("listJns", listJenisPengajuan);
+//            model.addAttribute("proposalDto", dto);
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//        return "akd_tambahpengajuanproposal";
+//    }
+    
+    @RequestMapping(value = "/tambahProposal", method = RequestMethod.GET)
+    public String tampilanTambahProposal(ModelMap model){               
+        
+        
+        try {
+      
+        
+            JenisPengajuanDto dto = new JenisPengajuanDto();
+//            List<JenisPengajuanDto> listJenisPengajuan = jenisPengajuanService.getListDataJenisPengajuan();
+//            model.addAttribute("listJns", listJenisPengajuan);
+            model.addAttribute("dto", dto);
+       } catch (Exception e) {
+//            e.printStackTrace();
+        }     
+        return "akd_tambahpengajuanproposal";
+    }
+    
+    @RequestMapping(value = "/simpanDataPengajuanProposal", method = RequestMethod.POST)
+    public String simpanDataProposal(ProposalDto proposalDto, ModelMap model) throws Exception{                
+        ModelAndView mdl = new ModelAndView();
+        proposalService.saveDataProposal(proposalDto);
+        return "redirect:akd_pengajuanproposal.htm";
+    }
+    
 }

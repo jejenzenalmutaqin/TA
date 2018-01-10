@@ -120,13 +120,20 @@
 
                 </div>
             </div><!--/.row-->
+            <c:url var="tambahData" value="/tambahProposal.htm"></c:url>
+            <div class="col-md-2"><a href="${tambahData}"><button class="btn btn-primary">TAMBAH</button></a></div>
+            <br><br>
             <center>
+		<!--/.row-->
+                <div class="row">
+                    
                     <!-- /////////////////////////////////////////////////////////////-->
                     <div class="col-md-12">
-
+                        
                         <div class="panel panel-blue">
                             <div class="panel-heading dark-overlay">Tabel Pengajuan Proposal</div>
                             <div class="panel-body">
+                                
                                 <table border="4">
                                     <tr>
                                         <th class="col-md-2 control-label">Jenis Proposal</th>
@@ -139,10 +146,11 @@
 <!--                                        <th class="col-md-2 control-label">Email</th>-->
                                         <th class="col-md-2 control-label">Status Proposal</th>
                                         <th style="text-align: center" colspan="2" class="col-md-3 control-label">Action</th>
-                                    </tr>        
+                                    </tr>
+                                    
                                     <%--<c:set var="index" value="1"/>--%>
                                     <c:forEach var="listProp" items="${listDto}">
-                                        <tr>                
+                                        <tr>  
                                             <td align="center" class="col-md-2 control-label">${listProp.kdjenisproposal}</td>
                                             <td align="center" class="col-md-2 control-label">${listProp.nim}</td>
 <!--                                            <td align="center" class="col-md-2 control-label">${listProp.nim}</td>-->
@@ -170,8 +178,8 @@
 
 
                     </div><!--/.col-->
-
-
+                </div>
+<!--                        ////////////////////////////////////////-->
 
 
 

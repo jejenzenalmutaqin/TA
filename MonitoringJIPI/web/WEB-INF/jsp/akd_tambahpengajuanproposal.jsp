@@ -120,63 +120,41 @@
 
                 </div>
             </div><!--/.row-->
-            <c:url var="tambahData" value="/tambahProposal.htm"></c:url>
-            <div class="col-md-2"><a href="${tambahData}"><button class="btn btn-primary">TAMBAH</button></a></div>
-            <br><br>
+            
             <center>
 		<!--/.row-->
                 <div class="row">
-                    
                     <!-- /////////////////////////////////////////////////////////////-->
                     <div class="col-md-12">
-                        
-                        <div class="panel panel-blue">
-                            <div class="panel-heading dark-overlay">Tabel Pengajuan Proposal</div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading"> Form Tambah Data Pengajuan Proposal</div>
                             <div class="panel-body">
-                                
-                                <table border="4">
-                                    <tr>
-                                        <th class="col-md-2 control-label">Jenis Proposal</th>
-                                        <th class="col-md-2 control-label">NIM</th>
-<!--                                        <th class="col-md-2 control-label">Nama</th>-->
-                                        <th class="col-md-2 control-label">Judul Proposal</th>
-                                        <th class="col-md-2 control-label">Perubahan Judul</th>
-                                        <th class="col-md-2 control-label">Tanggal Pengajuan</th>
-                                        <th class="col-md-2 control-label">Dosen Pembimbing</th>
-<!--                                        <th class="col-md-2 control-label">Email</th>-->
-                                        <th class="col-md-2 control-label">Status Proposal</th>
-                                        <th style="text-align: center" colspan="2" class="col-md-3 control-label">Action</th>
-                                    </tr>
-                                    
-                                    <%--<c:set var="index" value="1"/>--%>
-                                    <c:forEach var="listProp" items="${listDto}">
-                                        <tr>  
-                                            <td align="center" class="col-md-2 control-label">${listProp.kdjenisproposal}</td>
-                                            <td align="center" class="col-md-2 control-label">${listProp.nim}</td>
-<!--                                            <td align="center" class="col-md-2 control-label">${listProp.nim}</td>-->
-                                            <td align="center" class="col-md-2 control-label">${listProp.judulproposal}</td>
-                                            <td align="center" class="col-md-2 control-label">${listProp.perubahanjudul}</td>
-                                            <td align="center" class="col-md-2 control-label">${listProp.tglpengajuanproposal}</td>
-                                            <td align="center" class="col-md-2 control-label">${listProp.dosenpembimbing}</td>
-<!--                                            <td align="center" class="col-md-2 control-label">${listProp.email}</td>-->
-                                            <td align="center" class="col-md-2 control-label">${listProp.statusproposal}</td>
+                                <form:form class="form-horizontal" action="simpanDataPengajuanProposal.htm" method="post" modelAttribute="dto">
+                                    <fieldset>
+                                        <!-- Kode input-->
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label" >Kode Pengajuan</label>
+                                            <div class="col-md-9">
+                                                <form:input path="kdjenispengajuan" placeholder="Kode Pengajuan" class="form-control"/>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label" >Nama Pengajuan</label>
+                                            <div class="col-md-9">
+                                                <form:input path="namajenispengajuan" placeholder="Nama Pengajuan" class="form-control"/>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-12 widget-right">
+                                                <input type="submit" class="btn btn-default btn-md pull-right" id="sbm" value="Simpan" />
+                                            </div>
+                                        </div>
 
-                                            <c:url var="hapusList" value="/hapusListProposal.htm">
-                                                <c:param name="kdproposal" value="${listProp.kdproposal}"/>
-                                            </c:url>
-                                            <c:url var="editList" value="/editProposal.htm">
-                                                <c:param name="kdproposal" value="${listProp.kdproposal}"/>
-                                            </c:url>
-                                            <td align="center"><a href="${hapusList}"><label style="color: red" class="col-md-3 control-label" >Hapus</label></a></td>
-                                            <td align="center"><a href="${editList}"><label style="color: greenyellow" class="col-md-3 control-label" >Edit</label></a></td>
-                                        </tr>            
-                                        <%--<c:set var="index" value="${index+1}"/>--%>
-                                    </c:forEach>
-                                </table>
+                                        
+                                    </fieldset>
+                                </form:form>
                             </div>
                         </div>
-
-
                     </div><!--/.col-->
                 </div>
 <!--                        ////////////////////////////////////////-->
