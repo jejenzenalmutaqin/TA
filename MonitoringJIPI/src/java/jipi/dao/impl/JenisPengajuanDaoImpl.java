@@ -23,7 +23,11 @@ public class JenisPengajuanDaoImpl extends HibernateUtil implements JenisPengaju
 
     @Override
     public List<JenisPengajuanModel> getListDataJenisPengajuan() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        List<JenisPengajuanModel> dataList = null;
+        String sql = "select model from JenisPengajuanModel model";
+        Query query = createQuery(sql);        
+        dataList = query.list();
+        return dataList;
     }
 
     @Override

@@ -10,14 +10,14 @@ package jipi.model;
  * @author hp
  */
 public class JabatanModel {
-    Integer kdjabatan;
+    String kdjabatan;
     String namajabatan;
 
-    public Integer getKdjabatan() {
+    public String getKdjabatan() {
         return kdjabatan;
     }
 
-    public void setKdjabatan(Integer kdjabatan) {
+    public void setKdjabatan(String kdjabatan) {
         this.kdjabatan = kdjabatan;
     }
 

@@ -6,8 +6,8 @@
 
 <hibernate-mapping>
     <class name="jipi.model.StawinModel" table="stawin_tbl">
-        <id name="kdstawin" column="kdstawin" length="1">
-            <generator class="native"/>
+        <id name="kdstawin" column="kdstawin">
+            <generator class="assigned"/>
         </id>
         <property name="namastawin" column="namastawin" length="50"/>
     </class>

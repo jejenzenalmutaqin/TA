@@ -10,14 +10,14 @@ package jipi.model;
  * @author hp
  */
 public class StatusDosenModel {
-    Integer kdstatusdosen;
+    String kdstatusdosen;
     String namastatusdosen;
 
-    public Integer getKdstatusdosen() {
+    public String getKdstatusdosen() {
         return kdstatusdosen;
     }
 
-    public void setKdstatusdosen(Integer kdstatusdosen) {
+    public void setKdstatusdosen(String kdstatusdosen) {
         this.kdstatusdosen = kdstatusdosen;
     }
 

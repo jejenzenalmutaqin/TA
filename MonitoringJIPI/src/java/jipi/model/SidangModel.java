@@ -11,7 +11,7 @@ package jipi.model;
  */
 public class SidangModel {
     String kdsidang;
-    Integer kdjenissidang;
+    String kdjenissidang;
     String nim;
     String kdproposal;
     String tglpengajuansidang;
@@ -30,11 +30,11 @@ public class SidangModel {
         this.kdsidang = kdsidang;
     }
 
-    public Integer getKdjenissidang() {
+    public String getKdjenissidang() {
         return kdjenissidang;
     }
 
-    public void setKdjenissidang(Integer kdjenissidang) {
+    public void setKdjenissidang(String kdjenissidang) {
         this.kdjenissidang = kdjenissidang;
     }
 

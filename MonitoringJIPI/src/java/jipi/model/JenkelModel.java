@@ -10,14 +10,14 @@ package jipi.model;
  * @author hp
  */
 public class JenkelModel {
-    Integer kdjenkel;
+    String kdjenkel;
     String namajenkel;
 
-    public Integer getKdjenkel() {
+    public String getKdjenkel() {
         return kdjenkel;
     }
 
-    public void setKdjenkel(Integer kdjenkel) {
+    public void setKdjenkel(String kdjenkel) {
         this.kdjenkel = kdjenkel;
     }
 

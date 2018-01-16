@@ -10,14 +10,14 @@ package jipi.dto;
  * @author hp
  */
 public class StatusDosenDto {
-    private Integer kdstatusdosen;
+    private String kdstatusdosen;
     private String namastatusdosen;
 
-    public Integer getKdstatusdosen() {
+    public String getKdstatusdosen() {
         return kdstatusdosen;
     }
 
-    public void setKdstatusdosen(Integer kdstatusdosen) {
+    public void setKdstatusdosen(String kdstatusdosen) {
         this.kdstatusdosen = kdstatusdosen;
     }
 

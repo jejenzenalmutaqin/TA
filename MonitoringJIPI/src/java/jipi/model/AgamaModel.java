@@ -10,14 +10,14 @@ package jipi.model;
  * @author hp
  */
 public class AgamaModel {
-    Integer kdagama;
+    String kdagama;
     String namaagama;
 
-    public Integer getKdagama() {
+    public String getKdagama() {
         return kdagama;
     }
 
-    public void setKdagama(Integer kdagama) {
+    public void setKdagama(String kdagama) {
         this.kdagama = kdagama;
     }
 

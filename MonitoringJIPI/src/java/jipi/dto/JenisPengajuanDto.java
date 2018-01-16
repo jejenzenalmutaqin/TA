@@ -10,16 +10,18 @@ package jipi.dto;
  * @author hp
  */
 public class JenisPengajuanDto {
-    Integer kdjenispengajuan;
+    String kdjenispengajuan;
     String namajenispengajuan;
 
-    public Integer getKdjenispengajuan() {
+    public String getKdjenispengajuan() {
         return kdjenispengajuan;
     }
 
-    public void setKdjenispengajuan(Integer kdjenispengajuan) {
+    public void setKdjenispengajuan(String kdjenispengajuan) {
         this.kdjenispengajuan = kdjenispengajuan;
     }
+
+    
 
     public String getNamajenispengajuan() {
         return namajenispengajuan;

@@ -11,7 +11,7 @@ package jipi.dto;
  */
 public class ProposalDto {
     String kdproposal;
-    Integer kdjenisproposal;
+    String kdjenisproposal;
     String nim;
     String judulproposal;
     String perubahanjudul;
@@ -31,14 +31,15 @@ public class ProposalDto {
         this.kdproposal = kdproposal;
     }
 
-    public Integer getKdjenisproposal() {
+    public String getKdjenisproposal() {
         return kdjenisproposal;
     }
 
-    public void setKdjenisproposal(Integer kdjenisproposal) {
+    public void setKdjenisproposal(String kdjenisproposal) {
         this.kdjenisproposal = kdjenisproposal;
     }
 
+    
     public String getNim() {
         return nim;
     }

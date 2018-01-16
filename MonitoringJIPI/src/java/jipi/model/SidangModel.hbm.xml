@@ -9,8 +9,8 @@
         <id name="kdsidang" column="kdsidang" length="8">
             <generator class="assigned"/>
         </id>
-        <property name="kdjenissidang" column="kdjenissidang" length="2"/>
-        <property name="nim" column="nim" length="16"/>
+        <property name="kdjenissidang" column="kdjenissidang"/>
+        <property name="nim" column="nim"/>
         <property name="kdproposal" column="kdproposal"/>
         <property name="tglpengajuansidang" column="tglpengajuansidang" />
         <property name="penelaah1" column="penelaah1" />

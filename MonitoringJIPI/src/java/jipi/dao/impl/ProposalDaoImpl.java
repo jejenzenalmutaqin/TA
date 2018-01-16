@@ -49,5 +49,19 @@ public class ProposalDaoImpl extends HibernateUtil implements ProposalDao{
         }
         return (ProposalModel) query.uniqueResult(); 
     }
+
+    @Override
+    public List<ProposalModel> getListProposalUpdate(String kdproposal) {
+        List<ProposalModel> dataList = null;
+        String sql = "select model from ProposalModel model where kdproposal=:kdproposaledit";
+        Query query = createQuery(sql).setParameter("kdproposaledit", kdproposal);
+        dataList = query.list();
+        return dataList;
+    }
+
+    @Override
+    public void updateProposal(ProposalModel proposalModel) {
+        getSession().saveOrUpdate(proposalModel);
+    }
     
 }

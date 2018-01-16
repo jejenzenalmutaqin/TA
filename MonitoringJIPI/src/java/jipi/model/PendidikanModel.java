@@ -10,14 +10,14 @@ package jipi.model;
  * @author hp
  */
 public class PendidikanModel {
-    Integer kdpendidikan;
+    String kdpendidikan;
     String namapendidikan;
 
-    public Integer getKdpendidikan() {
+    public String getKdpendidikan() {
         return kdpendidikan;
     }
 
-    public void setKdpendidikan(Integer kdpendidikan) {
+    public void setKdpendidikan(String kdpendidikan) {
         this.kdpendidikan = kdpendidikan;
     }
 

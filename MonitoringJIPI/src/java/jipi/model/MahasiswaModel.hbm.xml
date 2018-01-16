@@ -12,19 +12,19 @@
         <property name="namamahasiswa" column="namamahasiswa" length="50"/>
         <property name="tempatlahir" column="tempatlahir" length="50"/>
         <property name="tgllahir" column="tgllahir" length="50"/>
-        <property name="kdjenkel" column="kdjenkel" length="1"/>
-        <property name="kdagama" column="kdagama" length="1"/>
+        <property name="kdjenkel" column="kdjenkel"/>
+        <property name="kdagama" column="kdagama"/>
         <property name="alamat" column="alamat" length="50"/>
         <property name="daerahasal" column="daerahasal" length="50"/>
         <property name="asalsekolah" column="asalsekolah" length="50"/>
         <property name="jurusanasalsekolah" column="jurusanasalsekolah" length="50"/>
         <property name="namaayah" column="namaayah" length="50"/>
         <property name="namaibu" column="namaibu" length="50"/>
-        <property name="pendidikanayah" column="pendidikanayah" length="2"/>
-        <property name="pendidikanibu" column="pendidikanibu" length="2"/>
+        <property name="pendidikanayah" column="pendidikanayah"/>
+        <property name="pendidikanibu" column="pendidikanibu"/>
         <property name="alamatortu" column="alamatortu" length="50"/>
         <property name="tlportu" column="tlportu" length="13"/>
         <property name="angkatan" column="angkatan" length="4"/>
-        <property name="kdjurusan" column="kdjurusan" length="2"/>
+        <property name="kdjurusan" column="kdjurusan"/>
     </class>
 </hibernate-mapping>

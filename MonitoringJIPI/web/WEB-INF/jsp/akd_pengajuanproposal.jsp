@@ -120,8 +120,25 @@
 
                 </div>
             </div><!--/.row-->
-            <c:url var="tambahData" value="/tambahProposal.htm"></c:url>
-            <div class="col-md-2"><a href="${tambahData}"><button class="btn btn-primary">TAMBAH</button></a></div>
+            <div class="form-group">
+                <c:url var="tambahData" value="/tambahProposal.htm"></c:url>
+                <div class="col-md-5"><a href="${tambahData}"><button class="btn btn-primary">TAMBAH</button></a></div>
+                <div class="col-md-3">
+                    <select class="form-control" id="drop">
+                        <option value="1">NIM</option>
+                        <option value="2">Tugas Akhir</option>
+                        <option value="3">Usulan Penelitian</option>
+                        <option value="4">Skripsi</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <input type="text" value="" name="txcari" class="form-control" disabled=""/>
+                </div>
+                <c:url var="cari" value="/cariProposal.htm">
+                    <c:param name="cariKey" value="txcari"/>
+                </c:url>
+                <div class=""><a href="#"><button class="btn btn-primary">CARI</button></a></div>
+            </div>
             <br><br>
             <center>
 		<!--/.row-->

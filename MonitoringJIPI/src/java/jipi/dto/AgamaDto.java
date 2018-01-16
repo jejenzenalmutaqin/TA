@@ -10,16 +10,18 @@ package jipi.dto;
  * @author hp
  */
 public class AgamaDto {
-    Integer kdagama;
+    String kdagama;
     String namaagama;
 
-    public Integer getKdagama() {
+    public String getKdagama() {
         return kdagama;
     }
 
-    public void setKdagama(Integer kdagama) {
+    public void setKdagama(String kdagama) {
         this.kdagama = kdagama;
     }
+
+    
 
     public String getNamaagama() {
         return namaagama;

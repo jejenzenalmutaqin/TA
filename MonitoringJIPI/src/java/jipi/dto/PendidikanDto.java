@@ -10,16 +10,18 @@ package jipi.dto;
  * @author hp
  */
 public class PendidikanDto {
-    Integer kdpendidikan;
+    String kdpendidikan;
     String namapendidikan;
 
-    public Integer getKdpendidikan() {
+    public String getKdpendidikan() {
         return kdpendidikan;
     }
 
-    public void setKdpendidikan(Integer kdpendidikan) {
+    public void setKdpendidikan(String kdpendidikan) {
         this.kdpendidikan = kdpendidikan;
     }
+
+    
 
     public String getNamapendidikan() {
         return namapendidikan;

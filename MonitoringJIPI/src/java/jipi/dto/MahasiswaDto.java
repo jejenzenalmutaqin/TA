@@ -14,19 +14,19 @@ public class MahasiswaDto {
     String namamahasiswa;
     String tempatlahir;
     String tgllahir;
-    Integer kdjenkel;
-    Integer kdagama;
+    String kdjenkel;
+    String kdagama;
     String alamat;
     String daerahasal;
     String asalsekolah;
     String jurusanasalsekolah;
     String namaayah;
     String namaibu;
-    Integer pendidikanayah;
-    Integer pendidikanibu;
+    String pendidikanayah;
+    String pendidikanibu;
     String alamatortu;
     String tlportu;
-    Integer angkatan;
+    String angkatan;
     String kdjurusan;
 
     public String getNim() {
@@ -61,19 +61,19 @@ public class MahasiswaDto {
         this.tgllahir = tgllahir;
     }
 
-    public Integer getKdjenkel() {
+    public String getKdjenkel() {
         return kdjenkel;
     }
 
-    public void setKdjenkel(Integer kdjenkel) {
+    public void setKdjenkel(String kdjenkel) {
         this.kdjenkel = kdjenkel;
     }
 
-    public Integer getKdagama() {
+    public String getKdagama() {
         return kdagama;
     }
 
-    public void setKdagama(Integer kdagama) {
+    public void setKdagama(String kdagama) {
         this.kdagama = kdagama;
     }
 
@@ -125,19 +125,19 @@ public class MahasiswaDto {
         this.namaibu = namaibu;
     }
 
-    public Integer getPendidikanayah() {
+    public String getPendidikanayah() {
         return pendidikanayah;
     }
 
-    public void setPendidikanayah(Integer pendidikanayah) {
+    public void setPendidikanayah(String pendidikanayah) {
         this.pendidikanayah = pendidikanayah;
     }
 
-    public Integer getPendidikanibu() {
+    public String getPendidikanibu() {
         return pendidikanibu;
     }
 
-    public void setPendidikanibu(Integer pendidikanibu) {
+    public void setPendidikanibu(String pendidikanibu) {
         this.pendidikanibu = pendidikanibu;
     }
 
@@ -157,11 +157,11 @@ public class MahasiswaDto {
         this.tlportu = tlportu;
     }
 
-    public Integer getAngkatan() {
+    public String getAngkatan() {
         return angkatan;
     }
 
-    public void setAngkatan(Integer angkatan) {
+    public void setAngkatan(String angkatan) {
         this.angkatan = angkatan;
     }
 

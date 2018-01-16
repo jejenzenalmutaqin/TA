@@ -18,4 +18,6 @@ public interface ProposalService {
     public List<ProposalDto> getListDataProposal();
     public void deleteDataProposal(String kdproposal) throws Exception;
     public ProposalModel getProposalById(String kdproposal);
+    public ProposalDto updateDataForm(String kdproposal) throws Exception;
+    public void doUpdateDataForm(ProposalDto proposalDto) throws Exception;
 }

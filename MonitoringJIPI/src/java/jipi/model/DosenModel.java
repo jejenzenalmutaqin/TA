@@ -15,14 +15,14 @@ public class DosenModel {
     String alamat;
     String tempatlahir;
     String tgllahir;
-    Integer kdjenkel;
-    Integer kdstawin;
-    Integer kdagama;
+    String kdjenkel;
+    String kdstawin;
+    String kdagama;
     String glrdepan;
     String glrbelakang;
-    Integer kdstatusdosen;
-    Integer kdjabatan;
-    Integer kdpendidikan;
+    String kdstatusdosen;
+    String kdjabatan;
+    String kdpendidikan;
 
     public String getNip() {
         return nip;
@@ -64,27 +64,27 @@ public class DosenModel {
         this.tgllahir = tgllahir;
     }
 
-    public Integer getKdjenkel() {
+    public String getKdjenkel() {
         return kdjenkel;
     }
 
-    public void setKdjenkel(Integer kdjenkel) {
+    public void setKdjenkel(String kdjenkel) {
         this.kdjenkel = kdjenkel;
     }
 
-    public Integer getKdstawin() {
+    public String getKdstawin() {
         return kdstawin;
     }
 
-    public void setKdstawin(Integer kdstawin) {
+    public void setKdstawin(String kdstawin) {
         this.kdstawin = kdstawin;
     }
 
-    public Integer getKdagama() {
+    public String getKdagama() {
         return kdagama;
     }
 
-    public void setKdagama(Integer kdagama) {
+    public void setKdagama(String kdagama) {
         this.kdagama = kdagama;
     }
 
@@ -104,27 +104,27 @@ public class DosenModel {
         this.glrbelakang = glrbelakang;
     }
 
-    public Integer getKdstatusdosen() {
+    public String getKdstatusdosen() {
         return kdstatusdosen;
     }
 
-    public void setKdstatusdosen(Integer kdstatusdosen) {
+    public void setKdstatusdosen(String kdstatusdosen) {
         this.kdstatusdosen = kdstatusdosen;
     }
 
-    public Integer getKdjabatan() {
+    public String getKdjabatan() {
         return kdjabatan;
     }
 
-    public void setKdjabatan(Integer kdjabatan) {
+    public void setKdjabatan(String kdjabatan) {
         this.kdjabatan = kdjabatan;
     }
 
-    public Integer getKdpendidikan() {
+    public String getKdpendidikan() {
         return kdpendidikan;
     }
 
-    public void setKdpendidikan(Integer kdpendidikan) {
+    public void setKdpendidikan(String kdpendidikan) {
         this.kdpendidikan = kdpendidikan;
     }
 }

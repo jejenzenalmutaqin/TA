@@ -63,5 +63,18 @@ public class JenisPengajuanServiceImpl implements JenisPengajuanService{
         }
         return jenisPengajuanModel;
     }
+
+    @Override
+    public String getNamaJenisPengajuan(String kdjenispengajuan) {
+        JenisPengajuanModel jenisPengajuanModel = null;
+        String tamp="";
+        try {
+            jenisPengajuanModel = jenisPengajuanDao.getJenisPengajuanById(kdjenispengajuan);
+            tamp= jenisPengajuanModel.getNamajenispengajuan();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return tamp;
+    }
     
 }

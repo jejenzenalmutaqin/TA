@@ -10,14 +10,14 @@ package jipi.model;
  * @author hp
  */
 public class StawinModel {
-    private Integer kdstawin;
+    private String kdstawin;
     private String namastawin;
 
-    public Integer getKdstawin() {
+    public String getKdstawin() {
         return kdstawin;
     }
 
-    public void setKdstawin(Integer kdstawin) {
+    public void setKdstawin(String kdstawin) {
         this.kdstawin = kdstawin;
     }
 

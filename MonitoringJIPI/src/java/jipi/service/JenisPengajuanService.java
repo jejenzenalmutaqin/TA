@@ -14,8 +14,9 @@ import jipi.model.JenisPengajuanModel;
  * @author hp
  */
 public interface JenisPengajuanService {
-     public void saveDataJenisPengajuan(JenisPengajuanDto jenisPengajuanDto) throws Exception;
+    public void saveDataJenisPengajuan(JenisPengajuanDto jenisPengajuanDto) throws Exception;
     public List<JenisPengajuanDto> getListDataJenisPengajuan();
     public void deleteDataJenisPengajuan(String kdjenispengajuan) throws Exception;
     public JenisPengajuanModel getJenisPengajuanById(String kdjenispengajuan);
+    public String getNamaJenisPengajuan(String kdjenispengajuan);
 }

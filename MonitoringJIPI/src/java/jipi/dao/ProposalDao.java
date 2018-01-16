@@ -17,4 +17,6 @@ public interface ProposalDao {
     public List<ProposalModel> getListDataProposal();
     public void deleteDataProposal(String kdproposal);
     public ProposalModel getProposalById(String kdproposal) throws Exception;
+    public List<ProposalModel> getListProposalUpdate(String kdproposal);
+    public void updateProposal(ProposalModel proposalModel);
 }

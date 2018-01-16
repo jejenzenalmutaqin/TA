@@ -10,16 +10,18 @@ package jipi.dto;
  * @author hp
  */
 public class JabatanDto {
-    Integer kdjabatan;
+    String kdjabatan;
     String namajabatan;
 
-    public Integer getKdjabatan() {
+    public String getKdjabatan() {
         return kdjabatan;
     }
 
-    public void setKdjabatan(Integer kdjabatan) {
+    public void setKdjabatan(String kdjabatan) {
         this.kdjabatan = kdjabatan;
     }
+
+    
 
     public String getNamajabatan() {
         return namajabatan;

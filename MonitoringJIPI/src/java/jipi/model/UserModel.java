@@ -10,7 +10,7 @@ package jipi.model;
  * @author hp
  */
 public class UserModel {
-    Integer kduser;
+    String kduser;
     String username;
     String password;
     String akses;
@@ -18,11 +18,11 @@ public class UserModel {
     String nip;
     String keterangan;
 
-    public Integer getKduser() {
+    public String getKduser() {
         return kduser;
     }
 
-    public void setKduser(Integer kduser) {
+    public void setKduser(String kduser) {
         this.kduser = kduser;
     }
 
