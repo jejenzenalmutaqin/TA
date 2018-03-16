@@ -6,8 +6,8 @@
 
 <hibernate-mapping>
     <class name="jipi.model.PendidikanModel" table="pendidikan_tbl">
-        <id name="kdpendidikan" column="kdpendidikan" length="1">
-            <generator class="native"/>
+        <id name="kdpendidikan" column="kdpendidikan">
+            <generator class="assigned"/>
         </id>
         <property name="namapendidikan" column="namapendidikan" length="50"/>
     </class>

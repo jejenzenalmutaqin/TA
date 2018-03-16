@@ -20,4 +20,6 @@ public interface UserService {
     public UserModel getUserById(String kduser);
     public UserDto updateDataForm(String kduser) throws Exception;
     public void doUpdateDataForm(UserDto userDto) throws Exception;
+    public List<UserDto> searchUser(String cariBerdasarkan, String cariKey);
+    
 }

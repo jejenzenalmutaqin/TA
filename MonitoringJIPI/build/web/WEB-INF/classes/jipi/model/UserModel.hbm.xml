@@ -6,8 +6,8 @@
 
 <hibernate-mapping>
     <class name="jipi.model.UserModel" table="user_tbl">
-        <id name="kduser" column="kduser" length="8">
-            <generator class="native"/>
+        <id name="kduser" column="kduser">
+            <generator class="assigned"/>
         </id>
         <property name="username" column="username" length="50"/>
         <property name="password" column="password" length="10"/>

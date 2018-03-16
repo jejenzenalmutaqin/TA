@@ -123,21 +123,25 @@
             <div class="form-group">
                 <c:url var="tambahData" value="/tambahProposal.htm"></c:url>
                 <div class="col-md-5"><a href="${tambahData}"><button class="btn btn-primary">TAMBAH</button></a></div>
-                <div class="col-md-3">
-                    <select class="form-control" id="drop">
+                <form method="post" action="cariProposal.htm">
+                    <div class="col-md-2">
+                    <select class="form-control" id="drop" name="cariBerdasarkan">
                         <option value="1">NIM</option>
-                        <option value="2">Tugas Akhir</option>
-                        <option value="3">Usulan Penelitian</option>
-                        <option value="4">Skripsi</option>
+                        <option value="2">Nama</option>
+                        <option value="3">Tugas Akhir</option>
+                        <option value="4">Usulan Penelitian</option>
+                        <option value="5">Skripsi</option>
+                        <option value="6">Tanggal Pengajuan</option>
+                        <option value="7">Dosen Pembimbing</option>
+                        <option value="8">Semua</option>
                     </select>
                 </div>
-                <div class="col-md-3">
-                    <input type="text" value="" name="txcari" class="form-control" disabled=""/>
-                </div>
-                <c:url var="cari" value="/cariProposal.htm">
-                    <c:param name="cariKey" value="txcari"/>
-                </c:url>
-                <div class=""><a href="#"><button class="btn btn-primary">CARI</button></a></div>
+                    <div class="col-md-3">
+                    <input type="text" placeholder="Masukan Kata Kunci" name="cariKey" class="form-control"><br>
+                    
+                    </div>
+                    <div class=""><button class="btn btn-primary" type="submit">CARI</button></div>
+                </form>
             </div>
             <br><br>
             <center>
@@ -157,12 +161,11 @@
                                         <th class="col-md-2 control-label">NIM</th>
 <!--                                        <th class="col-md-2 control-label">Nama</th>-->
                                         <th class="col-md-2 control-label">Judul Proposal</th>
-                                        <th class="col-md-2 control-label">Perubahan Judul</th>
                                         <th class="col-md-2 control-label">Tanggal Pengajuan</th>
                                         <th class="col-md-2 control-label">Dosen Pembimbing</th>
-<!--                                        <th class="col-md-2 control-label">Email</th>-->
+                                        <th class="col-md-2 control-label">Email</th>
                                         <th class="col-md-2 control-label">Status Proposal</th>
-                                        <th style="text-align: center" colspan="2" class="col-md-3 control-label">Action</th>
+                                        <th style="text-align: center" colspan="3" class="col-md-3 control-label">Action</th>
                                     </tr>
                                     
                                     <%--<c:set var="index" value="1"/>--%>
@@ -172,10 +175,9 @@
                                             <td align="center" class="col-md-2 control-label">${listProp.nim}</td>
 <!--                                            <td align="center" class="col-md-2 control-label">${listProp.nim}</td>-->
                                             <td align="center" class="col-md-2 control-label">${listProp.judulproposal}</td>
-                                            <td align="center" class="col-md-2 control-label">${listProp.perubahanjudul}</td>
                                             <td align="center" class="col-md-2 control-label">${listProp.tglpengajuanproposal}</td>
                                             <td align="center" class="col-md-2 control-label">${listProp.dosenpembimbing}</td>
-<!--                                            <td align="center" class="col-md-2 control-label">${listProp.email}</td>-->
+                                            <td align="center" class="col-md-2 control-label">${listProp.email}</td>
                                             <td align="center" class="col-md-2 control-label">${listProp.statusproposal}</td>
 
                                             <c:url var="hapusList" value="/hapusListProposal.htm">
@@ -184,8 +186,12 @@
                                             <c:url var="editList" value="/editProposal.htm">
                                                 <c:param name="kdproposal" value="${listProp.kdproposal}"/>
                                             </c:url>
+                                            <c:url var="share" value="/shareProposal.htm">
+                                                <c:param name="kdproposal" value="${listProp.kdproposal}"/>
+                                            </c:url>
                                             <td align="center"><a href="${hapusList}"><label style="color: red" class="col-md-3 control-label" >Hapus</label></a></td>
                                             <td align="center"><a href="${editList}"><label style="color: greenyellow" class="col-md-3 control-label" >Edit</label></a></td>
+                                            <td align="center"><a href="${share}"><label style="color: yellow" class="col-md-3 control-label" >Bagikan</label></a></td>
                                         </tr>            
                                         <%--<c:set var="index" value="${index+1}"/>--%>
                                     </c:forEach>

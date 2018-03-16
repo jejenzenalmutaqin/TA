@@ -9,8 +9,9 @@
         <id name="kdproposal" column="kdproposal" length="8">
             <generator class="assigned"/>
         </id>
-        <property name="kdjenisproposal" column="kdjenisproposal" length="2"/>
-        <property name="nim" column="nim" length="16"/>
+        <property name="kdjenisproposal" column="kdjenisproposal"/>
+<!--        <many-to-one name="kdjenisproposal" column="kdjenisproposal" class="jipi.model.JenisPengajuanModel" not-null="true"/>-->
+        <property name="nim" column="nim"/>
         <property name="judulproposal" column="judulproposal"/>
         <property name="perubahanjudul" column="perubahanjudul" />
         <property name="skssudahtempuh" column="skssudahtempuh" length="4"/>

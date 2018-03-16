@@ -15,8 +15,11 @@ import jipi.model.UserModel;
 public interface UserDao {
     public void saveDataUser(UserModel userModel);
     public List<UserModel> getListDataUser();
+    public List<UserModel> getListCariDataUser(String txt);
     public void deleteDataUser(String kduser);
     public UserModel getUserById(String kduser) throws Exception;
     public List<UserModel> getListUserUpdate(String kduser);
     public void updateUser(UserModel userModel);
+    public String getLastNumberUser();
+    public List<Object[]> getListCariDataUserNativeQuery(String cariBerdasarkan, String cariKey);
 }

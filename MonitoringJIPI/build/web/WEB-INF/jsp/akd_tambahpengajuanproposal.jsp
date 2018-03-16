@@ -4,12 +4,15 @@
     Author     : hp
 --%>
 
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 
+<link rel="stylesheet" href="js/date/jquery-ui.css" type="text/css"/>
+<script src="js/date/jquery-1.10.2.js" type="text/javascript"></script>
+<script src="js/date/jquery-ui.js" type="text/javascript"></script>
 <!--script menyisipkan jquery-->
 <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
 <link rel="stylesheet" type="text/css" media="screen" href="js/validation/css/validationEngine.jquery.css">
@@ -117,7 +120,6 @@
             <div class="row">
                 <div class="col-lg-12">
                     <h1 class="page-header">Pengajuan Proposal</h1>
-
                 </div>
             </div><!--/.row-->
             
@@ -129,24 +131,98 @@
                         <div class="panel panel-default">
                             <div class="panel-heading"> Form Tambah Data Pengajuan Proposal</div>
                             <div class="panel-body">
-                                <form:form class="form-horizontal" action="simpanDataPengajuanProposal.htm" method="post" modelAttribute="dto">
+                                <form:form class="form-horizontal" id="formTambahProposal" action="simpanDataPengajuanProposal.htm" method="post" modelAttribute="dto">
                                     <fieldset>
                                         <!-- Kode input-->
                                         <div class="form-group">
-                                            <label class="col-md-3 control-label" >Kode Pengajuan</label>
+                                            <label class="col-md-3 control-label" >Kode Proposal</label>
                                             <div class="col-md-9">
-                                                <form:input path="kdjenispengajuan" placeholder="Kode Pengajuan" class="form-control"/>
+                                                <form:input path="kdproposal" placeholder="Kode Proposal" class="form-control validate validate[required]"/>
+                                            </div>
+                                        </div>
+<!--                                        <div class="form-group">
+                                            <label class="col-md-3 control-label" >Kode Jenis Pengajuan</label>
+                                            <div class="col-md-9">
+                                                <%--<form:input path="kdjenisproposal" placeholder="Kode Jenis Pengajuan" class="form-control"/>--%>
+                                            </div>
+                                        </div>-->
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label" >Kode Jenis Pengajuan</label>
+                                            <div class="col-md-9">
+
+                                                <form:select path="kdjenisproposal" class="form-control validate validate[required]">
+                                                    <form:option value="" selected="true" disabled="true">Pilih Jenis Pengajuan</form:option>
+                                                    <c:forEach var="jns" items="${listJns}">
+                                                        <form:option value="${jns.kdjenispengajuan}">${jns.namajenispengajuan}</form:option>
+                                                    </c:forEach>
+                                                </form:select>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-md-3 control-label" >Nama Pengajuan</label>
+                                            <label class="col-md-3 control-label" >NIM</label>
                                             <div class="col-md-9">
-                                                <form:input path="namajenispengajuan" placeholder="Nama Pengajuan" class="form-control"/>
+                                                <form:input path="nim" placeholder="NIM" id="txnim" class="form-control"/>
+                                            </div>
+                                        </div>
+<!--                                        <div class="form-group">
+                                            <label class="col-md-3 control-label" >NAMA</label>
+                                            <div class="col-md-9">
+<%--<form:input path="" placeholder="NAMA" id="txnama" class="form-control"/>--%>
+                                            </div>
+                                        </div>-->
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label" >Judul Proposal</label>
+                                            <div class="col-md-9">
+                                                <%--<form:input path="judulproposal" placeholder="Judul Proposal" class="form-control validate validate[required]"/>--%>
+                                                <form:textarea path="judulproposal" placeholder="Judul Proposal" class="form-control validate validate[required]"/>
+                                            
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label" >SKS Tempuh</label>
+                                            <div class="col-md-9">
+                                                <form:input path="skssudahtempuh" placeholder="Jumlah SKS Yang Sudah Ditempuh" class="form-control validate validate[required]"/>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label" >SKS Proposal</label>
+                                            <div class="col-md-9">
+                                                <form:input path="sksproposal" placeholder="" value="4" class="form-control validate validate[required]"/>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label" >Tanggal Pengajuan Proposal</label>
+                                            <div class="col-md-9">
+                                                <form:input path="tglpengajuanproposal" id="tg_pj" placeholder="Tanggal Pengajuan" class="form-control validate validate[required]"/>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label" >IPK</label>
+                                            <div class="col-md-9">
+                                                <form:input path="ipk" placeholder="IPK Terakhir" class="form-control validate validate[required]"/>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label" >E-mail</label>
+                                            <div class="col-md-9">
+                                                <form:input path="email" placeholder="Wajib di isi" class="form-control validate validate[required]"/>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label" >Dosen Pembimbing</label>
+                                            <div class="col-md-9">
+                                                <form:input path="dosenpembimbing" placeholder="Di isi ketika sudah mendapatkan dosen pembimbing" class="form-control validate validate[required]"/>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label" >Status Proposal</label>
+                                            <div class="col-md-9">
+                                                <form:input path="statusproposal" placeholder="" value="MENYUSUN" class="form-control validate validate[required]"/>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <div class="col-md-12 widget-right">
-                                                <input type="submit" class="btn btn-default btn-md pull-right" id="sbm" value="Simpan" />
+                                                <input type="submit" class="btn btn-primary btn-md pull-right"  id="sbm" value="Simpan" />
                                             </div>
                                         </div>
 
@@ -171,7 +247,11 @@
         </div>	<!--/.main-->
 
 
-        <script src="js/jquery-1.11.1.min.js"></script>
+        	
+    </body>
+
+</html>
+<script src="js/jquery-1.11.1.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <script src="js/chart.min.js"></script>
         <script src="js/chart-data.js"></script>
@@ -186,6 +266,12 @@
                 $(".sidebar span.icon").find('em:first').addClass("glyphicon-plus");
             }(window.jQuery);
 
+            $(function() {
+//    $("#tgl_pgj").datepicker({dateFormat: 'dd-mm-yy'});
+            $( "#tgl_pgj" ).datepicker();
+    
+            });
+
             $(window).on('resize', function () {
                 if ($(window).width() > 768)
                     $('#sidebar-collapse').collapse('show')
@@ -195,23 +281,45 @@
                     $('#sidebar-collapse').collapse('hide')
             })
 
-            $("#bb").focusout(function () {// id asal
-                var bb = $('#bb').val();
-                $.ajax({
-                    type: "POST",
-                    url: "otomatisDataSiswa1.htm",
-                    data: "banyakBulan"+bb,
-                    success: function (response) {
-                        $("#ket").val(response);// id yang dituju
-                    },
-                    error: function (e) {
-                        alert('Error: ' + e);
-                    }
-                });
-            });
-           
-        </script>	
-    </body>
 
-</html>
+            var jQuery_1_11_1=$.noConflict(true);
+            jQuery_1_11_1(document).ready(function(){
+            jQuery_1_11_1("#sbm").click(function (evt){ //id tombol submit
+            evt.preventDefault();
+            var validate=jQuery_1_11_1('#formTambahProposal').validationEngine('validate'); // id form
+            if(validate){
+                jQuery_1_11_1("#formTambahProposal").submit();
+            }else{
+                return false;
+            }
+        });
+    
+        });
+
+$(function() {
+    //$("#tg_pj").datepicker({dateFormat: 'dd-mm-yy'});
+    $( "#tg_pj" ).datepicker();
+    
+    });
+    
+    
+    
+    
+    
+//    $("#txnim").focusout(function () {// id asal
+//                var nim = $('#txnim').val();
+//                $.ajax({
+//                    type: "POST",
+//                    url: "otomatisDataSiswa1.htm",
+//                    data: "nim"+nim,
+//                    success: function (response) {
+//                        $("#txnama").val(response);// id yang dituju
+//                    },
+//                    error: function (e) {
+//                        alert('Error: ' + e);
+//                    }
+//                });
+//            });
+           
+        </script>
 

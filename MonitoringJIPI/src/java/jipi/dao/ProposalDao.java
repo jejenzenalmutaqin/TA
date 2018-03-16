@@ -19,4 +19,5 @@ public interface ProposalDao {
     public ProposalModel getProposalById(String kdproposal) throws Exception;
     public List<ProposalModel> getListProposalUpdate(String kdproposal);
     public void updateProposal(ProposalModel proposalModel);
+    public List<Object[]> getListCariDataProposalNativeQuery(String cariBerdasarkan, String cariKey);
 }

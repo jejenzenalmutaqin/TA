@@ -14,4 +14,5 @@ import jipi.model.AgamaModel;
  */
 public interface AgamaDao {
     public List<AgamaModel> getListDataAgama();
+    public AgamaModel getDataAgamaById(String id);
 }

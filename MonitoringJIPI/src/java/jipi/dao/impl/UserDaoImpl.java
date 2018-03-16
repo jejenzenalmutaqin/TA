@@ -63,5 +63,54 @@ public class UserDaoImpl extends HibernateUtil implements UserDao{
     public void updateUser(UserModel userModel) {
         getSession().saveOrUpdate(userModel);
     }
+
+    @Override
+    public String getLastNumberUser() {
+        String sql = "select count(*) from UserModel model";
+        Query query = createQuery(sql);
+        return query.getQueryString();
+    }
+
+    @Override
+    public List<UserModel> getListCariDataUser(String txt) {
+        List<UserModel> dataList = null;
+        String sql = "select kduser, username, password, akses, nim, nip, keterangan from user_tbl where kduser like '%"+txt+"%' or username like '%"+txt+"%' or password like '%"+txt+"%' or nip like '%"+txt+"%' or nim like '%"+txt+"%' or keterangan like '%"+txt+"%'";
+        Query query = createQuery(sql); 
+        dataList = query.list();
+        return dataList;
+    }
+
+    @Override
+    public List<Object[]> getListCariDataUserNativeQuery(String cariBerdasarkan, String cariKey) {
+        List<Object[]> dataList = null;
+//        String sql = "select kduser, username, password, akses, nim, nip, keterangan from user_tbl where kduser like '%"+cariKey+"%' or username like '%"+cariKey+"%' or password like '%"+cariKey+"%' or nip like '%"+cariKey+"%' or nim like '%"+cariKey+"%' or keterangan like '%"+cariKey+"%'";
+        String sql="select kduser, username, password, akses, nim, nip, keterangan from user_tbl ";
+        String where="";
+        if(cariBerdasarkan.equals("1")){
+            where = "where kduser like '%"+cariKey+"%'";
+        }else if(cariBerdasarkan.equals("2")){
+            where = "where username like '%"+cariKey+"%'";
+        }else if(cariBerdasarkan.equals("3")){
+            where = "where nim like '%"+cariKey+"%' or nip like '%"+cariKey+"%'";
+        }else if(cariBerdasarkan.equals("4")){
+            where = "where akses = '1' ";
+        }else if(cariBerdasarkan.equals("5")){
+            where = "where akses = '2' ";
+        }else if(cariBerdasarkan.equals("6")){
+            where = "where akses = '3' ";
+        }else if(cariBerdasarkan.equals("7")){
+            where = "where akses = '4' ";
+        }else if(cariBerdasarkan.equals("8")){
+            where = "where akses = '5' ";
+        }else if(cariBerdasarkan.equals("9")){
+            where = "where akses = '6' ";
+        }else if(cariBerdasarkan.equals("10")){
+            where = " ";
+        }
+        sql = sql + where;
+        Query query = createNativeQuery(sql);
+        dataList = query.list();
+        return dataList;
+    }
     
 }

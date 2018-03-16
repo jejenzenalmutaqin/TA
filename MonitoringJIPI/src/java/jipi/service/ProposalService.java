@@ -20,4 +20,6 @@ public interface ProposalService {
     public ProposalModel getProposalById(String kdproposal);
     public ProposalDto updateDataForm(String kdproposal) throws Exception;
     public void doUpdateDataForm(ProposalDto proposalDto) throws Exception;
+    public void createAkun(ProposalDto proposalDto);
+    public List<ProposalDto> searchProposal(String cariBerdasarkan, String cariKey);
 }

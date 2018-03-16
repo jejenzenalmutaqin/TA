@@ -24,5 +24,17 @@ public class FakultasDaoImpl extends HibernateUtil implements FakultasDao{
         dataList = query.list();
         return dataList;
     }
+
+    @Override
+    public FakultasModel getDataFakultasById(String kdfakultas) {
+        Query query = null;
+        try {
+            String sql = "select model from FakultasModel model where kdfakultas=:kdfakultas";
+            query = createQuery(sql).setParameter("kdfakultas", kdfakultas);                    
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return (FakultasModel) query.uniqueResult(); 
+    }
     
 }

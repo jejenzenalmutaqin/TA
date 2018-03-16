@@ -24,5 +24,28 @@ public class JurusanDaoImpl extends HibernateUtil implements JurusanDao{
         dataList = query.list();
         return dataList;
     }
+
+    
+
+    @Override
+    public List<JurusanModel> getJurusanById(String param) throws Exception {
+        List<JurusanModel> dataList = null;
+        String sql = "select model from JurusanModel model where kdfakultas=:param";
+        Query query = createQuery(sql).setParameter("param", param);          
+        dataList = query.list();
+        return dataList;
+    }
+
+    @Override
+    public JurusanModel getDataJurusanById(String kdjurusan) {
+        Query query = null;
+        try {
+            String sql = "select model from JurusanModel model where kdjurusan=:kdjurusan";
+            query = createQuery(sql).setParameter("kdjurusan", kdjurusan);                    
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return (JurusanModel) query.uniqueResult();  
+    }
     
 }

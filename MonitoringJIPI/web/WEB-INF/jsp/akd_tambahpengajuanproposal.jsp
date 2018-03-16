@@ -282,19 +282,19 @@
             })
 
 
-//            var jQuery_1_11_1=$.noConflict(true);
-//            jQuery_1_11_1(document).ready(function(){
-//            jQuery_1_11_1("#sbm").click(function (evt){ //id tombol submit
-//            evt.preventDefault();
-//            var validate=jQuery_1_11_1('#formTambahProposal').validationEngine('validate'); // id form
-//            if(validate){
-//                jQuery_1_11_1("#formTambahProposal").submit();
-//            }else{
-//                return false;
-//            }
-//        });
-//    
-//        });
+            var jQuery_1_11_1=$.noConflict(true);
+            jQuery_1_11_1(document).ready(function(){
+            jQuery_1_11_1("#sbm").click(function (evt){ //id tombol submit
+            evt.preventDefault();
+            var validate=jQuery_1_11_1('#formTambahProposal').validationEngine('validate'); // id form
+            if(validate){
+                jQuery_1_11_1("#formTambahProposal").submit();
+            }else{
+                return false;
+            }
+        });
+    
+        });
 
 $(function() {
     //$("#tg_pj").datepicker({dateFormat: 'dd-mm-yy'});

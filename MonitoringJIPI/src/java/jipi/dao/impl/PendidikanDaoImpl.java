@@ -24,5 +24,17 @@ public class PendidikanDaoImpl extends HibernateUtil implements PendidikanDao{
         dataList = query.list();
         return dataList;
     }
+
+    @Override
+    public PendidikanModel getDataPendidikanById(String kdpendidikan) {
+        Query query = null;
+        try {
+            String sql = "select model from PendidikanModel model where kdpendidikan=:kdpendidikan";
+            query = createQuery(sql).setParameter("kdpendidikan", kdpendidikan);                    
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return (PendidikanModel) query.uniqueResult();
+    }
     
 }

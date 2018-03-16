@@ -9,10 +9,14 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.transaction.Transactional;
 import jipi.dao.ProposalDao;
+import jipi.dao.UserDao;
 import jipi.dto.ProposalDto;
 import jipi.model.JenisPengajuanModel;
+import jipi.model.MahasiswaModel;
 import jipi.model.ProposalModel;
+import jipi.model.UserModel;
 import jipi.service.JenisPengajuanService;
+import jipi.service.MahasiswaService;
 import jipi.service.ProposalService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,6 +33,12 @@ public class ProposalServiceImpl implements ProposalService{
     
     @Autowired
     JenisPengajuanService jenisPengajuanService;
+    
+    @Autowired
+    MahasiswaService mahasiswaService;
+    
+    @Autowired
+    UserDao userDao;
     
     @Override
     public void saveDataProposal(ProposalDto proposalDto) throws Exception {
@@ -191,6 +201,74 @@ public class ProposalServiceImpl implements ProposalService{
             e.printStackTrace();
         }
         proposalDao.updateProposal(ddm);
+    }
+
+    @Override
+    public void createAkun(ProposalDto proposalDto) {
+        UserModel dataModel = new UserModel();
+        dataModel.setKduser("1000");
+        MahasiswaModel mh = mahasiswaService.getMahasiswaById(proposalDto.getNim());
+        dataModel.setUsername(mh.getNamamahasiswa().replaceAll(" ", "_"));
+        dataModel.setPassword(mh.getNim());
+        dataModel.setAkses("3");
+        dataModel.setNim(mh.getNim());
+        dataModel.setNip("");
+        dataModel.setKeterangan("mahasiswa");
+        userDao.saveDataUser(dataModel);
+    }
+
+    @Override
+    public List<ProposalDto> searchProposal(String cariBerdasarkan, String cariKey) {
+        List<ProposalDto> listProposalDto = new ArrayList();
+        List<Object[]> listDataObject = proposalDao.getListCariDataProposalNativeQuery(cariBerdasarkan, cariKey);
+        if (listDataObject != null){
+            for (Object[] object : listDataObject){
+                ProposalDto dto = new ProposalDto();
+                JenisPengajuanModel jm = new JenisPengajuanModel();
+                if (object[0] != null){
+                    dto.setKdproposal(object[0].toString());
+                }
+                if (object[1] != null){
+                    dto.setKdjenisproposal(object[1].toString());
+                    jm = jenisPengajuanService.getJenisPengajuanById(object[1].toString());
+                    dto.setKdjenisproposal(jm.getNamajenispengajuan());
+                }
+                if (object[2] != null){
+                    dto.setNim(object[2].toString());
+                }
+                if (object[3] != null){
+                    dto.setJudulproposal(object[3].toString());
+                }
+                if (object[4] != null){
+                    dto.setPerubahanjudul(object[4].toString());
+                }
+                if (object[5] != null){
+                    dto.setSkssudahtempuh(Integer.parseInt(object[5].toString()));
+                }
+                if (object[6] != null){
+                    dto.setSksproposal(Integer.parseInt(object[6].toString()));
+                }
+                if (object[7] != null){
+                    dto.setTglpengajuanproposal(object[7].toString());
+                }
+                if (object[8] != null){
+                    dto.setIpk(Double.parseDouble(object[8].toString()));
+                }
+                if (object[9] != null){
+                    dto.setStatusproposal(object[9].toString());
+                }
+                if (object[10] != null){
+                    dto.setDosenpembimbing(object[10].toString());
+                }
+                if (object[11] != null){
+                    dto.setEmail(object[11].toString());
+                }
+                
+                
+                listProposalDto.add(dto);
+            }
+        }
+        return listProposalDto;
     }
     
 }

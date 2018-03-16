@@ -26,5 +26,6 @@
         <property name="tlportu" column="tlportu" length="13"/>
         <property name="angkatan" column="angkatan" length="4"/>
         <property name="kdjurusan" column="kdjurusan"/>
+        <property name="foto" column="foto"/>
     </class>
 </hibernate-mapping>

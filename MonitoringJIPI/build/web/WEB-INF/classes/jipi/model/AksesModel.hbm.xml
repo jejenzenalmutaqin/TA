@@ -6,10 +6,11 @@
 
 <hibernate-mapping>
     <class name="jipi.model.AksesModel" table="akses_tbl">
-        <id name="kdakses" column="kdakses" length="3">
+        <id name="kdakses" column="kdakses">
             <generator class="assigned"/>
         </id>
         <property name="namaakses" column="namaakses" length="50"/>
+        <property name="ketakses" column="ketakses" length="50"/>
     </class>
 
 </hibernate-mapping>

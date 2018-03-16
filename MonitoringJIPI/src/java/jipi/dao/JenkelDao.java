@@ -14,4 +14,5 @@ import jipi.model.JenkelModel;
  */
 public interface JenkelDao {
     public List<JenkelModel> getListDataJenkel();
+    public JenkelModel getListDataJenkelById(String kdjenkel);
 }

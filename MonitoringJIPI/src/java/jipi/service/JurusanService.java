@@ -7,6 +7,7 @@ package jipi.service;
 
 import java.util.List;
 import jipi.dto.JurusanDto;
+import jipi.model.JurusanModel;
 
 /**
  *
@@ -14,4 +15,5 @@ import jipi.dto.JurusanDto;
  */
 public interface JurusanService {
     public List<JurusanDto> getListDataJurusan();
+    public List<JurusanDto> getJurusanById(String param);
 }

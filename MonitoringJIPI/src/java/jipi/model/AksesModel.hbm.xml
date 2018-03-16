@@ -10,6 +10,7 @@
             <generator class="assigned"/>
         </id>
         <property name="namaakses" column="namaakses" length="50"/>
+        <property name="ketakses" column="ketakses" length="50"/>
     </class>
 
 </hibernate-mapping>

@@ -14,4 +14,5 @@ import jipi.model.FakultasModel;
  */
 public interface FakultasDao {
     public List<FakultasModel> getListDataFakultas();
+    public FakultasModel getDataFakultasById(String kdfakultas);
 }

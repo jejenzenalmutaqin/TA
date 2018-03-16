@@ -12,6 +12,7 @@ package jipi.dto;
 public class AksesDto {
     String kdakses;
     String namaakses;
+    String ketakses;
 
     public String getKdakses() {
         return kdakses;
@@ -27,5 +28,13 @@ public class AksesDto {
 
     public void setNamaakses(String namaakses) {
         this.namaakses = namaakses;
+    }
+
+    public String getKetakses() {
+        return ketakses;
+    }
+
+    public void setKetakses(String ketakses) {
+        this.ketakses = ketakses;
     }
 }

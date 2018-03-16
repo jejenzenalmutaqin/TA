@@ -14,4 +14,11 @@ import jipi.model.MahasiswaModel;
  */
 public interface MahasiswaDao {
     public List<MahasiswaModel> getListDataMahasiswa();
+    public List<MahasiswaModel> getListDataMahasiswaDistinctAngkatan();
+    public MahasiswaModel getMahasiswaById(String nim) throws Exception;
+    public List<Object[]> getListAngkatanNativeQuery();
+    public void saveDataMahasiswa(MahasiswaModel mahasiswaModel);
+    public List<MahasiswaModel> getListMahasiswa(String nim);
+    public void deleteDataMahasiswa(String nim);
+    public MahasiswaModel getMahasiswaByNim(String nim) throws Exception;
 }

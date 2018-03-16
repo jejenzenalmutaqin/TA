@@ -24,5 +24,17 @@ public class AgamaDaoImpl extends HibernateUtil implements AgamaDao{
         dataList = query.list();
         return dataList;
     }
+
+    @Override
+    public AgamaModel getDataAgamaById(String kdagama) {
+        Query query = null;
+        try {
+            String sql = "select model from AgamaModel model where kdagama=:kdagama";
+            query = createQuery(sql).setParameter("kdagama", kdagama);                    
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return (AgamaModel) query.uniqueResult();
+    }
     
 }

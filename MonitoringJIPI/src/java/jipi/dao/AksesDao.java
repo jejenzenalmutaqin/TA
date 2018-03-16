@@ -14,4 +14,5 @@ import jipi.model.AksesModel;
  */
 public interface AksesDao {
     public List<AksesModel> getListDataAkses();
+    public AksesModel getAksesById(String kdakses) throws Exception;
 }

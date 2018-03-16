@@ -7,6 +7,8 @@ package jipi.service;
 
 import java.util.List;
 import jipi.dto.MahasiswaDto;
+import jipi.model.MahasiswaModel;
+import jipi.model.ProposalModel;
 
 /**
  *
@@ -14,4 +16,12 @@ import jipi.dto.MahasiswaDto;
  */
 public interface MahasiswaService {
     public List<MahasiswaDto> getListDataMahasiswa();
+    public List<MahasiswaDto> getListDataMahasiswaDistinctAngkatan();
+    public List<MahasiswaDto> getListAngkatan();
+    public MahasiswaModel getMahasiswaById(String nim);
+    
+    public void saveDataMahasiswa(MahasiswaModel mahasiswaModel);
+    public void deleteDataMahasiswa(String nim);
+    public MahasiswaDto getDtoMahasiswa(String nim) throws Exception;
+    public MahasiswaModel getMahasiswaByNim(String nim) throws Exception;
 }

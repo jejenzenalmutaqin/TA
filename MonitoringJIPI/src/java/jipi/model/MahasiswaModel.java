@@ -28,7 +28,17 @@ public class MahasiswaModel {
     String tlportu;
     String angkatan;
     String kdjurusan;
+    String foto;
 
+    public String getFoto() {
+        return foto;
+    }
+
+    public void setFoto(String foto) {
+        this.foto = foto;
+    }
+    
+    
     public String getNim() {
         return nim;
     }

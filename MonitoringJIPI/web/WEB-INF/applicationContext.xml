@@ -68,7 +68,31 @@
    
     <bean id="proposalService" class="jipi.service.impl.ProposalServiceImpl"></bean>
     <bean id="jenisPengajuanService" class="jipi.service.impl.JenisPengajuanServiceImpl"></bean>
+    <bean id="sidangService" class="jipi.service.impl.SidangServiceImpl"></bean>
+    <bean id="kelulusanService" class="jipi.service.impl.KelulusanServiceImpl"></bean>
+    <bean id="alumniService" class="jipi.service.impl.AlumniServiceImpl"></bean>
+<!--    <bean id="agamaService" class="jipi.service.impl.AgamaServiceImpl"></bean>
+-->    <bean id="aksesService" class="jipi.service.impl.AksesServiceImpl"></bean><!--
+    <bean id="fakultasService" class="jipi.service.impl.FakultasServiceImpl"></bean>
+    <bean id="jenkelService" class="jipi.service.impl.JenkelServiceImpl"></bean>
+    <bean id="jurusanService" class="jipi.service.impl.JurusanServiceImpl"></bean>
+    <bean id="mahasiswaService" class="jipi.service.impl.MahasiswaServiceImpl"></bean>
+    <bean id="pendidikanService" class="jipi.service.impl.PendidikanServiceImpl"></bean>
+-->    
+    <bean id="userService" class="jipi.service.impl.UserServiceImpl"></bean>
+    
     <bean id="proposalDao" class="jipi.dao.impl.ProposalDaoImpl"></bean>
     <bean id="jenisPengajuanDao" class="jipi.dao.impl.JenisPengajuanDaoImpl"></bean>
+    <bean id="sidangDao" class="jipi.dao.impl.SidangDaoImpl"></bean>
+    <bean id="kelulusanDao" class="jipi.dao.impl.KelulusanDaoImpl"></bean>
+    <bean id="agamaDao" class="jipi.dao.impl.AgamaDaoImpl"></bean>
+    <bean id="aksesDao" class="jipi.dao.impl.AksesDaoImpl"></bean>
+    <bean id="fakultasDao" class="jipi.dao.impl.FakultasDaoImpl"></bean>
+    <bean id="jenkelDao" class="jipi.dao.impl.JenkelDaoImpl"></bean>
+    <bean id="jurusanDao" class="jipi.dao.impl.JurusanDaoImpl"></bean>
+    <bean id="mahasiswaDao" class="jipi.dao.impl.MahasiswaDaoImpl"></bean>
+    <bean id="pendidikanDao" class="jipi.dao.impl.PendidikanDaoImpl"></bean>
+    <bean id="userDao" class="jipi.dao.impl.UserDaoImpl"></bean>
+    <bean id="alumniDao" class="jipi.dao.impl.AlumniDaoImpl"></bean>
     
 </beans>

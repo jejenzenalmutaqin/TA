@@ -6,7 +6,7 @@
 
 <hibernate-mapping>
     <class name="jipi.model.FakultasModel" table="mst_fakultas">
-        <id name="kdfakultas" column="kdfakultas" length="2">
+        <id name="kdfakultas" column="kdfakultas">
             <generator class="assigned"/>
         </id>
         <property name="namafakultas" column="namafakultas" length="50"/>

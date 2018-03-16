@@ -14,4 +14,6 @@ import jipi.model.JurusanModel;
  */
 public interface JurusanDao {
     public List<JurusanModel> getListDataJurusan();
+    public List<JurusanModel> getJurusanById(String param) throws Exception;
+    public JurusanModel getDataJurusanById(String kdjurusan);
 }

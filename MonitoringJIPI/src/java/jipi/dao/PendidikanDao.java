@@ -14,4 +14,5 @@ import jipi.model.PendidikanModel;
  */
 public interface PendidikanDao {
     public List<PendidikanModel> getListDataPendidikan();
+    public PendidikanModel getDataPendidikanById(String kdpendidikan);
 }

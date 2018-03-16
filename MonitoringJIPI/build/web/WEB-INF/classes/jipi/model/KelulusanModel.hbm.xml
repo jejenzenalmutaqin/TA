@@ -9,7 +9,7 @@
         <id name="kdkelulusan" column="kdkelulusan" length="8">
             <generator class="assigned"/>
         </id>
-        <property name="nim" column="nim" length="16"/>
+        <property name="nim" column="nim"/>
         <property name="kdsidang" column="kdsidang"/>
         <property name="tgllulus" column="tgllulus" />
         <property name="ipk" column="ipk" />

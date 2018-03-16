@@ -63,5 +63,33 @@ public class ProposalDaoImpl extends HibernateUtil implements ProposalDao{
     public void updateProposal(ProposalModel proposalModel) {
         getSession().saveOrUpdate(proposalModel);
     }
+
+    @Override
+    public List<Object[]> getListCariDataProposalNativeQuery(String cariBerdasarkan, String cariKey) {
+        List<Object[]> dataList = null;
+        String sql = "select * from pengajuanproposal_tbl ";
+        String where="";
+        if(cariBerdasarkan.equals("1")){
+            where = "where nim like '%"+cariKey+"%'";
+        }else if(cariBerdasarkan.equals("2")){
+            where = "where nim in (select nim from mst_mahasiswa where namamahasiswa like '%"+cariKey+"%')";
+        }else if(cariBerdasarkan.equals("3")){
+            where = "where kdjenisproposal = 1";
+        }else if(cariBerdasarkan.equals("4")){
+            where = "where kdjenisproposal = 2";
+        }else if(cariBerdasarkan.equals("5")){
+            where = "where kdjenisproposal = 3";
+        }else if(cariBerdasarkan.equals("6")){
+            where = "where tglpengajuanproposal like '%"+cariKey+"%'";
+        }else if(cariBerdasarkan.equals("7")){
+            where = "where dosenpembimbing like '%"+cariKey+"%'";
+        }else if(cariBerdasarkan.equals("8")){
+            where = " ";
+        }
+        sql = sql + where;
+        Query query = createNativeQuery(sql);
+        dataList = query.list();
+        return dataList;
+    }
     
 }

@@ -24,5 +24,17 @@ public class JenkelDaoImpl extends HibernateUtil implements JenkelDao{
         dataList = query.list();
         return dataList;
     }
+
+    @Override
+    public JenkelModel getListDataJenkelById(String kdjenkel) {
+        Query query = null;
+        try {
+            String sql = "select model from JenkelModel model where kdjenkel=:kdjenkel";
+            query = createQuery(sql).setParameter("kdjenkel", kdjenkel);                    
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return (JenkelModel) query.uniqueResult(); 
+    }
     
 }

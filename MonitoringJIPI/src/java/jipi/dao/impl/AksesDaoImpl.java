@@ -24,5 +24,18 @@ public class AksesDaoImpl extends HibernateUtil implements AksesDao{
         dataList = query.list();
         return dataList;
     }
+
+    @Override
+    public AksesModel getAksesById(String kdakses) throws Exception {
+        AksesModel akses = new AksesModel();
+        Query query = null;
+        try {
+            String sql = "select model from AksesModel model where kdakses=:kdakses";
+            query = createQuery(sql).setParameter("kdakses", kdakses);                    
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return (AksesModel) query.uniqueResult();    
+    }
     
 }
