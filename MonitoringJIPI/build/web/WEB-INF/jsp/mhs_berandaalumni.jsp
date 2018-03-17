@@ -63,7 +63,7 @@
 			<li><a href="mhs_index.htm"><svg class="glyph stroked dashboard-dial"><use xlink:href="#stroked-dashboard-dial"></use></svg> Home Mahasiswa</a></li>
 			<li><a href="mhs_profil.htm"><svg class="glyph stroked calendar"><use xlink:href="#stroked-calendar"></use></svg> Profil</a></li>
 			<li><a href="mhs_notifikasi.htm"><svg class="glyph stroked line-graph"><use xlink:href="#stroked-line-graph"></use></svg> Notifikasi</a></li>
-			<li class="active"><a href="beranda_alumni.htm"><svg class="glyph stroked table"><use xlink:href="#stroked-table"></use></svg> Beranda Alumni</a></li>
+			<li class="active"><a href="berandaalumni.htm"><svg class="glyph stroked table"><use xlink:href="#stroked-table"></use></svg> Beranda Alumni</a></li>
 			<li role="presentation" class="divider"></li>
 		</ul>
 
@@ -84,9 +84,9 @@
                 </div>
             </div><!--/.row-->
             <div class="form-group">
-                <c:url var="tambahData" value="/tambahAlumni.htm"></c:url>
+                <%--<c:url var="tambahData" value="/tambahAlumni.htm"></c:url>--%>
                 <!--<div class="col-md-5"><a href="${tambahData}"><button class="btn btn-primary">TAMBAH</button></a></div>-->
-                <form method="post" action="cariAlumni.htm">
+                <form method="post" action="caridataalumni.htm">
                     <div class="col-md-2">
                     <select class="form-control" id="drop" name="cariBerdasarkan">
                         <option value="1">Kode Alumni</option>
@@ -146,7 +146,7 @@
                                             <c:url var="hapusList" value="/hapusListAlumni.htm">
                                                 <c:param name="kdalumni" value="${listAlumni.kdalumni}"/>
                                             </c:url>
-                                            <c:url var="editList" value="/editAlumni.htm">
+                                            <c:url var="editList" value="/editMhsAlumni.htm">
                                                 <c:param name="kdalumni" value="${listAlumni.kdalumni}"/>
                                             </c:url>
                                             <td align="center"><a href="#"><label style="color: greenyellow" class="col-md-3 control-label" >View</label></a></td>

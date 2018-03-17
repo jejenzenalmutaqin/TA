@@ -66,4 +66,29 @@ public class MhsController {
         model.addAttribute("listDto", listDto);
         return "mhs_berandaalumni";
     }
+    @RequestMapping(value = "/caridataalumni", method = RequestMethod.POST)
+    public String cariAlumni(String cariBerdasarkan, String cariKey, ModelMap model) throws Exception{
+        List<AlumniDto> listDto = alumniService.searchAlumni(cariBerdasarkan, cariKey);
+        model.addAttribute("listDto",listDto);
+//        return "redirect:akd_datauser.htm";
+        return "mhs_berandaalumni";
+    }
+    
+    @RequestMapping(value = "/editMhsAlumni", method = RequestMethod.GET)
+    public String editAlumni(String kdalumni, ModelMap model) throws Exception{ 
+        try {
+            AlumniDto alumniDto = alumniService.updateDataForm(kdalumni);
+            model.addAttribute("dto", alumniDto);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "mhs_editdataalumni";
+    }
+    
+    @RequestMapping(value = "/editAlumniMhs", method = RequestMethod.POST)
+    public String editDataAlumni(AlumniDto alumniDto, ModelMap model) throws Exception{                
+        ModelAndView mdl = new ModelAndView();
+        alumniService.doUpdateDataForm(alumniDto);       
+        return "redirect:berandaalumni.htm";
+    }
 }
