@@ -22,4 +22,8 @@ public interface UserDao {
     public void updateUser(UserModel userModel);
     public String getLastNumberUser();
     public List<Object[]> getListCariDataUserNativeQuery(String cariBerdasarkan, String cariKey);
+    public List<Object[]> getCountUsername(String username);
+    public List<Object[]> getCountUsernameAndPassword(String username, String password);
+    public List<Object[]> getCountUsernameAndPasswordAndAkses(String username, String password, String akses);
+    public List<Object[]> getListDataUserByLogin(String username, String password, String akses);
 }

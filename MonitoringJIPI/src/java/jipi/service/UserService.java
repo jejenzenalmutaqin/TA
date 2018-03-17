@@ -21,5 +21,9 @@ public interface UserService {
     public UserDto updateDataForm(String kduser) throws Exception;
     public void doUpdateDataForm(UserDto userDto) throws Exception;
     public List<UserDto> searchUser(String cariBerdasarkan, String cariKey);
+    public List<Object[]> getCountUsernameService(String username);
+    public List<Object[]> getCountUsernameAndPasswordService(String username, String password);
+    public List<Object[]> getCountUsernameAndPasswordAndAksesService(String username, String password, String akses);
+    public List<UserDto> getListDataUserByLogin(String username, String password, String akses);
     
 }

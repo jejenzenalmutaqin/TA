@@ -36,11 +36,11 @@
                             <fieldset>
                                 <div class="form-group">
                                     <div class="col-md-13">
-                                        <form:select path="kduser" class="form-control" id="drop" name="#">
-                                            <option value="1">- Pilih User -</option>
+                                        <form:select path="akses" class="form-control" id="drop" name="#">
+                                            <option value="0"  selected="true" disabled="true">- Pilih User -</option>
                                             <option value="1">Akademik</option>
-                                            <option value="2">Mahasiswa</option>
-                                            <option value="3">Dosen</option>
+                                            <option value="4">Dosen</option>
+                                            <option value="5">Mahasiswa</option>
                                         </form:select>
                                     </div>
                                 </div>
@@ -51,7 +51,7 @@
                                 <div class="form-group">
                                     <form:input path="password" class="form-control" placeholder="Password" name="password" type="password" value=""/>
                                 </div>
-                                    <form:hidden path="akses" value="-"/>
+                                    <form:hidden path="kduser" value="-"/>
                                     <form:hidden path="nim" value="-"/>
                                     <form:hidden path="nip" value="-"/>
                                     <%--<form:hidden path="keterangan" value="-"/>--%>

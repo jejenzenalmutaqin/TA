@@ -123,7 +123,7 @@
                                         <label class="col-md-3 control-label" >Pilih Fakultas</label>
                                         <div class="col-md-9">
                                             <select name="fakultas_filter" id="fakultas_id" class="form-control validate validate[required]">
-                                                <option value="" selected="true">-- Semua Fakultas --</option>
+                                                <option value="" selected="true">- Semua Fakultas -</option>
                                                 <c:forEach var="fak"  items="${listFakultas}">
                                                     <option  value="${fak.kdfakultas}">${fak.namafakultas}</option>
                                                 </c:forEach>
@@ -134,12 +134,14 @@
                                         <label class="col-md-3 control-label" >Pilih Jurusan</label>
                                         <div class="col-md-9">
                                             <select name="jurusan_filter" id="jurusan_id" class="form-control validate validate[required]">
-                                                <option value="" selected="true">-- Semua Jurusan --</option>
-                                                <c:forEach var="fak" items="">
-                                                    <option  value="${fak.kdjurusan}">${fak.namajurusan}</option>
+                                                <option value="" selected="true">- Semua Jurusan -</option>
+                                                <c:forEach var="jur" items="${listJurusan}">
+                                                    <option  value="${jur.kdjurusan}">${jur.namajurusan}</option>
                                                 </c:forEach>
                                             </select>
                                         </div>
+                                    </div>
+                                        
                                     <div class="form-group">
                                         <label class="col-md-3 control-label" >Jenis Proposal</label>
                                         <div class="col-md-1">
@@ -236,11 +238,9 @@
             $("#fakultas_id").change(function () {
                 var fakultas_id = $('#fakultas_id').val();
                 $.ajax({
-                    type: 'GET',
+                    type: 'POST',
                     url: "changeJurusanByFakultas.htm",
                     data: "param=" + fakultas_id,
-                    contentType : "application/json", 
-                    dataType : "json",
                     success: function (response) {
                         //$("#jurusan_id").val(response);
 //                        var obj = JSON.parse(response);

@@ -41,7 +41,8 @@
 				<a class="navbar-brand" href="#"><span>APLIKASI MONITORING PENYUSUNAN TUGAS AKHIR/SKRIPSI</span> UNIVERSITAS NASIONAL PASIM</a>
 				<ul class="user-menu">
 					<li class="dropdown pull-right">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> Akademik <span class="caret"></span></a>
+                                                
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> Akademik <span class="caret"></span></a>
 						<ul class="dropdown-menu" role="menu">
 							<li><a href="#"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> Profile</a></li>
 							<li><a href="#"><svg class="glyph stroked gear"><use xlink:href="#stroked-gear"></use></svg> Settings</a></li>
@@ -55,28 +56,29 @@
 	</nav>
 <!--//////////////////////////////// menu bar samping kiri //////////////////////////////	-->
 	<div id="sidebar-collapse" class="col-sm-7 col-lg-2 sidebar">
-		
-		<c:url var="panggilProfil" value="/mhs_profil.htm">
-            <c:param name="nim" value="${dto.nim}" />
-        </c:url>
-        <c:url var="panggilNotif" value="/mhs_notifikasi.htm">
-            <c:param name="nim" value="${dto.nim}" />
-        </c:url>
-        <c:url var="panggilBerandaAlumni" value="/berandaalumni.htm">
-            <c:param name="nim" value="${dto.nim}" />
-        </c:url>
-        <c:url var="panggilIndex" value="/mhs_index.htm">
-            <c:param name="nim" value="${dto.nim}" />
-        </c:url>
-        <ul class="nav menu">
-
-            <li><a href="${panggilIndex}"><svg class="glyph stroked dashboard-dial"><use xlink:href="#stroked-dashboard-dial"></use></svg> Home Mahasiswa</a></li>
-            <li><a href="${panggilProfil}"><svg class="glyph stroked calendar"><use xlink:href="#stroked-calendar"></use></svg> Profil</a></li>
-            <li class="active"><a href="${panggilNotif}"><svg class="glyph stroked line-graph"><use xlink:href="#stroked-line-graph"></use></svg> Notifikasi</a></li>
-            <li><a href="${panggilBerandaAlumni}"><svg class="glyph stroked table"><use xlink:href="#stroked-table"></use></svg> Beranda Alumni</a></li>
-            <li role="presentation" class="divider"></li>
-
-        </ul>
+		<c:forEach var="datanim" items="${dto}">
+                        <c:url var="panggilProfil" value="/mhs_profil.htm">
+                            <c:param name="nim" value="${datanim.nim}" />
+                        </c:url>
+                        <c:url var="panggilNotif" value="/mhs_notifikasi.htm">
+                            <c:param name="nim" value="${datanim.nim}" />
+                        </c:url>
+                        <c:url var="panggilBerandaAlumni" value="/berandaalumni.htm">
+                            <c:param name="nim" value="${datanim.nim}" />
+                        </c:url>
+                        <c:url var="panggilIndex" value="/mhs_index.htm">
+                            <c:param name="nim" value="${datanim.nim}" />
+                        </c:url>
+                </c:forEach>
+		<ul class="nav menu">
+                    
+			<li class="active"><a href="${panggilIndex}"><svg class="glyph stroked dashboard-dial"><use xlink:href="#stroked-dashboard-dial"></use></svg> Home Mahasiswa</a></li>
+			<li><a href="${panggilProfil}"><svg class="glyph stroked calendar"><use xlink:href="#stroked-calendar"></use></svg> Profil</a></li>
+			<li><a href="${panggilNotif}"><svg class="glyph stroked line-graph"><use xlink:href="#stroked-line-graph"></use></svg> Notifikasi</a></li>
+			<li><a href="${panggilBerandaAlumni}"><svg class="glyph stroked table"><use xlink:href="#stroked-table"></use></svg> Beranda Alumni</a></li>
+			<li role="presentation" class="divider"></li>
+                    
+		</ul>
 
 	</div><!--/.sidebar-->
 		
@@ -91,7 +93,7 @@
 		<div class="row">
 			<div class="col-lg-12">
                                 <h1 class="page-header"> </h1>
-				<h1 class="page-header">NOTIFIKASI MAHASISWA/I</h1>
+				<h1 class="page-header">DASBOARD MAHASISWA DAN ALUMNI</h1>
                                 <h1>UNIVERSITAS NASIONAL PASIM</h1>
                                 <h2>BANDUNG</h4>
 			</div>

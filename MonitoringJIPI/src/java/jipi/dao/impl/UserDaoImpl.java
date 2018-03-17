@@ -112,5 +112,47 @@ public class UserDaoImpl extends HibernateUtil implements UserDao{
         dataList = query.list();
         return dataList;
     }
+
+    @Override
+    public List<Object[]> getCountUsername(String username) {
+        List<Object[]> dataList = null;
+        String sql="select count(*) jml from user_tbl where username='"+username+"'";
+        Query query = createNativeQuery(sql);
+        dataList = query.list();
+        return dataList;
+    }
+
+    @Override
+    public List<Object[]> getCountUsernameAndPassword(String username, String password) {
+        List<Object[]> dataList = null;
+        String sql="select count(*) jml from user_tbl where username='"+username+"' and password='"+password+"'";
+        Query query = createNativeQuery(sql);
+        dataList = query.list();
+        return dataList;
+    }
+
+    @Override
+    public List<Object[]> getCountUsernameAndPasswordAndAkses(String username, String password, String akses) {
+        List<Object[]> dataList = null;
+        String sql="";
+        if(akses.equals("4")){
+            sql = "select count(*) jml from user_tbl where username='"+username+"' and password='"+password+"' and akses in('2','3','4')";
+        }else{
+            sql = "select count(*) jml from user_tbl where username='"+username+"' and password='"+password+"' and akses='"+akses+"'";
+        }
+        Query query = createNativeQuery(sql);
+        dataList = query.list();
+        return dataList;
+    }
+
+    @Override
+    public List<Object[]> getListDataUserByLogin(String username, String password, String akses) {
+        List<Object[]> dataList = null;
+        String sql = "select * from user_tbl where username='"+username+"' and password='"+password+"' and akses='"+akses+"'";
+        Query query = createNativeQuery(sql);
+        dataList = query.list();
+        return dataList;
+    }
+
     
 }

@@ -133,7 +133,7 @@
                             <div class="panel-heading"> Form Edit Data Kelulusan</div>
                             <div class="panel-body">
                                 <form:form class="form-horizontal" id="formEditKelulusan" action="editDataKelulusan.htm" method="post" modelAttribute="dto">
-                                    <form:hidden path="kdkelulusan" value="${dto.kdkelulusan}" />
+                                    <form:hidden path="kdkelulusan" value="${dto.kdkelulusan}"/>
                                     <fieldset>
                                         
                                         <div class="form-group">

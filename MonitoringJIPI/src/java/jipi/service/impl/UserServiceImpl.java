@@ -6,6 +6,7 @@
 package jipi.service.impl;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -203,6 +204,60 @@ public class UserServiceImpl implements UserService{
                         
                     }
                     dto.setAkses(am.getNamaakses());
+                }
+                if (object[4] != null){
+                    dto.setNim(object[4].toString());
+                }
+                if (object[5] != null){
+                    dto.setNip(object[5].toString());
+                }
+                if (object[6] != null){
+                    dto.setKeterangan(object[6].toString());
+                }
+                listUserDto.add(dto);
+            }
+        }
+        return listUserDto;
+    }
+
+    @Override
+    public List<Object[]> getCountUsernameService(String username) {
+        List<Object[]> listDataObject = userDao.getCountUsername(username);
+        return listDataObject;
+    }
+
+    @Override
+    public List<Object[]> getCountUsernameAndPasswordService(String username, String password) {
+        List<Object[]> listDataObject = userDao.getCountUsernameAndPassword(username, password);
+        return listDataObject;
+    }
+
+    @Override
+    public List<Object[]> getCountUsernameAndPasswordAndAksesService(String username, String password, String akses) {
+        List<Object[]> listDataObject =userDao.getCountUsernameAndPasswordAndAkses(username, password, akses);
+        return listDataObject;
+    }
+
+    @Override
+    public List<UserDto> getListDataUserByLogin(String username, String password, String akses) {
+        List<UserDto> listUserDto = new ArrayList();
+        List<Object[]> listDataObject = userDao.getListDataUserByLogin(username, password, akses);
+        List<UserModel> data = userDao.getListDataUser();
+        AksesModel am = new AksesModel();
+        if (listDataObject != null){
+            for (Object[] object : listDataObject){
+                UserDto dto = new UserDto();
+                if (object[0] != null){
+                    dto.setKduser(object[0].toString());
+                }
+                if (object[1] != null){
+                    dto.setUsername(object[1].toString());
+                }
+                if (object[2] != null){
+                    dto.setPassword(object[2].toString());
+                }
+                if (object[3] != null){
+                    dto.setAkses(object[3].toString());
                 }
                 if (object[4] != null){
                     dto.setNim(object[4].toString());

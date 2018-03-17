@@ -434,8 +434,9 @@ public class AkdController {
         return "akd_laporanpengajuanproposal";
     }
     
-    @RequestMapping(value = "/changeJurusanByFakultas",produces="application/json", method = RequestMethod.GET)
-    public @ResponseBody List<JurusanDto> ambilData(String param, ModelMap model) throws Exception{
+    @RequestMapping(value = "/changeJurusanByFakultas", method = RequestMethod.POST)
+    @ResponseBody
+    public List<JurusanDto> ambilData(String param, ModelMap model) throws Exception{
         List<FakultasDto> listFakultas = fakultasService.getListDataFakultas();
         model.addAttribute("listFakultas", listFakultas);
         List<JurusanDto> listJurusan = jurusanService.getJurusanById(param);
