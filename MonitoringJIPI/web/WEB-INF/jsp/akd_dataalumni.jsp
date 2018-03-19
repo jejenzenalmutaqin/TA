@@ -165,7 +165,7 @@
                                         <th class="col-md-2 control-label">Daerah Kerja</th>
                                         <th class="col-md-2 control-label">Sektor</th>
                                         <th class="col-md-2 control-label">Profesi</th>
-                                        <th style="text-align: center" colspan="2" class="col-md-3 control-label">Action</th>
+                                        <th style="text-align: center" colspan="3" class="col-md-3 control-label">Action</th>
                                     </tr>
                                     
                                     <%--<c:set var="index" value="1"/>--%>
@@ -186,8 +186,12 @@
                                             <c:url var="editList" value="/editAlumni.htm">
                                                 <c:param name="kdalumni" value="${listAlumni.kdalumni}"/>
                                             </c:url>
+                                            <c:url var="detailList" value="/detailAlumni.htm">
+                                                <c:param name="kdalumni" value="${listAlumni.kdalumni}"/>
+                                            </c:url>
                                             <td align="center"><a href="${hapusList}"><label style="color: red" class="col-md-3 control-label" >Hapus</label></a></td>
                                             <td align="center"><a href="${editList}"><label style="color: greenyellow" class="col-md-3 control-label" >Edit</label></a></td>
+                                            <td align="center"><a href="${detailList}"><label style="color: white" class="col-md-3 control-label" >Detail</label></a></td>
                                         </tr>            
                                       <%--  <c:set var="index" value="${index+1}"/>--%>
                                     </c:forEach>

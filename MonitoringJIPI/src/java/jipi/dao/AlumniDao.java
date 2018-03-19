@@ -20,4 +20,6 @@ public interface AlumniDao {
     public List<AlumniModel> getListAlumniUpdate(String kdalumni);
     public void updateAlumni(AlumniModel alumniModel);
     public List<Object[]> getListCariDataAlumniNativeQuery(String cariBerdasarkan, String cariKey);
+    public List<Object[]> getListDataAlumniNativeQuery(String kdalumni);
+    public List<Object[]> getListCariDataAlumniByJurusan(String fakultas, String jurusan, String angkatan);
 }

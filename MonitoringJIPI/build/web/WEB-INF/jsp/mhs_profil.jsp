@@ -68,18 +68,11 @@
             <c:param name="nim" value="${dto.nim}" />
         </c:url>
         <ul class="nav menu">
-<<<<<<< HEAD
 
             <li><a href="${panggilIndex}"><svg class="glyph stroked dashboard-dial"><use xlink:href="#stroked-dashboard-dial"></use></svg> Home Mahasiswa</a></li>
             <li class="active"><a href="${panggilProfil}"><svg class="glyph stroked calendar"><use xlink:href="#stroked-calendar"></use></svg> Profil</a></li>
             <li><a href="${panggilNotif}"><svg class="glyph stroked line-graph"><use xlink:href="#stroked-line-graph"></use></svg> Notifikasi</a></li>
             <li><a href="${panggilBerandaAlumni}"><svg class="glyph stroked table"><use xlink:href="#stroked-table"></use></svg> Beranda Alumni</a></li>
-=======
-            <li><a href="mhs_index.htm"><svg class="glyph stroked dashboard-dial"><use xlink:href="#stroked-dashboard-dial"></use></svg> Home Mahasiswa</a></li>
-            <li class="active"><a href="mhs_profil.htm"><svg class="glyph stroked calendar"><use xlink:href="#stroked-calendar"></use></svg> Profil</a></li>
-            <li><a href="mhs_notifikasi.htm"><svg class="glyph stroked line-graph"><use xlink:href="#stroked-line-graph"></use></svg> Notifikasi</a></li>
-            <li><a href="berandaalumni.htm"><svg class="glyph stroked table"><use xlink:href="#stroked-table"></use></svg> Beranda Alumni</a></li>
->>>>>>> 72f51c9255b450b0b2f6c25dcc5cbfb54748eb85
             <li role="presentation" class="divider"></li>
 
         </ul>
@@ -106,9 +99,10 @@
                         <fieldset class="h">
                             <table>
                                 <tr>
-                                    <td rowspan="17">
-                                        <img src="a.jpg" width="250px" height="420px"/>
+                                    <td rowspan="10">
+                                        <img src="img/jejen.jpg" width="350px" height="420px"/>
                                     </td>
+                                    <td>&nbsp;&nbsp;&nbsp;</td>
                                     <td colspan="4" style="text-align: center; background-color: gray;color: orange"><b>Data Profil Anda</b></td>
                                     <td></td>
                                     <td></td>
@@ -116,104 +110,105 @@
                                 </tr>
                                 <tr>
                                     <td></td>
+                                    <td></td>
                                     <td><b>NIM</b></td>
-                                    <td>:</td>
-                                    <td><form:label path="nim">${listMahasiswa.nim}</form:label></td>
+                                    <td>&nbsp;:&nbsp;&nbsp;</td>
+                                    <td><c:out value="${listMahasiswa.nim}"></c:out></td>
                                     </tr>
                                     <tr>
-                                        <td></td>
+                                        <td></td><td></td>
                                         <td><b>Nama Lengkap</b></td>
-                                        <td>:</td>
-                                        <td><form:label path="nim">${listMahasiswa.namamahasiswa}</form:label></td>
+                                        <td>&nbsp;:&nbsp;&nbsp;</td>
+                                        <td><c:out value="${listMahasiswa.namamahasiswa}"></c:out></td>
                                     </tr>
                                     <tr>
-                                        <td></td>
+                                        <td></td><td></td>
                                         <td><b>Tempat, Tanggal Lahir</b></td>
-                                        <td>:</td>
-                                        <td><form:label path="nim">${listMahasiswa.tempatlahir} , ${listMahasiswa.tgllahir}</form:label></td>
+                                        <td>&nbsp;:&nbsp;&nbsp;</td>
+                                        <td><c:out value="${listMahasiswa.tempatlahir} , ${listMahasiswa.tgllahir}"></c:out></td>
                                     </tr>
                                     <tr>
-                                        <td></td>
+                                        <td></td><td></td>
                                         <td><b>Jenis Kelamin</b></td>
-                                        <td>:</td>
-                                        <td><form:label path="nim">${listMahasiswa.kdjenkel}</form:label></td>
+                                        <td>&nbsp;:&nbsp;&nbsp;</td>
+                                        <td><c:out value="${listMahasiswa.kdjenkel}"></c:out></td>
                                     </tr>
                                     <tr>
-                                        <td></td>
+                                        <td></td><td></td>
                                         <td><b>Agama</b></td>
-                                        <td>:</td>
-                                        <td><form:label path="nim">${listMahasiswa.kdagama}</form:label></td>
+                                        <td>&nbsp;:&nbsp;&nbsp;</td>
+                                        <td><c:out value="${listMahasiswa.kdagama}"></c:out></td>
                                     </tr>
                                     <tr>
-                                        <td></td>
+                                        <td></td><td></td>
                                         <td><b>Alamat</b></td>
-                                        <td>:</td>
-                                        <td><form:label path="nim">${listMahasiswa.alamat}</form:label></td>
+                                        <td>&nbsp;:&nbsp;&nbsp;</td>
+                                        <td><c:out value="${listMahasiswa.alamat}"></c:out></td>
                                     </tr>
                                     <tr>
-                                        <td></td>
+                                        <td></td><td></td>
                                         <td><b>Asal Sekolah</b></td>
-                                        <td>:</td>
-                                        <td>${listMahasiswa.asalsekolah}</td>
+                                        <td>&nbsp;:&nbsp;&nbsp;</td>
+                                        <td><c:out value="${listMahasiswa.asalsekolah}"></c:out></td>
                                 </tr>
                                 <tr>
-                                    <td></td>
+                                    <td></td><td></td>
                                     <td><b>Jurusan Sekolah</b></td>
-                                    <td>:</td>
-                                    <td>${listMahasiswa.jurusanasalsekolah}</td>
+                                    <td>&nbsp;:&nbsp;&nbsp;</td>
+                                    <td><c:out value="${listMahasiswa.jurusanasalsekolah}"></c:out></td>
                                 </tr>
                                 <tr>
-                                    <td></td>
+                                    <td></td><td></td>
                                     <td><b>Jurusan Sekarang</b></td>
-                                    <td>:</td>
-                                    <td>${listMahasiswa.kdjurusan}</td>
+                                    <td>&nbsp;:&nbsp;&nbsp;</td>
+                                    <td><c:out value="${listMahasiswa.kdjurusan}"></c:out></td>
                                 </tr>
                                 <tr>
-                                    <td>
-                                    </td>
+                                    <td rowspan="7">
+                                    </td><td></td>
                                     <td colspan="4" style="text-align: center; background-color: gray;color: orange"><b>Data Profil Orangtua</b></td>
                                     <td></td>
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td></td>
+                                    <td></td><td></td>
                                     <td><b>Nama Ayah</b></td>
-                                    <td>:</td>
-                                    <td>${listMahasiswa.namaayah}</td>
+                                    <td>&nbsp;:&nbsp;&nbsp;</td>
+                                    <td><c:out value="${listMahasiswa.namaayah}"></c:out></td>
                                 </tr>
                                 <tr>
-                                    <td></td>
+                                    <td></td><td></td>
                                     <td><b>Nama Ibu</b></td>
-                                    <td>:</td>
-                                    <td>${listMahasiswa.namaibu}</td>
+                                    <td>&nbsp;:&nbsp;&nbsp;</td>
+                                    <td><c:out value="${listMahasiswa.namaibu}"></c:out></td>
                                 </tr>
                                 <tr>
-                                    <td></td>
+                                    <td></td><td></td>
                                     <td><b>Pendidikan Ayah</b></td>
-                                    <td>:</td>
-                                    <td>${listMahasiswa.pendidikanayah}</td>
+                                    <td>&nbsp;:&nbsp;&nbsp;</td>
+                                    <td><c:out value="${listMahasiswa.pendidikanayah}"></c:out></td>
                                 </tr>
                                 <tr>
-                                    <td></td>
-                                    <td><b>Pekerjaan ibu</b></td>
-                                    <td>:</td>
-                                    <td>${listMahasiswa.pendidikanibu}</td>
+                                    <td></td><td></td>
+                                    <td><b>Pendidikan ibu</b></td>
+                                    <td>&nbsp;:&nbsp;&nbsp;</td>
+                                    <td><c:out value="${listMahasiswa.pendidikanibu}"></c:out></td>
                                 </tr>
                                 <tr>
-                                    <td></td>
+                                    <td></td><td></td>
                                     <td><b>Alamat Orangtua</b></td>
-                                    <td>:</td>
-                                    <td>${listMahasiswa.alamatortu}</td>
+                                    <td>&nbsp;:&nbsp;&nbsp;</td>
+                                    <td><c:out value="${listMahasiswa.alamatortu}"></c:out></td>
                                 </tr>
                                 <tr>
-                                    <td></a></td>
+                                    <td></a></td><td></td>
                                     <td><b>Nomor Telp. Orangtua</b></td>
-                                    <td>:</td>
-                                    <td>${listMahasiswa.tlportu}</td>
+                                    <td>&nbsp;:&nbsp;&nbsp;</td>
+                                    <td><c:out value="${listMahasiswa.tlportu}"></c:out></td>
                                 </tr>
                                 <tr>
                                     <td><a href="mhs_ubahakun.htm"style="text-decoration: none;" target="_parent"><input type="button"value="Ubah Akun ?"/></a></td>
-                                    <td></td>
+                                    <td></td><td></td>
                                     <td></td>
                                     <td></td>
                                 </tr>

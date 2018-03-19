@@ -71,14 +71,13 @@
     <bean id="sidangService" class="jipi.service.impl.SidangServiceImpl"></bean>
     <bean id="kelulusanService" class="jipi.service.impl.KelulusanServiceImpl"></bean>
     <bean id="alumniService" class="jipi.service.impl.AlumniServiceImpl"></bean>
-<!--    <bean id="agamaService" class="jipi.service.impl.AgamaServiceImpl"></bean>
+    <bean id="agamaService" class="jipi.service.impl.AgamaServiceImpl"></bean><!--
 -->    <bean id="aksesService" class="jipi.service.impl.AksesServiceImpl"></bean><!--
-    <bean id="fakultasService" class="jipi.service.impl.FakultasServiceImpl"></bean>
+-->    <bean id="fakultasService" class="jipi.service.impl.FakultasServiceImpl"></bean>
     <bean id="jenkelService" class="jipi.service.impl.JenkelServiceImpl"></bean>
     <bean id="jurusanService" class="jipi.service.impl.JurusanServiceImpl"></bean>
     <bean id="mahasiswaService" class="jipi.service.impl.MahasiswaServiceImpl"></bean>
     <bean id="pendidikanService" class="jipi.service.impl.PendidikanServiceImpl"></bean>
--->    
     <bean id="userService" class="jipi.service.impl.UserServiceImpl"></bean>
     
     <bean id="proposalDao" class="jipi.dao.impl.ProposalDaoImpl"></bean>
@@ -94,5 +93,18 @@
     <bean id="pendidikanDao" class="jipi.dao.impl.PendidikanDaoImpl"></bean>
     <bean id="userDao" class="jipi.dao.impl.UserDaoImpl"></bean>
     <bean id="alumniDao" class="jipi.dao.impl.AlumniDaoImpl"></bean>
+    <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<property name="host" value="smtp.gmail.com" />
+		<property name="port" value="587" />
+		<property name="username" value="jejen.zenal96@gmail.com" />
+		<property name="password" value="zen@1212" />
+		<property name="javaMailProperties">
+			<props>
+				<prop key="mail.transport.protocol">smtp</prop>
+				<prop key="mail.smtp.auth">true</prop>
+				<prop key="mail.smtp.starttls.enable">true</prop>
+			</props>
+		</property>
+	</bean>
     
 </beans>

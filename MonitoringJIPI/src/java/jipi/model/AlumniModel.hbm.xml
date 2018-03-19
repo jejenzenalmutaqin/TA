@@ -11,12 +11,21 @@
         </id>
         <property name="nim" column="nim" length="16"/>
         <property name="kdkelulusan" column="kdkelulusan"/>
+        <property name="tglmulaikerja" column="tglmulaikerja" />
         <property name="perusahaan" column="perusahaan" />
+        <property name="emailperusahaan" column="emailperusahaan" />
         <property name="alamatperusahaan" column="alamatperusahaan" />
         <property name="daerahkerja" column="daerahkerja" />
         <property name="sektor" column="sektor"/>
         <property name="profesi" column="profesi"/>
         <property name="testimoni" column="testimoni" />
         <property name="foto" column="foto"/>
+        <property name="integritas" column="integritas"/>
+        <property name="keahlian" column="keahlian"/>
+        <property name="inggris" column="inggris"/>
+        <property name="teknologi" column="teknologi"/>
+        <property name="komunikasi" column="komunikasi"/>
+        <property name="kerjasama" column="kerjasama"/>
+        <property name="pengembangan" column="pengembangan"/>
     </class> 
 </hibernate-mapping>

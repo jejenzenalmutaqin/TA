@@ -13,13 +13,94 @@ public class AlumniModel {
     String kdalumni;
     String nim;
     String kdkelulusan;
+    String tglmulaikerja;
     String perusahaan;
+    String emailperusahaan;
     String alamatperusahaan;
     String daerahkerja;
     String sektor;
     String profesi;
     String testimoni;
     String foto;
+    String integritas;
+    String keahlian;
+    String inggris;
+    String teknologi;
+    String komunikasi;
+    String kerjasama;
+    String pengembangan;
+
+    public String getTglmulaikerja() {
+        return tglmulaikerja;
+    }
+
+    public void setTglmulaikerja(String tglmulaikerja) {
+        this.tglmulaikerja = tglmulaikerja;
+    }
+
+    public String getEmailperusahaan() {
+        return emailperusahaan;
+    }
+
+    public void setEmailperusahaan(String emailperusahaan) {
+        this.emailperusahaan = emailperusahaan;
+    }
+
+    public String getIntegritas() {
+        return integritas;
+    }
+
+    public void setIntegritas(String integritas) {
+        this.integritas = integritas;
+    }
+
+    public String getKeahlian() {
+        return keahlian;
+    }
+
+    public void setKeahlian(String keahlian) {
+        this.keahlian = keahlian;
+    }
+
+    public String getInggris() {
+        return inggris;
+    }
+
+    public void setInggris(String inggris) {
+        this.inggris = inggris;
+    }
+
+    public String getTeknologi() {
+        return teknologi;
+    }
+
+    public void setTeknologi(String teknologi) {
+        this.teknologi = teknologi;
+    }
+
+    public String getKomunikasi() {
+        return komunikasi;
+    }
+
+    public void setKomunikasi(String komunikasi) {
+        this.komunikasi = komunikasi;
+    }
+
+    public String getKerjasama() {
+        return kerjasama;
+    }
+
+    public void setKerjasama(String kerjasama) {
+        this.kerjasama = kerjasama;
+    }
+
+    public String getPengembangan() {
+        return pengembangan;
+    }
+
+    public void setPengembangan(String pengembangan) {
+        this.pengembangan = pengembangan;
+    }
 
     public String getKdalumni() {
         return kdalumni;

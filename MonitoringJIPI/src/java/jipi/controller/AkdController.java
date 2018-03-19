@@ -152,6 +152,11 @@ public class AkdController {
         return "akd_pengajuanproposal";
     }
     
+    @RequestMapping(value = "/shareProposal", method = RequestMethod.GET)
+    public String shareDataProposal(String kdproposal, ModelMap model) throws Exception{
+        return "EmailForm";
+    }
+    
     //========================================  USER  ================================================
     
     @RequestMapping(value = "/akd_datauser", method = RequestMethod.GET)

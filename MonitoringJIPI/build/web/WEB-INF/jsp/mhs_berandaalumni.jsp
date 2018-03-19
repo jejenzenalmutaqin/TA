@@ -11,7 +11,6 @@
 <!DOCTYPE html>
 <html>
     <head>
-<<<<<<< HEAD
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>MONITORING TA/SKRIPSI</title>
@@ -84,66 +83,6 @@
 
         </div><!--/.sidebar-->
         <!--        begin-content-->
-=======
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>MONITORING TA/SKRIPSI</title>
-
-<link href="css/bootstrap.min.css" rel="stylesheet">
-<link href="css/datepicker3.css" rel="stylesheet">
-<link href="css/styles.css" rel="stylesheet">
-
-<!--Icons-->
-<script src="js/lumino.glyphs.js"></script>
-
-<!--[if lt IE 9]>
-<script src="js/html5shiv.js"></script>
-<script src="js/respond.min.js"></script>
-<![endif]-->
-
-</head>
-
-<body>
-    
-    
-	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#sidebar-collapse">
-					<span class="sr-only">Toggle navigation</span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand" href="#"><span>APLIKASI MONITORING PENYUSUNAN TUGAS AKHIR/SKRIPSI</span> UNIVERSITAS NASIONAL PASIM</a>
-				<ul class="user-menu">
-					<li class="dropdown pull-right">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> Akademik <span class="caret"></span></a>
-						<ul class="dropdown-menu" role="menu">
-							<li><a href="#"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> Profile</a></li>
-							<li><a href="#"><svg class="glyph stroked gear"><use xlink:href="#stroked-gear"></use></svg> Settings</a></li>
-							<li><a href="#"><svg class="glyph stroked cancel"><use xlink:href="#stroked-cancel"></use></svg> Logout</a></li>
-						</ul>
-					</li>
-				</ul>
-			</div>
-							
-		</div><!-- /.container-fluid -->
-	</nav>
-<!--//////////////////////////////// menu bar samping kiri //////////////////////////////	-->
-	<div id="sidebar-collapse" class="col-sm-7 col-lg-2 sidebar">
-		
-		<ul class="nav menu">
-			<li><a href="mhs_index.htm"><svg class="glyph stroked dashboard-dial"><use xlink:href="#stroked-dashboard-dial"></use></svg> Home Mahasiswa</a></li>
-			<li><a href="mhs_profil.htm"><svg class="glyph stroked calendar"><use xlink:href="#stroked-calendar"></use></svg> Profil</a></li>
-			<li><a href="mhs_notifikasi.htm"><svg class="glyph stroked line-graph"><use xlink:href="#stroked-line-graph"></use></svg> Notifikasi</a></li>
-			<li class="active"><a href="berandaalumni.htm"><svg class="glyph stroked table"><use xlink:href="#stroked-table"></use></svg> Beranda Alumni</a></li>
-			<li role="presentation" class="divider"></li>
-		</ul>
-
-	</div><!--/.sidebar-->
-<!--        begin-content-->
->>>>>>> 72f51c9255b450b0b2f6c25dcc5cbfb54748eb85
         <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">			
             <div class="row">
                 <ol class="breadcrumb">
@@ -161,66 +100,54 @@
             <div class="form-group">
                 <%--<c:url var="tambahData" value="/tambahAlumni.htm"></c:url>--%>
                 <!--<div class="col-md-5"><a href="${tambahData}"><button class="btn btn-primary">TAMBAH</button></a></div>-->
-<<<<<<< HEAD
                 <script>
-                        function aktif()
-                        {
-                            document.alumni.fakultas_filter.disabled = true;
-                        }
-                        function mati()
-                        {
-                            document.alumni.fakultas_filter.disabled = false;
-                        }
-                    </script>
-                <form method="post" action="caridataalumni.htm" name="alumni">
-                    <c:set var="fakDisabled" value="false"/>
-                    <%--<c:--%>
-                    
-                    <div class="form-group">
-                        <label class="col-md-3 control-label" >Filter Berdasarakan</label>
-                        <div class="col-md-9">
-                            <div class="radio">
-                                <label>
-                                    <input type="radio" name="optionsRadios" onclick="aktif()" id="optionsRadios1" value="option1" checked>Fakultas dan Jurusan
-                                </label>
-                            </div>
-                            <div class="radio">
-                                <label>
-                                    <input type="radio" name="optionsRadios" onclick="mati()" id="optionsRadios2" value="option2">lainnya
-                                </label>
-                            </div>
+                    function fakjur()
+                    {
+                        document.alumnicarifak.fakultas.disabled = false;
+                        document.alumnicarifak.jurusan.disabled = false;
+                        document.alumnicarifak.angkatan.disabled = false;
+                        document.alumnicarifak.submitcari.disabled = false;
+                        document.alumni.cariBerdasarkan.disabled = true;
+                        document.alumni.cariKey.disabled = true;
+                        document.alumni.submitCariLainnya.disabled = true;
+                    }
+                    function lainnya()
+                    {
+                        document.alumnicarifak.fakultas.disabled = true;
+                        document.alumnicarifak.jurusan.disabled = true;
+                        document.alumnicarifak.angkatan.disabled = true;
+                        document.alumnicarifak.submitcari.disabled = true;
+                        document.alumni.cariBerdasarkan.disabled = false;
+                        document.alumni.cariKey.disabled = false;
+                        document.alumni.submitCariLainnya.disabled = false;
+                    }
+                </script>
+                <c:set var="fakDisabled" value="false"/>
+                <%--<c:--%>
+
+                <div class="form-group">
+                    <label class="col-md-3 control-label" >Filter Berdasarakan</label>
+                    <div class="col-md-9">
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="optionsRadios" onclick="fakjur()" id="optionsRadios1" value="option1" checked>Fakultas dan Jurusan
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="optionsRadios" onclick="lainnya()" id="optionsRadios2" value="option2">lainnya
+                            </label>
                         </div>
                     </div>
-
-=======
-                <form method="post" action="caridataalumni.htm">
-                    <div class="col-md-2">
-                    <select class="form-control" id="drop" name="cariBerdasarkan">
-                        <option value="1">Kode Alumni</option>
-                        <option value="2">NIM</option>
-                        <option value="3">Nama</option>
-                        <option value="4">Kode Kelulusan</option>
-                        <option value="5">Daerah Kerja</option>
-                        <option value="6">Sektor</option>
-                        <option value="7">Profesi</option>
-                        <option value="8">Semua</option>
-                    </select>
                 </div>
-                    <div class="col-md-3">
-                    <input type="text" placeholder="Masukan Kata Kunci" name="cariKey" class="form-control"><br>
->>>>>>> 72f51c9255b450b0b2f6c25dcc5cbfb54748eb85
+                <form method="post" action="caridataalumnibyjurusan.htm" name="alumnicarifak">
+                    <%--<c:param name="nim" value="${dto.nim}"></c:param>--%>
                     
-
-<!--                    <form name="contoh">
-                        <button name="tombol" type="button" value="4" onclick="test()">Coba di klik</button>	
-                        <input type="text" name="opsional" class="text" disabled="" />	    	
-                    </form>-->
-
                     <div class="form-group">
                         <label class="col-md-3 control-label" >Pilih Fakultas</label>
                         <div class="col-md-9">
-                            <select name="fakultas_filter" disabled="" id="fakultas_id" class="form-control validate validate[required]">
-                                <option value="" selected="true">-- Semua Fakultas --</option>
+                            <select name="fakultas" id="fakultas_id" class="form-control validate validate[required]">
+                                <option value="0" selected="true">-- Semua Fakultas --</option>
                                 <c:forEach var="fak"  items="${listFakultas}">
                                     <option  value="${fak.kdfakultas}">${fak.namafakultas}</option>
                                 </c:forEach>
@@ -230,8 +157,8 @@
                     <div class="form-group">
                         <label class="col-md-3 control-label" >Pilih Jurusan</label>
                         <div class="col-md-9">
-                            <select name="jurusan_filter" id="jurusan_id" class="form-control validate validate[required]">
-                                <option value="" selected="true">-- Semua Jurusan --</option>
+                            <select name="jurusan" id="jurusan_id" class="form-control validate validate[required]">
+                                <option value="0" selected="true">-- Semua Jurusan --</option>
                                 <c:forEach var="fak" items="${listJurusan}">
                                     <option value="${fak.kdjurusan}">${fak.namajurusan}</option>
                                 </c:forEach>
@@ -240,9 +167,9 @@
                     </div>
                     <div class="form-group">
                         <label class="col-md-3 control-label" >Pilih Angkatan</label>
-                        <div class="col-md-9">
-                            <select name="angkatan_filter" class="form-control validate validate[required]">
-                                <option value="" selected="true" disabled="true">-- Semua Angkatan --</option>
+                        <div class="col-md-7">
+                            <select name="angkatan" class="form-control validate validate[required]">
+                                <option value="0" selected="true">-- Semua Angkatan --</option>
                                 <option value="2002" >2002</option>
                                 <option value="2003" >2003</option>
                                 <option value="2004" >2004</option>
@@ -261,13 +188,17 @@
                                 <option value="2017" >2017</option>
                             </select>
                         </div>
+                        
+                        <div class="col-md-2">
+                            <button class="btn btn-primary" type="submit" name="submitcari">CARI</button>
+                        </div>
                     </div>
-
-
+                </form>
+                <form method="post" action="caridataalumni.htm" name="alumni">
                     <div class="form-group">
                         <label class="col-md-3 control-label" >Search By </label>
                         <div class="col-md-2">
-                            <select class="form-control" id="drop" name="cariBerdasarkan">
+                            <select class="form-control" disabled="" id="drop" name="cariBerdasarkan">
                                 <option value="1">Kode Alumni</option>
                                 <option value="2">NIM</option>
                                 <option value="3">Nama</option>
@@ -279,11 +210,14 @@
                             </select>
                         </div>
                         <div class="col-md-3">
-                            <input type="text" placeholder="Masukan Kata Kunci" name="cariKey" class="form-control"><br>
+                            <input type="text" placeholder="Masukan Kata Kunci" name="cariKey" disabled="" class="form-control"><br>
                         </div>
+                        <div class="col-md-3">
+                            <button class="btn btn-primary" type="submit" disabled="" name="submitCariLainnya">CARI</button>
+                        </div>
+                
                     </div>
-                    <div class=""><button class="btn btn-primary" type="submit">CARI</button></div>
-                </form>
+                    </form>
             </div>
             <br><br>
             <center>
@@ -307,6 +241,7 @@
                                         <th class="col-md-2 control-label">Daerah Kerja</th>
                                         <th class="col-md-2 control-label">Sektor</th>
                                         <th class="col-md-2 control-label">Profesi</th>
+                                        <th class="col-md-2 control-label">Status</th>
                                         <th style="text-align: center" colspan="2" class="col-md-3 control-label">Action</th>
                                     </tr>
 
@@ -321,16 +256,20 @@
                                             <td align="center" class="col-md-2 control-label">${listAlumni.daerahkerja}</td>
                                             <td align="center" class="col-md-2 control-label">${listAlumni.sektor}</td>
                                             <td align="center" class="col-md-2 control-label">${listAlumni.profesi}</td>
+                                            <td align="center" class="col-md-2 control-label">${listAlumni.status}</td>
 
-                                            <c:url var="hapusList" value="/hapusListAlumni.htm">
-                                                <c:param name="kdalumni" value="${listAlumni.kdalumni}"/>
-                                            </c:url>
                                             <c:url var="editList" value="/editMhsAlumni.htm">
+                                                <c:param name="nim" value="${dto.nim}"/>
                                                 <c:param name="kdalumni" value="${listAlumni.kdalumni}"/>
                                             </c:url>
-                                            <td align="center"><a href="#"><label style="color: greenyellow" class="col-md-3 control-label" >View</label></a></td>
-                                            <c:set var="nimAlumni" value="${listAlumni.nim}"/>
-                                            <c:set var="nimAlumna" value="0204151015"/>
+                                            <c:url var="viewAlumni" value="/mhs_viewAlumni.htm">
+                                                <c:param name="nim" value="${dto.nim}"/>
+                                                <c:param name="kdalumni" value="${listAlumni.kdalumni}"/>
+
+                                            </c:url>
+                                            <td align="center"><a href="${viewAlumni}"><label style="color: greenyellow" class="col-md-3 control-label" >View</label></a></td>
+                                            <%--<c:set var="nimAlumni" value="${listAlumni.nim}"/>--%>
+                                            <%--<c:set var="nimAlumna" value="0204151015"/>--%>
                                             <%--<c:if test="${nimAlumni==nimAlumna}">--%>
                                             <td align="center"><a href="${editList}"><label style="color: greenyellow" class="col-md-3 control-label" >Edit</label></a></td>
                                             <%--</c:if>--%>
@@ -366,36 +305,23 @@
         <script src="js/easypiechart-data.js"></script>
         <script src="js/bootstrap-datepicker.js"></script>
         <script type="text/javascript">
-                            !function ($) {
-                                $(document).on("click", "ul.nav li.parent > a > span.icon", function () {
-                                    $(this).find('em:first').toggleClass("glyphicon-minus");
-                                });
-                                $(".sidebar span.icon").find('em:first').addClass("glyphicon-plus");
-                            }(window.jQuery);
+                                    !function ($) {
+                                        $(document).on("click", "ul.nav li.parent > a > span.icon", function () {
+                                            $(this).find('em:first').toggleClass("glyphicon-minus");
+                                        });
+                                        $(".sidebar span.icon").find('em:first').addClass("glyphicon-plus");
+                                    }(window.jQuery);
 
-                            $(window).on('resize', function () {
-                                if ($(window).width() > 768)
-                                    $('#sidebar-collapse').collapse('show')
-                            })
-                            $(window).on('resize', function () {
-                                if ($(window).width() <= 767)
-                                    $('#sidebar-collapse').collapse('hide')
-                            })
+                                    $(window).on('resize', function () {
+                                        if ($(window).width() > 768)
+                                            $('#sidebar-collapse').collapse('show')
+                                    })
+                                    $(window).on('resize', function () {
+                                        if ($(window).width() <= 767)
+                                            $('#sidebar-collapse').collapse('hide')
+                                    })
 
-                            $("#bb").focusout(function () {// id asal
-                                var bb = $('#bb').val();
-                                $.ajax({
-                                    type: "POST",
-                                    url: "otomatisDataSiswa1.htm",
-                                    data: "banyakBulan" + bb,
-                                    success: function (response) {
-                                        $("#ket").val(response);// id yang dituju
-                                    },
-                                    error: function (e) {
-                                        alert('Error: ' + e);
-                                    }
-                                });
-                            });
+
 
         </script>	
     </body>

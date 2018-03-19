@@ -149,9 +149,21 @@
                                             </div>
                                         </div>
                                         <div class="form-group">
+                                            <label class="col-md-3 control-label" >Mulai Bekerja</label>
+                                            <div class="col-md-9">
+                                                <form:input path="tglmulaikerja" id="tg_mulaikerja" value="${dto.tglmulaikerja}" class="form-control validate validate[required]"/>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
                                             <label class="col-md-3 control-label" >Perusahaan</label>
                                             <div class="col-md-9">
-                                                <form:input path="perusahaan" id="tg_ls" value="${dto.perusahaan}" class="form-control validate validate[required]"/>
+                                                <form:input path="perusahaan" value="${dto.perusahaan}" class="form-control validate validate[required]"/>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label" >Email Perusahaan</label>
+                                            <div class="col-md-9">
+                                                <form:input path="emailperusahaan" value="${dto.emailperusahaan}" class="form-control validate validate[required]"/>
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -166,13 +178,13 @@
                                                     <form:input path="daerahkerja" value="${dto.daerahkerja}" class="form-control validate validate[required]"/>
                                             </div>
                                         </div>
-                                        <div class="form-group">
+                                        <div class="form-group" value="${dto.sektor}">
                                             <label class="col-md-3 control-label" >Sektor</label>
                                             <div class="col-md-2">
-                                                    <form:radiobutton path="sektor" value="${dto.sektor}" class="form-control"/>BUMN
+                                                    <form:radiobutton path="sektor" value="bumn" class="form-control"/>BUMN
                                             </div>
                                             <div class="col-md-2">
-                                                    <form:radiobutton path="sektor" value="${dto.sektor}" class="form-control"/>Swasta
+                                                    <form:radiobutton path="sektor" value="swasta" class="form-control"/>Swasta
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -191,6 +203,114 @@
                                             <label class="col-md-3 control-label" >Photo</label>
                                             <div class="col-md-9">
                                                 <form:input path="foto" value="${dto.foto}" class="form-control validate validate[required]"/>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label" >EVALUASI LULUSAN</label>
+                                        </div>
+                                        <div class="form-group" value="${dto.integritas}">
+                                            <label class="col-md-3 control-label" >Integritas (etika dan moral)</label>
+                                            <div class="col-md-1">
+                                                    <form:radiobutton path="integritas" value="4" class="form-control"/>Sangat Baik
+                                            </div>
+                                            <div class="col-md-1">
+                                                    <form:radiobutton path="integritas" value="3" class="form-control"/>Baik
+                                            </div>
+                                            <div class="col-md-1">
+                                                    <form:radiobutton path="integritas" value="2" class="form-control"/>Cukup
+                                            </div>
+                                            <div class="col-md-1">
+                                                    <form:radiobutton path="integritas" value="1" class="form-control"/>Kurang
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label" >Keahlian berdasarkan bidang ilmu (profesionalisme)</label>
+                                            <div class="col-md-1">
+                                                    <form:radiobutton path="keahlian" value="4" class="form-control"/>Sangat Baik
+                                            </div>
+                                            <div class="col-md-1">
+                                                    <form:radiobutton path="keahlian" value="3" class="form-control"/>Baik
+                                            </div>
+                                            <div class="col-md-1">
+                                                    <form:radiobutton path="keahlian" value="2" class="form-control"/>Cukup
+                                            </div>
+                                            <div class="col-md-1">
+                                                    <form:radiobutton path="keahlian" value="1" class="form-control"/>Kurang
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label" >Bahasa Inggris</label>
+                                            <div class="col-md-1">
+                                                    <form:radiobutton path="inggris" value="4" class="form-control"/>Sangat Baik
+                                            </div>
+                                            <div class="col-md-1">
+                                                    <form:radiobutton path="inggris" value="3" class="form-control"/>Baik
+                                            </div>
+                                            <div class="col-md-1">
+                                                    <form:radiobutton path="inggris" value="2" class="form-control"/>Cukup
+                                            </div>
+                                            <div class="col-md-1">
+                                                    <form:radiobutton path="inggris" value="1" class="form-control"/>Kurang
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label" >Penggunaan Teknologi Informasi</label>
+                                            <div class="col-md-1">
+                                                    <form:radiobutton path="teknologi" value="4" class="form-control"/>Sangat Baik
+                                            </div>
+                                            <div class="col-md-1">
+                                                    <form:radiobutton path="teknologi" value="3" class="form-control"/>Baik
+                                            </div>
+                                            <div class="col-md-1">
+                                                    <form:radiobutton path="teknologi" value="2" class="form-control"/>Cukup
+                                            </div>
+                                            <div class="col-md-1">
+                                                    <form:radiobutton path="teknologi" value="1" class="form-control"/>Kurang
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label" >Komunikasi</label>
+                                            <div class="col-md-1">
+                                                    <form:radiobutton path="komunikasi" value="4" class="form-control"/>Sangat Baik
+                                            </div>
+                                            <div class="col-md-1">
+                                                    <form:radiobutton path="komunikasi" value="3" class="form-control"/>Baik
+                                            </div>
+                                            <div class="col-md-1">
+                                                    <form:radiobutton path="komunikasi" value="2" class="form-control"/>Cukup
+                                            </div>
+                                            <div class="col-md-1">
+                                                    <form:radiobutton path="komunikasi" value="1" class="form-control"/>Kurang
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label" >Kerjasama Tim</label>
+                                            <div class="col-md-1">
+                                                    <form:radiobutton path="kerjasama" value="4" class="form-control"/>Sangat Baik
+                                            </div>
+                                            <div class="col-md-1">
+                                                    <form:radiobutton path="kerjasama" value="3" class="form-control"/>Baik
+                                            </div>
+                                            <div class="col-md-1">
+                                                    <form:radiobutton path="kerjasama" value="2" class="form-control"/>Cukup
+                                            </div>
+                                            <div class="col-md-1">
+                                                    <form:radiobutton path="kerjasama" value="1" class="form-control"/>Kurang
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label" >Pengembangan Diri</label>
+                                            <div class="col-md-1">
+                                                    <form:radiobutton path="pengembangan" value="4" class="form-control"/>Sangat Baik
+                                            </div>
+                                            <div class="col-md-1">
+                                                    <form:radiobutton path="pengembangan" value="3" class="form-control"/>Baik
+                                            </div>
+                                            <div class="col-md-1">
+                                                    <form:radiobutton path="pengembangan" value="2" class="form-control"/>Cukup
+                                            </div>
+                                            <div class="col-md-1">
+                                                    <form:radiobutton path="pengembangan" value="1" class="form-control"/>Kurang
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -279,7 +399,7 @@
     });
     $(function() {
     //$("#tg_pj").datepicker({dateFormat: 'dd-mm-yy'});
-    $( "#tg_serah" ).datepicker();
+    $( "#tg_mulaikerja" ).datepicker();
     
     });
     
