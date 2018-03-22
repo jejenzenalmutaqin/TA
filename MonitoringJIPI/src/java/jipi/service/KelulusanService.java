@@ -7,6 +7,7 @@ package jipi.service;
 
 import java.util.List;
 import jipi.dto.KelulusanDto;
+import jipi.dto.ViewKelulusanDto;
 import jipi.model.KelulusanModel;
 
 /**
@@ -21,4 +22,5 @@ public interface KelulusanService {
     public KelulusanDto updateDataForm(String kdkelulusan) throws Exception;
     public void doUpdateDataForm(KelulusanDto kelulusanDto) throws Exception;
     public List<KelulusanDto> searchKelulusan(String cariBerdasarkan, String cariKey);
+    public List<ViewKelulusanDto> getListKelulusan(ViewKelulusanDto dataFilter);
 }

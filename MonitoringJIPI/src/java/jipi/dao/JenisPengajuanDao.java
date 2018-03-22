@@ -7,6 +7,7 @@ package jipi.dao;
 
 import java.util.List;
 import jipi.model.JenisPengajuanModel;
+import jipi.model.ViewPengajuanSidangModel;
 
 /**
  *
@@ -17,4 +18,5 @@ public interface JenisPengajuanDao {
     public List<JenisPengajuanModel> getListDataJenisPengajuan();
     public void deleteDataJenisPengajuan(String kdjenispengajuan);
     public JenisPengajuanModel getJenisPengajuanById(String kdjenispengajuan) throws Exception;
+    public List<ViewPengajuanSidangModel> getListDataPengajuanSidang(String kdJenisSidang,String kdjurusan,Integer Angkatan);
 }

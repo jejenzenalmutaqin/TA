@@ -10,9 +10,11 @@ import java.util.List;
 import javax.transaction.Transactional;
 import jipi.dao.KelulusanDao;
 import jipi.dto.KelulusanDto;
+import jipi.dto.ViewKelulusanDto;
 import jipi.model.KelulusanModel;
 import jipi.model.MahasiswaModel;
 import jipi.model.SidangModel;
+import jipi.model.ViewKelulusanModel;
 import jipi.service.KelulusanService;
 import jipi.service.MahasiswaService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -208,4 +210,50 @@ public class KelulusanServiceImpl implements KelulusanService{
         return listKelulusanDto; 
     }
     
+    @Override
+    public List<ViewKelulusanDto> getListKelulusan(ViewKelulusanDto dataFilter) {
+        
+        Integer fAngkatan=dataFilter.getAngkatan();
+        String fJurusan=dataFilter.getKdjurusan();
+        
+        List<ViewKelulusanModel> dataList = kelulusanDao.getListDataKelulusan(fJurusan, fAngkatan);
+        List<ViewKelulusanDto> ListData = new ArrayList<>();
+        if(dataList != null){
+            for (ViewKelulusanModel ddm : dataList) { 
+                ViewKelulusanDto dto= new ViewKelulusanDto();
+                if(ddm.getNim()!= null){
+                    dto.setNim((String) ddm.getNim());
+                }
+                if(ddm.getNamamahasiswa() !=null){
+                    dto.setNamamahasiswa((String)ddm.getNamamahasiswa());
+                }
+                if(ddm.getJudulproposal() != null){
+                    dto.setJudulproposal((String) ddm.getJudulproposal());
+                }
+                if(ddm.getTgllulus()!= null){
+                    dto.setTgllulus((String) ddm.getTgllulus());
+                }
+                if(ddm.getRevisi()!=null){
+                    dto.setRevisi((String) ddm.getRevisi());
+                }
+                if(ddm.getMulairevisi()!= null){
+                    dto.setMulairevisi((String) ddm.getMulairevisi());
+                }
+                if(ddm.getAkhirrevisi()!=null){
+                    dto.setAkhirrevisi((String) ddm.getAkhirrevisi());
+                }
+                if(ddm.getNamajurusan() != null){
+                    dto.setNamajurusan((String) ddm.getNamajurusan());
+                }
+                if(ddm.getPenyerahanrevisi()!=null){
+                    dto.setPenyerahanrevisi((String) ddm.getPenyerahanrevisi());
+                }
+                if(ddm.getIpk()!= null){
+                    dto.setIpk((Double) ddm.getIpk());
+                }
+                ListData.add(dto);
+            }
+        }
+        return ListData;
+    }
 }

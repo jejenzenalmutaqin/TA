@@ -7,6 +7,7 @@ package jipi.dao;
 
 import java.util.List;
 import jipi.model.AlumniModel;
+import jipi.model.ViewAlumniModel;
 
 /**
  *
@@ -22,4 +23,5 @@ public interface AlumniDao {
     public List<Object[]> getListCariDataAlumniNativeQuery(String cariBerdasarkan, String cariKey);
     public List<Object[]> getListDataAlumniNativeQuery(String kdalumni);
     public List<Object[]> getListCariDataAlumniByJurusan(String fakultas, String jurusan, String angkatan);
+    public List<ViewAlumniModel> getListDataAlumni(String jurusan,Integer angkatan);
 }

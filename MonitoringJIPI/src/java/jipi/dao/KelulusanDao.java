@@ -7,6 +7,7 @@ package jipi.dao;
 
 import java.util.List;
 import jipi.model.KelulusanModel;
+import jipi.model.ViewKelulusanModel;
 
 /**
  *
@@ -20,4 +21,5 @@ public interface KelulusanDao {
     public List<KelulusanModel> getListKelulusanUpdate(String kdkelulusan);
     public void updateKelulusan(KelulusanModel kelulusanModel);
     public List<Object[]> getListCariDataKelulusanNativeQuery(String cariBerdasarkan, String cariKey);
+    public List<ViewKelulusanModel> getListDataKelulusan(String fJurusan,Integer fAngkatan);
 }

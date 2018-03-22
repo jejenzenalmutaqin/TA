@@ -7,6 +7,7 @@ package jipi.service;
 
 import java.util.List;
 import jipi.dto.ProposalDto;
+import jipi.dto.viewPengajuanProposalDto;
 import jipi.model.ProposalModel;
 
 /**
@@ -22,4 +23,5 @@ public interface ProposalService {
     public void doUpdateDataForm(ProposalDto proposalDto) throws Exception;
     public void createAkun(ProposalDto proposalDto);
     public List<ProposalDto> searchProposal(String cariBerdasarkan, String cariKey);
+    public List<viewPengajuanProposalDto> getDataForViewProposal(viewPengajuanProposalDto data);
 }

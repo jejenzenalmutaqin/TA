@@ -11,8 +11,10 @@ import javax.transaction.Transactional;
 import jipi.dao.AlumniDao;
 import jipi.dto.AlumniDto;
 import jipi.dto.AlumniViewDto;
+import jipi.dto.ViewAlumniDto;
 import jipi.model.AlumniModel;
 import jipi.model.MahasiswaModel;
+import jipi.model.ViewAlumniModel;
 import jipi.service.AlumniService;
 import jipi.service.MahasiswaService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -536,4 +538,57 @@ public class AlumniServiceImpl implements AlumniService{
         }
         return listAlumniDto;
     }
+    
+    @Override
+    public List<ViewAlumniDto> getListPengajuanSidang(ViewAlumniDto dataFilter) {
+        
+        Integer angkatan=dataFilter.getAngkatan();
+        String jurusan=dataFilter.getKdjurusan();
+        
+        
+        List<ViewAlumniModel> dataList = alumniDao.getListDataAlumni(jurusan,angkatan);
+        List<ViewAlumniDto> ListData = new ArrayList<>();
+        if(dataList != null){
+            for (ViewAlumniModel ddm : dataList) { 
+                ViewAlumniDto dto= new ViewAlumniDto();
+                if(ddm.getNim()!= null){
+                    dto.setNim((String) ddm.getNim());
+                }
+                if(ddm.getNamamahasiswa() !=null){
+                    dto.setNamamahasiswa((String)ddm.getNamamahasiswa());
+                }
+                if(ddm.getNamafakultas() != null){
+                    dto.setNamafakultas((String) ddm.getNamafakultas());
+                }
+                if(ddm.getTgllulus()!= null){
+                    dto.setTgllulus((String) ddm.getTgllulus());
+                }
+                if(ddm.getAngkatan()!=null){
+                    dto.setAngkatan((Integer) ddm.getAngkatan());
+                }
+                if(ddm.getPerusahaan()!=null){
+                    dto.setPerusahaan((String) ddm.getPerusahaan());
+                }
+                if(ddm.getIpk()!= 0){
+                    dto.setIpk((double) ddm.getIpk());
+                }
+                if(ddm.getProfesi()!=null){
+                    dto.setProfesi((String) ddm.getProfesi());
+                }
+                if(ddm.getAlamatperusahaan()!= null){
+                    dto.setAlamatperusahaan((String) ddm.getAlamatperusahaan());
+                }
+                if(ddm.getSektor()!=null){
+                    dto.setSektor((String) ddm.getSektor());
+                }
+                if(ddm.getTgllulus()!= null){
+                    dto.setTgllulus((String) ddm.getTgllulus());
+                }
+                ListData.add(dto);
+            }
+        }
+        return ListData;
+
+    }
+    
 }

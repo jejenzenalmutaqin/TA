@@ -8,6 +8,7 @@ package jipi.dao.impl;
 import java.util.List;
 import jipi.dao.ProposalDao;
 import jipi.model.ProposalModel;
+import jipi.model.viewDosenmodel;
 import org.hibernate.Query;
 
 /**
@@ -92,4 +93,28 @@ public class ProposalDaoImpl extends HibernateUtil implements ProposalDao{
         return dataList;
     }
     
+    @Override
+    public List<viewDosenmodel> getListViewDataProposal(String jenispengajuan,String Jurusan,Integer angkatan) {
+        List<viewDosenmodel> dataList = null;
+        String sql = "select mhs.nim,mhs.namamahasiswa,proposal.judulproposal,jenis.namajenispengajuan, " +
+            "proposal.perubahanjudul,proposal.skssudahtempuh,proposal.tglpengajuanproposal, " +
+            "proposal.dosenpembimbing,jur.namajurusan,fak.namafakultas " +
+            "from MahasiswaModel mhs , " +
+            "ProposalModel as proposal, " +
+            "JurusanModel as jur, " +
+            "FakultasModel as fak, " +
+            "JenisPengajuanModel as jenis " +
+            "where mhs.nim= proposal.nim " +
+            "and mhs.kdjurusan=jur.kdjurusan " +
+            "and jur.kdfakultas=fak.kdfakultas " +
+            "and jenis.kdjenispengajuan=proposal.kdjenisproposal"
+                + "where mhs.angkatan= ? "
+                + "and jenis.namajenispengajuan like '%?%'"
+                + "and mhs.kdjurusan=?";
+        Query query = createQuery(sql).setParameter(0, angkatan)
+                .setString(1, jenispengajuan)
+                .setString(2, Jurusan);        
+        dataList = query.list();
+        return dataList;
+    }
 }

@@ -7,6 +7,7 @@ package jipi.service;
 
 import java.util.List;
 import jipi.dto.JenisPengajuanDto;
+import jipi.dto.ViewPengajuanSidangDosenDto;
 import jipi.model.JenisPengajuanModel;
 
 /**
@@ -19,4 +20,5 @@ public interface JenisPengajuanService {
     public void deleteDataJenisPengajuan(String kdjenispengajuan) throws Exception;
     public JenisPengajuanModel getJenisPengajuanById(String kdjenispengajuan);
     public String getNamaJenisPengajuan(String kdjenispengajuan);
+    public List<ViewPengajuanSidangDosenDto> getListPengajuanSidang(ViewPengajuanSidangDosenDto dataFilter);
 }

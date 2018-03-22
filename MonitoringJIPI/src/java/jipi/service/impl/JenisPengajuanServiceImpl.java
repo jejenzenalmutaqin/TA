@@ -10,7 +10,9 @@ import java.util.List;
 import javax.transaction.Transactional;
 import jipi.dao.JenisPengajuanDao;
 import jipi.dto.JenisPengajuanDto;
+import jipi.dto.ViewPengajuanSidangDosenDto;
 import jipi.model.JenisPengajuanModel;
+import jipi.model.ViewPengajuanSidangModel;
 import jipi.service.JenisPengajuanService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -75,6 +77,71 @@ public class JenisPengajuanServiceImpl implements JenisPengajuanService{
             e.printStackTrace();
         }
         return tamp;
+    }
+    
+    @Override
+    public List<ViewPengajuanSidangDosenDto> getListPengajuanSidang(ViewPengajuanSidangDosenDto dataFilter) {
+        
+         String filterPengajuan=dataFilter.getKdproposal();
+         String filterjurusan=dataFilter.getKdjurusan();
+         Integer filterAngkatan=(dataFilter.getAngkatan());
+         String pengajuan="";
+         
+         if(filterPengajuan.equals("1")){
+             pengajuan = "Tugas Akhir";
+         }else if(filterPengajuan.equals("2")){
+             pengajuan= "Skripsi";
+         }else if(filterPengajuan.equals("3")){
+             pengajuan= "Usulan penelitian";
+         }else if(filterPengajuan.equals("")){
+             pengajuan= "";
+         }
+        
+        List<ViewPengajuanSidangModel> dataList = jenisPengajuanDao.getListDataPengajuanSidang(pengajuan,filterjurusan,filterAngkatan);
+        List<ViewPengajuanSidangDosenDto> ListData = new ArrayList<>();
+        if(dataList != null){
+            for (ViewPengajuanSidangModel ddm : dataList) { 
+                ViewPengajuanSidangDosenDto dto= new ViewPengajuanSidangDosenDto();
+                if(ddm.getNim()!= null){
+                    dto.setNim((String) ddm.getNim());
+                }
+                if(ddm.getNamamahasiswa() !=null){
+                    dto.setNamamahasiswa((String)ddm.getNamamahasiswa());
+                }
+                if(ddm.getJudulproposal() != null){
+                    dto.setJudulproposal((String) ddm.getJudulproposal());
+                }
+                if(ddm.getNamajenispengajuan()!=null){
+                    dto.setNamajenispengajuan((String) ddm.getNamajenispengajuan());
+                }
+                if(ddm.getTglpengajuansidang()!= null){
+                    dto.setTglpengajuansidang((String) ddm.getTglpengajuansidang());
+                }
+                if(ddm.getTglsidang()!=null){
+                    dto.setTglsidang((String) ddm.getTglsidang());
+                }
+                if(ddm.getPenelaah1()!= null){
+                    dto.setPenelaah1((String) ddm.getPenelaah1());
+                }
+                if(ddm.getPenelaah2() !=null){
+                    dto.setPenelaah2((String) ddm.getPenelaah2());
+                }
+                if(ddm.getNamajurusan() != null){
+                    dto.setNamajurusan((String) ddm.getNamajurusan());
+                }
+                if(ddm.getWakilfakultas()!=null){
+                    dto.setWakilfakultas((String) ddm.getWakilfakultas());
+                }
+                if(ddm.getJamsidang()!= null){
+                    dto.setJamsidang((String) ddm.getJamsidang());
+                }
+                if(ddm.getRuangansidang()!=null){
+                    dto.setRuangansidang((String) ddm.getRuangansidang());
+                }
+                ListData.add(dto);
+            }
+        }
+        return ListData;
     }
     
 }

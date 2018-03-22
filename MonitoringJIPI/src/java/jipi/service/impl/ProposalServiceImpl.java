@@ -11,10 +11,12 @@ import javax.transaction.Transactional;
 import jipi.dao.ProposalDao;
 import jipi.dao.UserDao;
 import jipi.dto.ProposalDto;
+import jipi.dto.viewPengajuanProposalDto;
 import jipi.model.JenisPengajuanModel;
 import jipi.model.MahasiswaModel;
 import jipi.model.ProposalModel;
 import jipi.model.UserModel;
+import jipi.model.viewDosenmodel;
 import jipi.service.JenisPengajuanService;
 import jipi.service.MahasiswaService;
 import jipi.service.ProposalService;
@@ -271,4 +273,61 @@ public class ProposalServiceImpl implements ProposalService{
         return listProposalDto;
     }
     
+    @Override
+    public List<viewPengajuanProposalDto> getDataForViewProposal(viewPengajuanProposalDto dataParam) {
+         String filterPengajuan=dataParam.getJenisPengajuan();
+         String filterjurusan=dataParam.getJurusan();
+         Integer filterAngkatan=Integer.parseInt(dataParam.getAngkatan());
+         String pengajuan="";
+         
+         if(filterPengajuan.equals("1")){
+             pengajuan = "Tugas Akhir";
+         }else if(filterPengajuan.equals("2")){
+             pengajuan= "Skripsi";
+         }else if(filterPengajuan.equals("3")){
+             pengajuan= "Usulan penelitian";
+         }else if(filterPengajuan.equals("")){
+             pengajuan= "";
+         }
+         
+         List<viewDosenmodel> dataList = proposalDao.getListViewDataProposal(pengajuan,filterjurusan,filterAngkatan);
+         List<viewPengajuanProposalDto> ListData = new ArrayList<>();
+        if(dataList != null){
+            for (viewDosenmodel ddm : dataList) { 
+                viewPengajuanProposalDto dto= new viewPengajuanProposalDto();
+                if(ddm.getNim()!= null){
+                    dto.setNim((String) ddm.getNim());
+                }
+                if(ddm.getNamamahasiswa() !=null){
+                    dto.setNama((String)ddm.getNamamahasiswa());
+                }
+                if(ddm.getJudulproposal() != null){
+                    dto.setJudul((String) ddm.getJudulproposal());
+                }
+                if(ddm.getNamajenispengajuan()!=null){
+                    dto.setJenisPengajuan((String) ddm.getNamajenispengajuan());
+                }
+                if(ddm.getPerubahanjudul() != null){
+                    dto.setPerubahanJudul((String) ddm.getPerubahanjudul());
+                }
+                if(ddm.getSkssudahtempuh() !=null){
+                    dto.setSks((Integer) ddm.getSkssudahtempuh());
+                }
+                if(ddm.getTglpengajuanproposal() != null){
+                    dto.setTglPengajuan((String) ddm.getTglpengajuanproposal());
+                }
+                if(ddm.getDosenpembimbing() !=null){
+                    dto.setPembimbing((String) ddm.getDosenpembimbing());
+                }
+                if(ddm.getNamajurusan() != null){
+                    dto.setJurusan((String) ddm.getNamajurusan());
+                }
+                if(ddm.getNamafakultas() !=null){
+                    dto.setFakultas((String) ddm.getNamafakultas());
+                }
+                ListData.add(dto);
+            }
+        }
+        return ListData;
+    }
 }

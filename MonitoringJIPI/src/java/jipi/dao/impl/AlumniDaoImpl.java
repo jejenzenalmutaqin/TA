@@ -8,6 +8,7 @@ package jipi.dao.impl;
 import java.util.List;
 import jipi.dao.AlumniDao;
 import jipi.model.AlumniModel;
+import jipi.model.ViewAlumniModel;
 import org.hibernate.Query;
 
 /**
@@ -134,5 +135,30 @@ public class AlumniDaoImpl extends HibernateUtil implements AlumniDao {
         Query query = createNativeQuery(sql);
         dataList = query.list();
         return dataList;
+    }
+    
+    @Override
+    public List<ViewAlumniModel> getListDataAlumni(String jurusan,Integer angkatan) {
+        List<ViewAlumniModel> data=null;
+        String sql="select mhs.nim,mhs.namamahasiswa,alumni.perusahaan,alumni.alamatperusahaan, " +
+            "	alumni.sektor,alumni.profesi,lulus.ipk, " +
+            "	mhs.angkatan,fak.namafakultas " +
+            "from alumni_tbl alumni " +
+            "inner join  mst_mahasiswa mhs " +
+            "	on alumni.nim=mhs.nim " +
+            "inner join kelulusan_tbl lulus " +
+            "	on mhs.nim=lulus.nim " +
+            "inner join mst_jurusan jur " +
+            "	on mhs.kdjurusan=jur.kdjurusan " +
+            "inner join mst_fakultas fak " +
+            "	on jur.kdfakultas=fak.kdfakultas " +
+            "where mhs.angkatan=? "+
+            "and mhs.kdjurusan=?" +
+            "	group by alumni.daerahkerja";
+        Query query = createNativeQuery(sql)
+                .setString(0, jurusan)
+                .setParameter(1, angkatan);        
+        data = query.list();
+        return data;
     }
 }

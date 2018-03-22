@@ -8,6 +8,7 @@ package jipi.dao.impl;
 import java.util.List;
 import jipi.dao.KelulusanDao;
 import jipi.model.KelulusanModel;
+import jipi.model.ViewKelulusanModel;
 import org.hibernate.Query;
 
 /**
@@ -94,4 +95,23 @@ public class KelulusanDaoImpl extends HibernateUtil implements KelulusanDao{
         return dataList;
     }
     
+    @Override
+    public List<ViewKelulusanModel> getListDataKelulusan(String fJurusan,Integer fAngkatan) {
+        List<ViewKelulusanModel> data=null;
+        String sql="select mhs.nim,mhs.namamahasiswa,proposal.judulproposal,jur.namajurusan,lulus.* " +
+            "from mst_mahasiswa mhs " +
+            "inner join kelulusan_tbl lulus " +
+            "	on mhs.nim = lulus.nim " +
+            "inner join mst_jurusan jur " +
+            "	on mhs.kdjurusan=jur.kdjurusan " +
+            "inner join pengajuanproposal_tbl proposal " +
+            "	on mhs.nim=proposal.nim " +
+            "Where jur.kdjurusan=? " +
+            "and mhs.angkatan=?";
+        Query query = createNativeQuery(sql)
+                .setString(0, fJurusan)
+                .setParameter(1, fAngkatan);        
+        data = query.list();
+        return data;
+    }
 }

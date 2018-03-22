@@ -7,6 +7,7 @@ package jipi.dao;
 
 import java.util.List;
 import jipi.model.ProposalModel;
+import jipi.model.viewDosenmodel;
 
 /**
  *
@@ -20,4 +21,5 @@ public interface ProposalDao {
     public List<ProposalModel> getListProposalUpdate(String kdproposal);
     public void updateProposal(ProposalModel proposalModel);
     public List<Object[]> getListCariDataProposalNativeQuery(String cariBerdasarkan, String cariKey);
+    public List<viewDosenmodel> getListViewDataProposal(String jenisPengajuan,String jurusan,Integer angkatan);
 }

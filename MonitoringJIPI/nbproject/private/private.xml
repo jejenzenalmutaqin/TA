@@ -12,9 +12,28 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/OK/19032018/MonitoringJIPI/web/WEB-INF/jsp/mhs_berandaalumni.jsp</file>
-            <file>file:/D:/OK/19032018/MonitoringJIPI/src/java/jipi/dao/impl/AlumniDaoImpl.java</file>
-            <file>file:/D:/OK/19032018/MonitoringJIPI/src/java/jipi/dao/AlumniDao.java</file>
+            <file>file:/E:/Data/TA/rev2.13/TA/MonitoringJIPI/src/java/jipi/controller/LoginController.java</file>
+            <file>file:/E:/Data/TA/rev2.13/TA/MonitoringJIPI/src/java/jipi/service/impl/AlumniServiceImpl.java</file>
+            <file>file:/E:/Data/TA/rev2.13/TA/MonitoringJIPI/src/java/jipi/dao/KelulusanDao.java</file>
+            <file>file:/E:/Data/TA/rev2.13/TA/MonitoringJIPI/src/java/jipi/dao/AlumniDao.java</file>
+            <file>file:/E:/Data/TA/rev2.13/TA/MonitoringJIPI/src/java/jipi/service/JenisPengajuanService.java</file>
+            <file>file:/E:/Data/TA/rev2.13/TA/MonitoringJIPI/src/java/jipi/dao/impl/AlumniDaoImpl.java</file>
+            <file>file:/E:/Data/TA/rev2.13/TA/MonitoringJIPI/src/java/jipi/dao/impl/KelulusanDaoImpl.java</file>
+            <file>file:/E:/Data/TA/rev2.13/TA/MonitoringJIPI/src/java/jipi/service/impl/JenisPengajuanServiceImpl.java</file>
+            <file>file:/E:/Data/TA/rev2.13/TA/MonitoringJIPI/src/java/jipi/controller/DsnController.java</file>
+            <file>file:/E:/Data/TA/rev2.13/TA/MonitoringJIPI/src/java/jipi/service/AksesService.java</file>
+            <file>file:/E:/Data/TA/rev2.13/TA/MonitoringJIPI/src/java/jipi/service/ProposalService.java</file>
+            <file>file:/E:/Data/TA/rev2.13/TA/MonitoringJIPI/src/java/jipi/dao/JenisPengajuanDao.java</file>
+            <file>file:/E:/Data/TA/rev2.13/TA/MonitoringJIPI/src/java/jipi/service/KelulusanService.java</file>
+            <file>file:/E:/Data/TA/rev2.13/TA/MonitoringJIPI/src/java/jipi/dao/impl/ProposalDaoImpl.java</file>
+            <file>file:/E:/Data/TA/rev2.13/TA/MonitoringJIPI/src/java/jipi/service/impl/ProposalServiceImpl.java</file>
+            <file>file:/E:/Data/TA/rev2.13/TA/MonitoringJIPI/src/java/jipi/dao/impl/JenisPengajuanDaoImpl.java</file>
+            <file>file:/E:/Data/TA/rev2.13/TA/MonitoringJIPI/src/java/jipi/dao/ProposalDao.java</file>
+            <file>file:/E:/Data/TA/rev2.13/TA/MonitoringJIPI/src/java/jipi/service/AlumniService.java</file>
+            <file>file:/E:/Data/TA/rev2.13/TA/MonitoringJIPI/src/java/jipi/service/UserService.java</file>
+            <file>file:/E:/Data/TA/rev2.13/TA/MonitoringJIPI/src/java/jipi/dao/impl/UserDaoImpl.java</file>
+            <file>file:/E:/Data/TA/rev2.13/TA/MonitoringJIPI/src/java/jipi/service/impl/UserServiceImpl.java</file>
+            <file>file:/E:/Data/TA/rev2.13/TA/MonitoringJIPI/src/java/jipi/service/impl/KelulusanServiceImpl.java</file>
         </group>
     </open-files>
 </project-private>
