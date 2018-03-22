@@ -81,7 +81,7 @@ public class LoginController {
                     
                 }else if(userDto.getAkses().toString().equals("4")){
                     //sementara, harusnya masuk dsn_index
-                    panggil= "akd_index";
+                    panggil= "dsn_index";
                 }
             }else{
                 System.out.println("masuk else");
