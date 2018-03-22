@@ -7,6 +7,7 @@ package jipi.service.impl;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import javax.transaction.Transactional;
 import jipi.dao.AlumniDao;
 import jipi.dto.AlumniDto;
@@ -35,7 +36,7 @@ public class AlumniServiceImpl implements AlumniService{
     public void saveDataAlumni(AlumniDto alumniDto) throws Exception {
         AlumniModel dataModel = new AlumniModel();
         
-        dataModel.setKdalumni(alumniDto.getKdalumni());
+        dataModel.setKdalumni("A"+generateKode());
         dataModel.setNim(alumniDto.getNim());
         dataModel.setKdkelulusan(alumniDto.getKdkelulusan());
         dataModel.setTglmulaikerja(alumniDto.getTglmulaikerja());
@@ -535,5 +536,89 @@ public class AlumniServiceImpl implements AlumniService{
             }
         }
         return listAlumniDto;
+    }
+
+    @Override
+    public List<AlumniDto> getListDataAlumniByFilterForReport(String fakultas_filter, String jurusan_filter, String angkatan_filter) {
+        List<AlumniDto> listAlumniDto = new ArrayList();
+        List<Object[]> listDataObject = alumniDao.getListDataAlumniForReport(fakultas_filter, jurusan_filter, angkatan_filter);
+        if (listDataObject != null) {
+            for (Object[] object : listDataObject) {
+                AlumniDto dto = new AlumniDto();
+                MahasiswaModel mm = new MahasiswaModel();
+                if (object[0] != null) {
+                    dto.setKdalumni(object[0].toString());
+                }
+                if (object[1] != null) {
+                    dto.setNim(object[1].toString());
+                }
+                if (object[2] != null) {
+                    dto.setKdkelulusan(object[1].toString());
+                    mm = mahasiswaService.getMahasiswaById(object[1].toString());
+                    dto.setKdkelulusan(mm.getNamamahasiswa());
+                } else {
+                    mm = mahasiswaService.getMahasiswaById(object[1].toString());
+                    dto.setKdkelulusan(mm.getNamamahasiswa());
+                }
+                if (object[3] != null) {
+                    dto.setPerusahaan(object[3].toString());
+                }
+                if (object[4] != null) {
+                    dto.setAlamatperusahaan(object[4].toString());
+                }
+                if (object[5] != null) {
+                    dto.setDaerahkerja(object[5].toString());
+                }
+                if (object[6] != null) {
+                    dto.setSektor(object[6].toString());
+                }
+                if (object[7] != null) {
+                    dto.setProfesi(object[7].toString());
+                }
+                if (object[8] != null) {
+                    dto.setTestimoni(object[8].toString());
+                }
+                
+                if (object[9] != null) {
+                    dto.setTglmulaikerja(object[9].toString());
+                }
+                if (object[10] != null) {
+                    dto.setEmailperusahaan(object[10].toString());
+                }
+                if (object[11] != null) {
+                    dto.setIntegritas(object[11].toString());
+                }
+                if (object[12] != null) {
+                    dto.setKeahlian(object[12].toString());
+                }
+                if (object[13] != null) {
+                    dto.setInggris(object[13].toString());
+                }
+                if (object[14] != null) {
+                    dto.setTeknologi(object[14].toString());
+                }
+                if (object[15] != null) {
+                    dto.setKomunikasi(object[15].toString());
+                }
+                if (object[16] != null) {
+                    dto.setKerjasama(object[16].toString());
+                }
+                if (object[17] != null) {
+                    dto.setPengembangan(object[17].toString());
+                }
+                listAlumniDto.add(dto);
+            }
+        }
+        return listAlumniDto;
+    }
+    
+    public String generateKode(){
+        Random random = new Random();
+        char[] kode = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890".toCharArray();
+        String tamp="";
+        for (int lenght = 0; lenght < 7; lenght++) {
+            tamp+= kode[random.nextInt(kode.length)];
+        }
+        return tamp;
     }
 }

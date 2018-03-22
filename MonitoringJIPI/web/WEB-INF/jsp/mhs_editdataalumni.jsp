@@ -109,7 +109,7 @@
                             <div class="panel-body">
                                 <c:set var="nimTampung" value="${dto.nim}"/>
                                 <c:out value="${nimTampung}"/>
-                                <form:form class="form-horizontal" id="formEditAlumni" action="editAlumniMhs.htm" method="post" modelAttribute="alumniDto">
+                                <form:form class="form-horizontal" id="formEditAlumni" action="editAlumniMhs.htm" method="post" modelAttribute="alumniDto" enctype="multipart/form-data">
                                     <form:hidden path="integritas" value="${alumniDto.integritas}"/>
                                     <form:hidden path="keahlian" value="${alumniDto.keahlian}"/>
                                     <form:hidden path="inggris" value="${alumniDto.inggris}"/>
@@ -187,7 +187,27 @@
                                         <div class="form-group">
                                             <label class="col-md-3 control-label" >Photo</label>
                                             <div class="col-md-9">
-                                                <form:input path="foto" value="${alumniDto.foto}" class="form-control validate validate[required]"/>
+                                                <form:input path="foto" id="namafoto" value="${alumniDto.foto}" class="form-control validate validate[required]"/>
+                                            </div>
+                                        </div>
+                                        <script>
+                                            function isi()
+                                            {
+                                                //                                             document.getElementById('file').value;
+                                                //                                            alert("haiiii : " + document.getElementById('file').value);
+                                                var files = document.getElementById("file").files;
+
+                                                for (var i = 0; i < files.length; i++)
+                                                {
+                                                    document.getElementById('namafoto').value = files[i].name;
+                                                }
+                                            }
+
+                                        </script>
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label" >Pilih Photo</label>
+                                            <div class="col-md-2">
+                                                <form:input type="file" id="file" path="file" onchange="isi()" />                        
                                             </div>
                                         </div>
                                         <div class="form-group">

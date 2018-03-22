@@ -30,39 +30,48 @@
         <div class="row">
             <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4">
                 <div class="login-panel panel panel-default">
-                    <div class="panel-heading">Log in</div>
+                    <div class="panel-heading" style="color: #2aabd2; text-align: center">LOGIN</div>
                     <div class="panel-body">
-                        <form:form class="form-horizontal" id="formUser" action="loginUser.htm" method="post" modelAttribute="dto">
-                            <fieldset>
-                                <div class="form-group">
-                                    <div class="col-md-13">
-                                        <form:select path="akses" class="form-control" id="drop" name="#">
-                                            <option value="0"  selected="true" disabled="true">- Pilih User -</option>
-                                            <option value="1">Akademik</option>
-                                            <option value="4">Dosen</option>
-                                            <option value="5">Mahasiswa</option>
-                                        </form:select>
+                        <center>
+                            <form:form class="form-horizontal" id="formUser" action="loginUser.htm" method="post" modelAttribute="dto">
+                                <fieldset>
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label" style="color: #2aabd2">Pilih User</label>
+                                        <div class="col-md-8">
+                                            <form:select path="akses" class="form-control" id="drop" name="#">
+                                                <option value="0"  selected="true" disabled="true">- Pilih User -</option>
+                                                <option value="1">Akademik</option>
+                                                <option value="4">Dosen</option>
+                                                <option value="5">Mahasiswa</option>
+                                            </form:select>
+                                        </div>
                                     </div>
-                                </div>
-                                
-                                <div class="form-group">
-                                    <form:input path="username" class="form-control" placeholder="Username" name="username" type="username" autofocus=""/>
-                                </div>
-                                <div class="form-group">
-                                    <form:input path="password" class="form-control" placeholder="Password" name="password" type="password" value=""/>
-                                </div>
+
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label" style="color: #2aabd2">Username</label>
+                                        <div class="col-md-8">
+                                            <form:input path="username" class="form-control" placeholder="Username" name="username" type="username" autofocus=""/>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label" style="color: #2aabd2">Password</label>
+                                        <div class="col-md-8">
+                                            <form:input path="password" class="form-control" placeholder="Password" name="password" type="password" value=""/>
+                                        </div>
+                                    </div>
                                     <form:hidden path="kduser" value="-"/>
                                     <form:hidden path="nim" value="-"/>
                                     <form:hidden path="nip" value="-"/>
                                     <%--<form:hidden path="keterangan" value="-"/>--%>
-                                <div class="checkbox">
-                                    <label>
-                                        <input name="remember" type="checkbox" value="Remember Me">Remember Me
-                                    </label>
-                                </div>
-                                <input type="submit" class="btn btn-primary btn-md pull-right"  id="sbm" value="Login" />
-                            </fieldset>
-                        </form:form>
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label" style="color: #2aabd2"></label>
+                                        <div class="col-md-8 widget-right">
+                                        <input type="submit" class="btn btn-primary form-control"  id="sbm" value="Login" />
+                                        </div>
+                                        </div>
+                                </fieldset>
+                            </form:form>
+                        </center>
                     </div>
                 </div>
             </div><!-- /.col-->

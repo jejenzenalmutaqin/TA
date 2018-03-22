@@ -22,4 +22,5 @@ public interface AlumniDao {
     public List<Object[]> getListCariDataAlumniNativeQuery(String cariBerdasarkan, String cariKey);
     public List<Object[]> getListDataAlumniNativeQuery(String kdalumni);
     public List<Object[]> getListCariDataAlumniByJurusan(String fakultas, String jurusan, String angkatan);
+    public List<Object[]> getListDataAlumniForReport(String fakultas_filter, String jurusan_filter,String angkatan_filter);
 }

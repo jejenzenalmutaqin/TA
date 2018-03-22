@@ -7,6 +7,7 @@ package jipi.service.impl;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import javax.transaction.Transactional;
 import jipi.dao.SidangDao;
 import jipi.dto.SidangDto;
@@ -46,7 +47,7 @@ public class SidangServiceImpl implements SidangService{
     public void saveDataSidang(SidangDto sidangDto) throws Exception {
         SidangModel dataModel = new SidangModel();
         
-        dataModel.setKdsidang(sidangDto.getKdsidang());
+        dataModel.setKdsidang("S"+generateKode());
         dataModel.setKdjenissidang(sidangDto.getKdjenissidang());
         dataModel.setNim(sidangDto.getNim());
         dataModel.setKdproposal(sidangDto.getKdproposal());
@@ -255,6 +256,73 @@ public class SidangServiceImpl implements SidangService{
             }
         }
         return listSidangDto;   
+    }
+
+    @Override
+    public List<SidangDto> getListDataSidangByFilterForReport(String fakultas_filter, String jurusan_filter, String jenis_filter, String angkatan_filter, String urut_filter) {
+        List<SidangDto> listSidangDto = new ArrayList();
+        List<Object[]> listDataObject = sidangDao.getListDataSidangForReport(fakultas_filter, jurusan_filter, jenis_filter, angkatan_filter, urut_filter);
+        if (listDataObject != null){
+            for (Object[] object : listDataObject){
+                SidangDto dto = new SidangDto();
+                JenisPengajuanModel jm = new JenisPengajuanModel();
+                MahasiswaModel mm = new MahasiswaModel();
+                if (object[0] != null){
+                    dto.setKdsidang(object[0].toString());
+                }
+                if (object[1] != null){
+                    dto.setKdjenissidang(object[1].toString());
+                    jm = jenisPengajuanService.getJenisPengajuanById(object[1].toString());
+                    dto.setKdjenissidang(jm.getNamajenispengajuan());
+                }
+                if (object[2] != null){
+                    dto.setNim(object[2].toString());
+                }
+                if (object[3] != null){
+                    dto.setKdproposal(object[3].toString());
+                        mm = mahasiswaService.getMahasiswaById(object[2].toString());
+                    dto.setKdproposal(mm.getNamamahasiswa());
+                }else{
+                   mm = mahasiswaService.getMahasiswaById(object[2].toString());
+                   dto.setKdproposal(mm.getNamamahasiswa());
+                }
+                
+                if (object[4] != null){
+                    dto.setTglpengajuansidang(object[4].toString());
+                }
+                
+                if (object[5] != null){
+                    dto.setPenelaah1(object[5].toString());
+                }
+                if (object[6] != null){
+                    dto.setPenelaah2(object[6].toString());
+                }
+                if (object[7] != null){
+                    dto.setWakilfakultas(object[7].toString());
+                }
+                if (object[8] != null){
+                    dto.setJamsidang(object[8].toString());
+                }
+                if (object[9] != null){
+                    dto.setTglsidang(object[9].toString());
+                }
+                if (object[10] != null){
+                    dto.setRuangansidang(object[10].toString());
+                }
+                listSidangDto.add(dto);
+            }
+        }
+        return listSidangDto;
+    }
+    
+    public String generateKode(){
+        Random random = new Random();
+        char[] kode = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890".toCharArray();
+        String tamp="";
+        for (int lenght = 0; lenght < 7; lenght++) {
+            tamp+= kode[random.nextInt(kode.length)];
+        }
+        return tamp;
     }
     
 }

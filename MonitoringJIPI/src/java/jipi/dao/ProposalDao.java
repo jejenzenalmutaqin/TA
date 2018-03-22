@@ -20,4 +20,5 @@ public interface ProposalDao {
     public List<ProposalModel> getListProposalUpdate(String kdproposal);
     public void updateProposal(ProposalModel proposalModel);
     public List<Object[]> getListCariDataProposalNativeQuery(String cariBerdasarkan, String cariKey);
+    public List<Object[]> getListDataProposalForReport(String fakultas_filter, String jurusan_filter, String jenis_filter, String angkatan_filter);
 }

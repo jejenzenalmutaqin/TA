@@ -5,16 +5,14 @@
             <url>src/java/jipi/service/impl/UserServiceImpl.java</url>
             <bookmark id="1">
                 <name/>
-                <line>57</line>
+                <line>53</line>
                 <key/>
             </bookmark>
         </file>
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/OK/19032018/MonitoringJIPI/web/WEB-INF/jsp/mhs_berandaalumni.jsp</file>
-            <file>file:/D:/OK/19032018/MonitoringJIPI/src/java/jipi/dao/impl/AlumniDaoImpl.java</file>
-            <file>file:/D:/OK/19032018/MonitoringJIPI/src/java/jipi/dao/AlumniDao.java</file>
+            <file>file:/E:/PROJECT%20TA/180318/MonitoringJIPI/web/WEB-INF/jsp/akd_index.jsp</file>
         </group>
     </open-files>
 </project-private>

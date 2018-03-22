@@ -20,4 +20,6 @@ public interface SidangDao {
     public List<SidangModel> getListSidangUpdate(String kdsidang);
     public void updateSidang(SidangModel sidangModel);
     public List<Object[]> getListCariDataSidangNativeQuery(String cariBerdasarkan, String cariKey);
+    public List<Object[]> getListDataSidangForReport(String fakultas_filter, String jurusan_filter, String jenis_filter, String angkatan_filter, String urut_filter);
+
 }

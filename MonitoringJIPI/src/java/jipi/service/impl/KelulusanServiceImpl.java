@@ -7,6 +7,7 @@ package jipi.service.impl;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import javax.transaction.Transactional;
 import jipi.dao.KelulusanDao;
 import jipi.dto.KelulusanDto;
@@ -24,18 +25,18 @@ import org.springframework.stereotype.Service;
  */
 @Service
 @Transactional
-public class KelulusanServiceImpl implements KelulusanService{
+public class KelulusanServiceImpl implements KelulusanService {
 
     @Autowired
     KelulusanDao kelulusanDao;
-    
+
     @Autowired
     MahasiswaService mahasiswaService;
-    
+
     @Override
     public void saveDataKelulusan(KelulusanDto kelulusanDto) throws Exception {
         KelulusanModel dataModel = new KelulusanModel();
-        dataModel.setKdkelulusan(kelulusanDto.getKdkelulusan());
+        dataModel.setKdkelulusan("L"+generateKode());
         dataModel.setNim(kelulusanDto.getNim());
         dataModel.setKdsidang(kelulusanDto.getKdsidang());
         dataModel.setTgllulus(kelulusanDto.getTgllulus());
@@ -52,35 +53,35 @@ public class KelulusanServiceImpl implements KelulusanService{
         List<KelulusanDto> ListDto = new ArrayList<>();
         List<KelulusanModel> data = kelulusanDao.getListDataKelulusan();
         MahasiswaModel mm = new MahasiswaModel();
-        if(data != null){
+        if (data != null) {
             for (KelulusanModel ddm : data) {
                 KelulusanDto dto = new KelulusanDto();
-                if(ddm.getKdkelulusan() != null){
+                if (ddm.getKdkelulusan() != null) {
                     dto.setKdkelulusan(ddm.getKdkelulusan());
                 }
-                if(ddm.getNim() != null){
+                if (ddm.getNim() != null) {
                     mm = mahasiswaService.getMahasiswaById(ddm.getNim());
                     dto.setNim(mm.getNamamahasiswa());
                 }
-                if(ddm.getKdsidang() != null){
+                if (ddm.getKdsidang() != null) {
                     dto.setKdsidang(ddm.getKdsidang());
                 }
-                if(ddm.getTgllulus() != null){
+                if (ddm.getTgllulus() != null) {
                     dto.setTgllulus(ddm.getTgllulus());
                 }
 //                if(ddm.getIpk() != null){
-                    dto.setIpk(ddm.getIpk());
+                dto.setIpk(ddm.getIpk());
 //                }
-                if(ddm.getRevisi() != null){
+                if (ddm.getRevisi() != null) {
                     dto.setRevisi(ddm.getRevisi());
                 }
-                if(ddm.getMulairevisi() != null){
+                if (ddm.getMulairevisi() != null) {
                     dto.setMulairevisi(ddm.getMulairevisi());
                 }
-                if(ddm.getAkhirrevisi() != null){
+                if (ddm.getAkhirrevisi() != null) {
                     dto.setAkhirrevisi(ddm.getAkhirrevisi());
                 }
-                if(ddm.getPenyerahanrevisi() != null){
+                if (ddm.getPenyerahanrevisi() != null) {
                     dto.setPenyerahanrevisi(ddm.getPenyerahanrevisi());
                 }
                 ListDto.add(dto);
@@ -113,33 +114,33 @@ public class KelulusanServiceImpl implements KelulusanService{
     public KelulusanDto updateDataForm(String kdkelulusan) throws Exception {
         KelulusanDto dto = new KelulusanDto();
         List<KelulusanModel> data = kelulusanDao.getListKelulusanUpdate(kdkelulusan);
-        if(data != null){
+        if (data != null) {
             for (KelulusanModel ddm : data) {
-                if(ddm.getKdkelulusan() != null){
+                if (ddm.getKdkelulusan() != null) {
                     dto.setKdkelulusan(ddm.getKdkelulusan());
                 }
-                if(ddm.getNim() != null){
+                if (ddm.getNim() != null) {
                     dto.setNim(ddm.getNim());
                 }
-                if(ddm.getKdsidang() != null){
+                if (ddm.getKdsidang() != null) {
                     dto.setKdsidang(ddm.getKdsidang());
                 }
-                if(ddm.getTgllulus() != null){
+                if (ddm.getTgllulus() != null) {
                     dto.setTgllulus(ddm.getTgllulus());
                 }
 //                if(ddm.getIpk() != null){
-                    dto.setIpk(ddm.getIpk());
+                dto.setIpk(ddm.getIpk());
 //                }
-                if(ddm.getRevisi() != null){
+                if (ddm.getRevisi() != null) {
                     dto.setRevisi(ddm.getRevisi());
                 }
-                if(ddm.getMulairevisi() != null){
+                if (ddm.getMulairevisi() != null) {
                     dto.setMulairevisi(ddm.getMulairevisi());
                 }
-                if(ddm.getAkhirrevisi() != null){
+                if (ddm.getAkhirrevisi() != null) {
                     dto.setAkhirrevisi(ddm.getAkhirrevisi());
                 }
-                if(ddm.getPenyerahanrevisi() != null){
+                if (ddm.getPenyerahanrevisi() != null) {
                     dto.setPenyerahanrevisi(ddm.getPenyerahanrevisi());
                 }
             }
@@ -170,42 +171,97 @@ public class KelulusanServiceImpl implements KelulusanService{
     public List<KelulusanDto> searchKelulusan(String cariBerdasarkan, String cariKey) {
         List<KelulusanDto> listKelulusanDto = new ArrayList();
         List<Object[]> listDataObject = kelulusanDao.getListCariDataKelulusanNativeQuery(cariBerdasarkan, cariKey);
-        if (listDataObject != null){
-            for (Object[] object : listDataObject){
+        if (listDataObject != null) {
+            for (Object[] object : listDataObject) {
                 KelulusanDto dto = new KelulusanDto();
                 MahasiswaModel mm = new MahasiswaModel();
-                if (object[0] != null){
+                if (object[0] != null) {
                     dto.setKdkelulusan(object[0].toString());
                 }
-                if (object[1] != null){
+                if (object[1] != null) {
                     mm = mahasiswaService.getMahasiswaById(object[1].toString());
                     dto.setNim(mm.getNamamahasiswa());
                 }
-                if (object[2] != null){
+                if (object[2] != null) {
                     dto.setKdsidang(object[2].toString());
                 }
-                if (object[3] != null){
+                if (object[3] != null) {
                     dto.setTgllulus(object[3].toString());
                 }
-                if (object[4] != null){
+                if (object[4] != null) {
                     dto.setIpk(Double.parseDouble(object[4].toString()));
                 }
-                if (object[5] != null){
+                if (object[5] != null) {
                     dto.setRevisi(object[5].toString());
                 }
-                if (object[6] != null){
+                if (object[6] != null) {
                     dto.setMulairevisi(object[6].toString());
                 }
-                if (object[7] != null){
+                if (object[7] != null) {
                     dto.setAkhirrevisi(object[7].toString());
                 }
-                if (object[8] != null){
+                if (object[8] != null) {
                     dto.setPenyerahanrevisi(object[8].toString());
                 }
                 listKelulusanDto.add(dto);
             }
         }
-        return listKelulusanDto; 
+        return listKelulusanDto;
     }
-    
+
+    @Override
+    public List<KelulusanDto> getListDataKelulusanByFilterForReport(String fakultas_filter, String jurusan_filter, String angkatan_filter) {
+        List<KelulusanDto> listKelulusanDto = new ArrayList();
+        List<Object[]> listDataObject = kelulusanDao.getListDataKelulusanForReport(fakultas_filter, jurusan_filter, angkatan_filter);
+        if (listDataObject != null) {
+            for (Object[] object : listDataObject) {
+                KelulusanDto dto = new KelulusanDto();
+                MahasiswaModel mm = new MahasiswaModel();
+                if (object[0] != null) {
+                    dto.setKdkelulusan(object[0].toString());
+                }
+                if (object[1] != null) {
+                    dto.setNim(object[1].toString());
+                }
+                if (object[2] != null) {
+                    dto.setKdsidang(object[1].toString());
+                    mm = mahasiswaService.getMahasiswaById(object[1].toString());
+                    dto.setKdsidang(mm.getNamamahasiswa());
+                } else {
+                    mm = mahasiswaService.getMahasiswaById(object[1].toString());
+                    dto.setKdsidang(mm.getNamamahasiswa());
+                }
+                if (object[3] != null) {
+                    dto.setTgllulus(object[3].toString());
+                }
+                if (object[4] != null) {
+                    dto.setIpk(Double.parseDouble(object[4].toString()));
+                }
+                if (object[5] != null) {
+                    dto.setRevisi(object[5].toString());
+                }
+                if (object[6] != null) {
+                    dto.setMulairevisi(object[6].toString());
+                }
+                if (object[7] != null) {
+                    dto.setAkhirrevisi(object[7].toString());
+                }
+                if (object[8] != null) {
+                    dto.setPenyerahanrevisi(object[8].toString());
+                }
+                listKelulusanDto.add(dto);
+            }
+        }
+        return listKelulusanDto;
+    }
+    public String generateKode(){
+        Random random = new Random();
+        char[] kode = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890".toCharArray();
+        String tamp="";
+        for (int lenght = 0; lenght < 7; lenght++) {
+            tamp+= kode[random.nextInt(kode.length)];
+        }
+        return tamp;
+    }
+
 }

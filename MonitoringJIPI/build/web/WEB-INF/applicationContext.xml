@@ -44,6 +44,7 @@
                 <value>jipi/model/KelulusanModel.hbm.xml</value>
                 <value>jipi/model/AlumniModel.hbm.xml</value>
                 <value>jipi/model/UserModel.hbm.xml</value>
+                <value>jipi/model/NotifModel.hbm.xml</value>
             </list>  
         </property>  
         <property name="hibernateProperties">  
@@ -79,6 +80,7 @@
     <bean id="mahasiswaService" class="jipi.service.impl.MahasiswaServiceImpl"></bean>
     <bean id="pendidikanService" class="jipi.service.impl.PendidikanServiceImpl"></bean>
     <bean id="userService" class="jipi.service.impl.UserServiceImpl"></bean>
+    <bean id="notifService" class="jipi.service.impl.NotifServiceImpl"></bean>
     
     <bean id="proposalDao" class="jipi.dao.impl.ProposalDaoImpl"></bean>
     <bean id="jenisPengajuanDao" class="jipi.dao.impl.JenisPengajuanDaoImpl"></bean>
@@ -93,11 +95,12 @@
     <bean id="pendidikanDao" class="jipi.dao.impl.PendidikanDaoImpl"></bean>
     <bean id="userDao" class="jipi.dao.impl.UserDaoImpl"></bean>
     <bean id="alumniDao" class="jipi.dao.impl.AlumniDaoImpl"></bean>
+    <bean id="notifDao" class="jipi.dao.impl.NotifDaoImpl"></bean>
     <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
 		<property name="host" value="smtp.gmail.com" />
 		<property name="port" value="587" />
-		<property name="username" value="jejen.zenal96@gmail.com" />
-		<property name="password" value="zen@1212" />
+		<property name="username" value="ilfasridesy06121997@gmail.com" />
+		<property name="password" value="prisya04032012" />
 		<property name="javaMailProperties">
 			<props>
 				<prop key="mail.transport.protocol">smtp</prop>

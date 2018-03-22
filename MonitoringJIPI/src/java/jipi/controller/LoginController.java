@@ -86,11 +86,11 @@ public class LoginController {
             }else{
                 System.out.println("masuk else");
                 if(cekUsername<1){
-                    userDto.setKeterangan("Username tidak Sesuai");
+                    userDto.setKeterangan("Username tidak sesuai");
                     model.addAttribute("dto", userDto);
                     panggil = "login_gagal";
                 }else if(cekPassword<1){
-                    userDto.setKeterangan("Password tidak Sesuai");
+                    userDto.setKeterangan("Password tidak sesuai");
                     model.addAttribute("dto", userDto);
                     panggil = "login_gagal";
                 }else if(cekAkses<1){

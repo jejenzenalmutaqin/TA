@@ -91,5 +91,42 @@ public class ProposalDaoImpl extends HibernateUtil implements ProposalDao{
         dataList = query.list();
         return dataList;
     }
+
+    @Override
+    public List<Object[]> getListDataProposalForReport(String fakultas_filter, String jurusan_filter, String jenis_filter, String angkatan_filter) {
+        List<Object[]> dataList = null;
+        String sql = "select p.* from pengajuanproposal_tbl p inner join mst_mahasiswa m inner join mst_jurusan j inner join mst_fakultas f \n" +
+                     "on p.nim = m.nim and m.kdjurusan = j.kdjurusan and j.kdfakultas = f.kdfakultas ";
+        String where="";
+        if(fakultas_filter.equals("seluruh")){
+            where =" ";
+        }else{
+            where = " and j.kdfakultas='"+fakultas_filter+"' ";
+            sql = sql + where;
+        }
+        if(jurusan_filter.equals("seluruh")){
+            where =" ";
+        }else{
+            where = " and m.kdjurusan='"+jurusan_filter+"' ";
+            sql = sql + where;
+        }
+        if(angkatan_filter.equals("seluruh")){
+            where =" ";
+        }else{
+            where = " and m.angkatan='"+angkatan_filter+"' ";
+            sql = sql + where;
+        }
+        if(jenis_filter.equals("seluruh")){
+            where =" ";
+        }else{
+            where = " and p.kdjenisproposal='"+jenis_filter+"' ";
+            sql = sql + where;
+        }
+        where = where + " order by p.tglpengajuanproposal asc ";
+        sql = sql + where;
+        Query query = createNativeQuery(sql);
+        dataList = query.list();
+        return dataList;
+    }
     
 }

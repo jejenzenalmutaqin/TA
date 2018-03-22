@@ -21,4 +21,6 @@ public interface KelulusanService {
     public KelulusanDto updateDataForm(String kdkelulusan) throws Exception;
     public void doUpdateDataForm(KelulusanDto kelulusanDto) throws Exception;
     public List<KelulusanDto> searchKelulusan(String cariBerdasarkan, String cariKey);
+    public List<KelulusanDto> getListDataKelulusanByFilterForReport(String fakultas_filter, String jurusan_filter, String angkatan_filter);
+
 }
