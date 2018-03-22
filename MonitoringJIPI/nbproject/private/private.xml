@@ -5,13 +5,14 @@
             <url>src/java/jipi/service/impl/UserServiceImpl.java</url>
             <bookmark id="1">
                 <name/>
-                <line>57</line>
+                <line>53</line>
                 <key/>
             </bookmark>
         </file>
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/E:/Data/TA/rev2.13/TA/MonitoringJIPI/src/java/jipi/controller/LoginController.java</file>
             <file>file:/E:/Data/TA/rev2.13/TA/MonitoringJIPI/src/java/jipi/service/impl/AlumniServiceImpl.java</file>
             <file>file:/E:/Data/TA/rev2.13/TA/MonitoringJIPI/src/java/jipi/dao/KelulusanDao.java</file>
@@ -34,6 +35,9 @@
             <file>file:/E:/Data/TA/rev2.13/TA/MonitoringJIPI/src/java/jipi/dao/impl/UserDaoImpl.java</file>
             <file>file:/E:/Data/TA/rev2.13/TA/MonitoringJIPI/src/java/jipi/service/impl/UserServiceImpl.java</file>
             <file>file:/E:/Data/TA/rev2.13/TA/MonitoringJIPI/src/java/jipi/service/impl/KelulusanServiceImpl.java</file>
+=======
+            <file>file:/E:/PROJECT%20TA/180318/MonitoringJIPI/web/WEB-INF/jsp/akd_index.jsp</file>
+>>>>>>> origin/master
         </group>
     </open-files>
 </project-private>

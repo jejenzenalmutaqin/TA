@@ -60,12 +60,14 @@
     <div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
 
         <ul class="nav menu">
-            <li class="active"><a href="akd_index.htm"><svg class="glyph stroked dashboard-dial"><use xlink:href="#stroked-dashboard-dial"></use></svg> Home</a></li>
-            <li><a href="akd_datauser.htm"><svg class="glyph stroked calendar"><use xlink:href="#stroked-calendar"></use></svg> Data User</a></li>
-            <li><a href="akd_pengajuanproposal.htm"><svg class="glyph stroked line-graph"><use xlink:href="#stroked-line-graph"></use></svg> Pengajuan Proposal</a></li>
+            <li class="active"><a href="akd_index.htm"><svg class="glyph stroked home"><use xlink:href="#stroked-home"></use></svg> Home</a></li>
+            <li><a href="akd_datauser.htm"><svg class="glyph stroked female user"><use xlink:href="#stroked-female-user"></use></svg> Data User</a></li>
+            <li><a href="akd_pengajuanproposal.htm"><svg class="glyph stroked clipboard with paper"><use xlink:href="#stroked-clipboard-with-paper"></use></svg> Pengajuan Proposal</a></li>
             <li><a href="akd_pengajuansidang.htm"><svg class="glyph stroked table"><use xlink:href="#stroked-table"></use></svg> Pengajuan Sidang</a></li>
-            <li><a href="akd_datakelulusan.htm"><svg class="glyph stroked pencil"><use xlink:href="#stroked-pencil"></use></svg> Data Kelulusan</a></li>
+            <li><a href="akd_datakelulusan.htm"><svg class="glyph stroked calendar"><use xlink:href="#stroked-calendar"></use></svg> Data Kelulusan</a></li>
             <li><a href="akd_dataalumni.htm"><svg class="glyph stroked app-window"><use xlink:href="#stroked-app-window"></use></svg> Data Alumni</a></li>
+            <li><a href="akd_kirimemail.htm"><svg class="glyph stroked email"><use xlink:href="#stroked-email"></use></svg> Kirim Email</a></li>
+            <li><a href="akd_buatnotifikasi.htm"><svg class="glyph stroked empty message"><use xlink:href="#stroked-empty-message"></use></svg> Notifikasi</a></li>
             <li class="parent ">
                 <a href="#">
                     <span data-toggle="collapse" href="#sub-item-1"><svg class="glyph stroked chevron-down"><use xlink:href="#stroked-chevron-down"></use></svg></span> Laporan 
@@ -87,7 +89,7 @@
                         </a>
                     </li>
                     <li>
-                        <a class="" href="akd_laporandatakelulusan.htm">
+                        <a class="" href="akd_laporandataalumni.htm">
                             <svg class="glyph stroked chevron-right"><use xlink:href="#stroked-chevron-right"></use></svg> Data Alumni
                         </a>
                     </li>
@@ -117,13 +119,13 @@
                     <div class="panel panel-default">
                         <div class="panel-heading"> Form Filter Laporan Pengajuan Proposal</div>
                         <div class="panel-body">
-                            <form class="form-horizontal" id="filterProposal" action="doFilterProposal.htm" method="post">
+                            <form class="form-horizontal" id="filterProposal" action="laporanproposal.htm" method="get">
                                 <fieldset>
                                     <div class="form-group">
                                         <label class="col-md-3 control-label" >Pilih Fakultas</label>
                                         <div class="col-md-9">
                                             <select name="fakultas_filter" id="fakultas_id" class="form-control validate validate[required]">
-                                                <option value="" selected="true">- Semua Fakultas -</option>
+                                                <option value="seluruh">- Semua Fakultas -</option>
                                                 <c:forEach var="fak"  items="${listFakultas}">
                                                     <option  value="${fak.kdfakultas}">${fak.namafakultas}</option>
                                                 </c:forEach>
@@ -134,7 +136,7 @@
                                         <label class="col-md-3 control-label" >Pilih Jurusan</label>
                                         <div class="col-md-9">
                                             <select name="jurusan_filter" id="jurusan_id" class="form-control validate validate[required]">
-                                                <option value="" selected="true">- Semua Jurusan -</option>
+                                                <option value="seluruh">- Semua Jurusan -</option>
                                                 <c:forEach var="jur" items="${listJurusan}">
                                                     <option  value="${jur.kdjurusan}">${jur.namajurusan}</option>
                                                 </c:forEach>
@@ -145,13 +147,13 @@
                                     <div class="form-group">
                                         <label class="col-md-3 control-label" >Jenis Proposal</label>
                                         <div class="col-md-1">
-                                            <input type="radio" name="jenis_filter" value="ta" class="form-control"/>TA
+                                            <input type="radio" name="jenis_filter" value="1" class="form-control"/>TA
                                         </div>
                                         <div class="col-md-1">
-                                            <input type="radio" name="jenis_filter" value="up" class="form-control"/>UP
+                                            <input type="radio" name="jenis_filter" value="2" class="form-control"/>UP
                                         </div>
                                         <div class="col-md-1">
-                                            <input type="radio" name="jenis_filter" value="skripsi" class="form-control"/>Skripsi
+                                            <input type="radio" name="jenis_filter" value="3" class="form-control"/>Skripsi
                                         </div>
                                         <div class="col-md-1">
                                             <input type="radio" name="jenis_filter" value="seluruh" class="form-control" checked="true"/>Seluruh
@@ -161,7 +163,7 @@
                                         <label class="col-md-3 control-label" >Pilih Angkatan</label>
                                         <div class="col-md-9">
                                             <select name="angkatan_filter" class="form-control validate validate[required]">
-                                                <option value="" selected="true" disabled="true">-- Semua Angkatan --</option>
+                                                <option value="seluruh">-- Semua Angkatan --</option>
                                                 <option value="2002" >2002</option>
                                                 <option value="2003" >2003</option>
                                                 <option value="2004" >2004</option>
@@ -180,6 +182,16 @@
                                                 <option value="2017" >2017</option>
                                             </select>
                                         </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label" >Pilih Cetak</label>
+                                        <div class="col-md-1">
+                                            <input type="radio" name="cetak_filter" value="1" class="form-control" checked="true"/>Excel
+                                        </div>
+                                        <div class="col-md-1">
+                                            <input type="radio" name="cetak_filter" value="2" class="form-control"/>PDF
+                                        </div>
+                                        
                                     </div>
 
                                     <div class="form-group">
@@ -234,26 +246,26 @@
             if ($(window).width() <= 767)
                 $('#sidebar-collapse').collapse('hide')
         })
-        $(document).ready(function(){
-            $("#fakultas_id").change(function () {
-                var fakultas_id = $('#fakultas_id').val();
-                $.ajax({
-                    type: 'POST',
-                    url: "changeJurusanByFakultas.htm",
-                    data: "param=" + fakultas_id,
-                    success: function (response) {
-                        //$("#jurusan_id").val(response);
-//                        var obj = JSON.parse(response);
-                        console.log('==========================');
-                        console.log(response);
-                    },
-                    error: function (e) {
-                        console.log('masuk error==========================');
-                        alert('Error :' + e);
-                    }
-                });
-            });
-        });
+//        $(document).ready(function(){
+//            $("#fakultas_id").change(function () {
+//                var fakultas_id = $('#fakultas_id').val();
+//                $.ajax({
+//                    type: 'POST',
+//                    url: "changeJurusanByFakultas.htm",
+//                    data: "param=" + fakultas_id,
+//                    success: function (response) {
+//                        //$("#jurusan_id").val(response);
+////                        var obj = JSON.parse(response);
+//                        console.log('==========================');
+//                        console.log(response);
+//                    },
+//                    error: function (e) {
+//                        console.log('masuk error==========================');
+//                        alert('Error :' + e);
+//                    }
+//                });
+//            });
+//        });
     </script>	
 </body>
 

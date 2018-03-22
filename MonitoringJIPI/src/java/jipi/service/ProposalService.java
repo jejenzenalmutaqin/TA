@@ -23,5 +23,6 @@ public interface ProposalService {
     public void doUpdateDataForm(ProposalDto proposalDto) throws Exception;
     public void createAkun(ProposalDto proposalDto);
     public List<ProposalDto> searchProposal(String cariBerdasarkan, String cariKey);
+    public List<ProposalDto> getListDataProposalByFilterForReport(String fakultas_filter, String jurusan_filter, String jenis_filter, String angkatan_filter);
     public List<viewPengajuanProposalDto> getDataForViewProposal(viewPengajuanProposalDto data);
 }

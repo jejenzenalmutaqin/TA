@@ -54,7 +54,7 @@
                     <a class="navbar-brand" href="#"><span>APLIKASI MONITORING PENYUSUNAN TUGAS AKHIR/SKRIPSI</span> UNIVERSITAS NASIONAL PASIM</a>
                     <ul class="user-menu">
                         <li class="dropdown pull-right">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> Ilfa Sri Desy <span class="caret"></span></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> Akademik <span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
                                 <li><a href="#"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> Profile</a></li>
                                 <li><a href="#"><svg class="glyph stroked gear"><use xlink:href="#stroked-gear"></use></svg> Settings</a></li>
@@ -68,47 +68,49 @@
         </nav>
 
         <!--//////////////////////////////// menu bar samping kiri //////////////////////////////	-->
-	<div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
-		
-		<ul class="nav menu">
-			<li><a href="akd_index.htm"><svg class="glyph stroked dashboard-dial"><use xlink:href="#stroked-dashboard-dial"></use></svg> Home</a></li>
-			<li><a href="akd_datauser.htm"><svg class="glyph stroked calendar"><use xlink:href="#stroked-calendar"></use></svg> Data User</a></li>
-			<li><a href="akd_pengajuanproposal.htm"><svg class="glyph stroked line-graph"><use xlink:href="#stroked-line-graph"></use></svg> Pengajuan Proposal</a></li>
-			<li><a href="akd_pengajuansidang.htm"><svg class="glyph stroked table"><use xlink:href="#stroked-table"></use></svg> Pengajuan Sidang</a></li>
-			<li><a href="akd_datakelulusan.htm"><svg class="glyph stroked pencil"><use xlink:href="#stroked-pencil"></use></svg> Data Kelulusan</a></li>
-			<li class="active"><a href="akd_dataalumni.htm"><svg class="glyph stroked app-window"><use xlink:href="#stroked-app-window"></use></svg> Data Alumni</a></li>
-			<li class="parent ">
-				<a href="#">
-					<span data-toggle="collapse" href="#sub-item-1"><svg class="glyph stroked chevron-down"><use xlink:href="#stroked-chevron-down"></use></svg></span> Laporan 
-				</a>
-				<ul class="children collapse" id="sub-item-1">
-					<li>
-						<a class="" href="akd_laporanpengajuanproposal.htm">
-							<svg class="glyph stroked chevron-right"><use xlink:href="#stroked-chevron-right"></use></svg> Pengajuan Proposal
-						</a>
-					</li>
-					<li>
-						<a class="" href="akd_laporanpengajuansidang.htm">
-							<svg class="glyph stroked chevron-right"><use xlink:href="#stroked-chevron-right"></use></svg> Pengajuan Sidang
-						</a>
-					</li>
-					<li>
-						<a class="" href="akd_laporandatakelulusan.htm">
-							<svg class="glyph stroked chevron-right"><use xlink:href="#stroked-chevron-right"></use></svg> Data Kelulusan
-						</a>
-					</li>
-                                        <li>
-						<a class="" href="akd_laporandatakelulusan.htm">
-							<svg class="glyph stroked chevron-right"><use xlink:href="#stroked-chevron-right"></use></svg> Data Alumni
-						</a>
-					</li>
-				</ul>
-			</li>
-			<li role="presentation" class="divider"></li>
-		</ul>
+        <div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
 
-	</div><!--/.sidebar-->
-<!--        begin-content-->
+            <ul class="nav menu">
+                <li><a href="akd_index.htm"><svg class="glyph stroked home"><use xlink:href="#stroked-home"></use></svg> Home</a></li>
+                <li><a href="akd_datauser.htm"><svg class="glyph stroked female user"><use xlink:href="#stroked-female-user"></use></svg> Data User</a></li>
+                <li><a href="akd_pengajuanproposal.htm"><svg class="glyph stroked clipboard with paper"><use xlink:href="#stroked-clipboard-with-paper"></use></svg> Pengajuan Proposal</a></li>
+                <li><a href="akd_pengajuansidang.htm"><svg class="glyph stroked table"><use xlink:href="#stroked-table"></use></svg> Pengajuan Sidang</a></li>
+                <li><a href="akd_datakelulusan.htm"><svg class="glyph stroked calendar"><use xlink:href="#stroked-calendar"></use></svg> Data Kelulusan</a></li>
+                <li class="active"><a href="akd_dataalumni.htm"><svg class="glyph stroked app-window"><use xlink:href="#stroked-app-window"></use></svg> Data Alumni</a></li>
+                <li><a href="akd_kirimemail.htm"><svg class="glyph stroked email"><use xlink:href="#stroked-email"></use></svg> Kirim Email</a></li>
+                <li><a href="akd_buatnotifikasi.htm"><svg class="glyph stroked empty message"><use xlink:href="#stroked-empty-message"></use></svg> Notifikasi</a></li>
+                <li class="parent ">
+                    <a href="#">
+                        <span data-toggle="collapse" href="#sub-item-1"><svg class="glyph stroked chevron-down"><use xlink:href="#stroked-chevron-down"></use></svg></span> Laporan 
+                    </a>
+                    <ul class="children collapse" id="sub-item-1">
+                        <li>
+                            <a class="" href="akd_laporanpengajuanproposal.htm">
+                                <svg class="glyph stroked chevron-right"><use xlink:href="#stroked-chevron-right"></use></svg> Pengajuan Proposal
+                            </a>
+                        </li>
+                        <li>
+                            <a class="" href="akd_laporanpengajuansidang.htm">
+                                <svg class="glyph stroked chevron-right"><use xlink:href="#stroked-chevron-right"></use></svg> Pengajuan Sidang
+                            </a>
+                        </li>
+                        <li>
+                            <a class="" href="akd_laporandatakelulusan.htm">
+                                <svg class="glyph stroked chevron-right"><use xlink:href="#stroked-chevron-right"></use></svg> Data Kelulusan
+                            </a>
+                        </li>
+                        <li>
+                            <a class="" href="akd_laporandataalumni.htm">
+                                <svg class="glyph stroked chevron-right"><use xlink:href="#stroked-chevron-right"></use></svg> Data Alumni
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li role="presentation" class="divider"></li>
+            </ul>
+
+        </div><!--/.sidebar-->
+        <!--        begin-content-->
         <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">			
             <div class="row">
                 <ol class="breadcrumb">
@@ -122,9 +124,9 @@
                     <h1 class="page-header">Data Alumni</h1>
                 </div>
             </div><!--/.row-->
-            
+
             <center>
-		<!--/.row-->
+                <!--/.row-->
                 <div class="row">
                     <!-- /////////////////////////////////////////////////////////////-->
                     <div class="col-md-12">
@@ -133,13 +135,7 @@
                             <div class="panel-body">
                                 <form:form class="form-horizontal" id="formTambahAlumni" action="simpanDataAlumni.htm" method="post" modelAttribute="dto">
                                     <fieldset>
-                                        <!-- Kode input-->
-                                        <div class="form-group">
-                                            <label class="col-md-3 control-label" >Kode Alumni</label>
-                                            <div class="col-md-9">
-                                                <form:input path="kdalumni" placeholder="Kode Alumni" class="form-control validate validate[required]"/>
-                                            </div>
-                                        </div>
+                                        <form:hidden path="kdalumni" value="00" />
                                         <div class="form-group">
                                             <label class="col-md-3 control-label" >NIM</label>
                                             <div class="col-md-9">
@@ -179,16 +175,16 @@
                                         <div class="form-group">
                                             <label class="col-md-3 control-label" >Daerah Kerja</label>
                                             <div class="col-md-9">
-                                                    <form:input path="daerahkerja" placeholder="Kota" class="form-control validate validate[required]"/>
+                                                <form:input path="daerahkerja" placeholder="Kota" class="form-control validate validate[required]"/>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="col-md-3 control-label" >Sektor</label>
                                             <div class="col-md-1">
-                                                    <form:radiobutton path="sektor" value="bumn" class="form-control"/>BUMN
+                                                <form:radiobutton path="sektor" value="bumn" class="form-control"/>BUMN
                                             </div>
                                             <div class="col-md-1">
-                                                    <form:radiobutton path="sektor" value="swasta" class="form-control"/>Swasta
+                                                <form:radiobutton path="sektor" value="swasta" class="form-control"/>Swasta
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -215,106 +211,106 @@
                                         <div class="form-group">
                                             <label class="col-md-3 control-label" >Integritas (etika dan moral)</label>
                                             <div class="col-md-1">
-                                                    <form:radiobutton path="integritas" value="4" class="form-control"/>Sangat Baik
+                                                <form:radiobutton path="integritas" value="4" class="form-control"/>Sangat Baik
                                             </div>
                                             <div class="col-md-1">
-                                                    <form:radiobutton path="integritas" value="3" class="form-control"/>Baik
+                                                <form:radiobutton path="integritas" value="3" class="form-control"/>Baik
                                             </div>
                                             <div class="col-md-1">
-                                                    <form:radiobutton path="integritas" value="2" class="form-control"/>Cukup
+                                                <form:radiobutton path="integritas" value="2" class="form-control"/>Cukup
                                             </div>
                                             <div class="col-md-1">
-                                                    <form:radiobutton path="integritas" value="1" class="form-control"/>Kurang
+                                                <form:radiobutton path="integritas" value="1" class="form-control"/>Kurang
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="col-md-3 control-label" >Keahlian berdasarkan bidang ilmu (profesionalisme)</label>
                                             <div class="col-md-1">
-                                                    <form:radiobutton path="keahlian" value="4" class="form-control"/>Sangat Baik
+                                                <form:radiobutton path="keahlian" value="4" class="form-control"/>Sangat Baik
                                             </div>
                                             <div class="col-md-1">
-                                                    <form:radiobutton path="keahlian" value="3" class="form-control"/>Baik
+                                                <form:radiobutton path="keahlian" value="3" class="form-control"/>Baik
                                             </div>
                                             <div class="col-md-1">
-                                                    <form:radiobutton path="keahlian" value="2" class="form-control"/>Cukup
+                                                <form:radiobutton path="keahlian" value="2" class="form-control"/>Cukup
                                             </div>
                                             <div class="col-md-1">
-                                                    <form:radiobutton path="keahlian" value="1" class="form-control"/>Kurang
+                                                <form:radiobutton path="keahlian" value="1" class="form-control"/>Kurang
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="col-md-3 control-label" >Bahasa Inggris</label>
                                             <div class="col-md-1">
-                                                    <form:radiobutton path="inggris" value="4" class="form-control"/>Sangat Baik
+                                                <form:radiobutton path="inggris" value="4" class="form-control"/>Sangat Baik
                                             </div>
                                             <div class="col-md-1">
-                                                    <form:radiobutton path="inggris" value="3" class="form-control"/>Baik
+                                                <form:radiobutton path="inggris" value="3" class="form-control"/>Baik
                                             </div>
                                             <div class="col-md-1">
-                                                    <form:radiobutton path="inggris" value="2" class="form-control"/>Cukup
+                                                <form:radiobutton path="inggris" value="2" class="form-control"/>Cukup
                                             </div>
                                             <div class="col-md-1">
-                                                    <form:radiobutton path="inggris" value="1" class="form-control"/>Kurang
+                                                <form:radiobutton path="inggris" value="1" class="form-control"/>Kurang
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="col-md-3 control-label" >Penggunaan Teknologi Informasi</label>
                                             <div class="col-md-1">
-                                                    <form:radiobutton path="teknologi" value="4" class="form-control"/>Sangat Baik
+                                                <form:radiobutton path="teknologi" value="4" class="form-control"/>Sangat Baik
                                             </div>
                                             <div class="col-md-1">
-                                                    <form:radiobutton path="teknologi" value="3" class="form-control"/>Baik
+                                                <form:radiobutton path="teknologi" value="3" class="form-control"/>Baik
                                             </div>
                                             <div class="col-md-1">
-                                                    <form:radiobutton path="teknologi" value="2" class="form-control"/>Cukup
+                                                <form:radiobutton path="teknologi" value="2" class="form-control"/>Cukup
                                             </div>
                                             <div class="col-md-1">
-                                                    <form:radiobutton path="teknologi" value="1" class="form-control"/>Kurang
+                                                <form:radiobutton path="teknologi" value="1" class="form-control"/>Kurang
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="col-md-3 control-label" >Komunikasi</label>
                                             <div class="col-md-1">
-                                                    <form:radiobutton path="komunikasi" value="4" class="form-control"/>Sangat Baik
+                                                <form:radiobutton path="komunikasi" value="4" class="form-control"/>Sangat Baik
                                             </div>
                                             <div class="col-md-1">
-                                                    <form:radiobutton path="komunikasi" value="3" class="form-control"/>Baik
+                                                <form:radiobutton path="komunikasi" value="3" class="form-control"/>Baik
                                             </div>
                                             <div class="col-md-1">
-                                                    <form:radiobutton path="komunikasi" value="2" class="form-control"/>Cukup
+                                                <form:radiobutton path="komunikasi" value="2" class="form-control"/>Cukup
                                             </div>
                                             <div class="col-md-1">
-                                                    <form:radiobutton path="komunikasi" value="1" class="form-control"/>Kurang
+                                                <form:radiobutton path="komunikasi" value="1" class="form-control"/>Kurang
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="col-md-3 control-label" >Kerjasama Tim</label>
                                             <div class="col-md-1">
-                                                    <form:radiobutton path="kerjasama" value="4" class="form-control"/>Sangat Baik
+                                                <form:radiobutton path="kerjasama" value="4" class="form-control"/>Sangat Baik
                                             </div>
                                             <div class="col-md-1">
-                                                    <form:radiobutton path="kerjasama" value="3" class="form-control"/>Baik
+                                                <form:radiobutton path="kerjasama" value="3" class="form-control"/>Baik
                                             </div>
                                             <div class="col-md-1">
-                                                    <form:radiobutton path="kerjasama" value="2" class="form-control"/>Cukup
+                                                <form:radiobutton path="kerjasama" value="2" class="form-control"/>Cukup
                                             </div>
                                             <div class="col-md-1">
-                                                    <form:radiobutton path="kerjasama" value="1" class="form-control"/>Kurang
+                                                <form:radiobutton path="kerjasama" value="1" class="form-control"/>Kurang
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="col-md-3 control-label" >Pengembangan Diri</label>
                                             <div class="col-md-1">
-                                                    <form:radiobutton path="pengembangan" value="4" class="form-control"/>Sangat Baik
+                                                <form:radiobutton path="pengembangan" value="4" class="form-control"/>Sangat Baik
                                             </div>
                                             <div class="col-md-1">
-                                                    <form:radiobutton path="pengembangan" value="3" class="form-control"/>Baik
+                                                <form:radiobutton path="pengembangan" value="3" class="form-control"/>Baik
                                             </div>
                                             <div class="col-md-1">
-                                                    <form:radiobutton path="pengembangan" value="2" class="form-control"/>Cukup
+                                                <form:radiobutton path="pengembangan" value="2" class="form-control"/>Cukup
                                             </div>
                                             <div class="col-md-1">
-                                                    <form:radiobutton path="pengembangan" value="1" class="form-control"/>Kurang
+                                                <form:radiobutton path="pengembangan" value="1" class="form-control"/>Kurang
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -323,14 +319,14 @@
                                             </div>
                                         </div>
 
-                                        
+
                                     </fieldset>
                                 </form:form>
                             </div>
                         </div>
                     </div><!--/.col-->
                 </div>
-<!--                        ////////////////////////////////////////-->
+                <!--                        ////////////////////////////////////////-->
 
 
 
@@ -344,39 +340,39 @@
         </div>	<!--/.main-->
 
 
-        	
+
     </body>
 
 </html>
 <script src="js/jquery-1.11.1.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/chart.min.js"></script>
-        <script src="js/chart-data.js"></script>
-        <script src="js/easypiechart.js"></script>
-        <script src="js/easypiechart-data.js"></script>
-        <script src="js/bootstrap-datepicker.js"></script>
-        <script type="text/javascript">
-            !function ($) {
-                $(document).on("click", "ul.nav li.parent > a > span.icon", function () {
-                    $(this).find('em:first').toggleClass("glyphicon-minus");
-                });
-                $(".sidebar span.icon").find('em:first').addClass("glyphicon-plus");
-            }(window.jQuery);
+<script src="js/bootstrap.min.js"></script>
+<script src="js/chart.min.js"></script>
+<script src="js/chart-data.js"></script>
+<script src="js/easypiechart.js"></script>
+<script src="js/easypiechart-data.js"></script>
+<script src="js/bootstrap-datepicker.js"></script>
+<script type="text/javascript">
+    !function ($) {
+        $(document).on("click", "ul.nav li.parent > a > span.icon", function () {
+            $(this).find('em:first').toggleClass("glyphicon-minus");
+        });
+        $(".sidebar span.icon").find('em:first').addClass("glyphicon-plus");
+    }(window.jQuery);
 
-            $(function() {
+    $(function () {
 //    $("#tgl_pgj").datepicker({dateFormat: 'dd-mm-yy'});
-            $( "#tgl_pgj" ).datepicker();
-    
-            });
+        $("#tgl_pgj").datepicker();
 
-            $(window).on('resize', function () {
-                if ($(window).width() > 768)
-                    $('#sidebar-collapse').collapse('show')
-            })
-            $(window).on('resize', function () {
-                if ($(window).width() <= 767)
-                    $('#sidebar-collapse').collapse('hide')
-            })
+    });
+
+    $(window).on('resize', function () {
+        if ($(window).width() > 768)
+            $('#sidebar-collapse').collapse('show')
+    })
+    $(window).on('resize', function () {
+        if ($(window).width() <= 767)
+            $('#sidebar-collapse').collapse('hide')
+    })
 
 
 //            var jQuery_1_11_1=$.noConflict(true);
@@ -393,31 +389,31 @@
 //    
 //        });
 
-$(function() {
-    //$("#tg_pj").datepicker({dateFormat: 'dd-mm-yy'});
-    $( "#tg_ls" ).datepicker();
-    
+    $(function () {
+        //$("#tg_pj").datepicker({dateFormat: 'dd-mm-yy'});
+        $("#tg_ls").datepicker();
+
     });
-    $(function() {
-    //$("#tg_pj").datepicker({dateFormat: 'dd-mm-yy'});
-    $( "#tg_awal" ).datepicker();
-    
+    $(function () {
+        //$("#tg_pj").datepicker({dateFormat: 'dd-mm-yy'});
+        $("#tg_awal").datepicker();
+
     });
-    $(function() {
-    //$("#tg_pj").datepicker({dateFormat: 'dd-mm-yy'});
-    $( "#tg_akhir" ).datepicker();
-    
+    $(function () {
+        //$("#tg_pj").datepicker({dateFormat: 'dd-mm-yy'});
+        $("#tg_akhir").datepicker();
+
     });
-    $(function() {
-    //$("#tg_pj").datepicker({dateFormat: 'dd-mm-yy'});
-    $( "#tg_mulaikerja" ).datepicker();
-    
+    $(function () {
+        //$("#tg_pj").datepicker({dateFormat: 'dd-mm-yy'});
+        $("#tg_mulaikerja").datepicker();
+
     });
-    
-    
-    
-    
-    
+
+
+
+
+
 //    $("#txnim").focusout(function () {// id asal
 //                var nim = $('#txnim').val();
 //                $.ajax({
@@ -432,6 +428,6 @@ $(function() {
 //                    }
 //                });
 //            });
-           
-        </script>
+
+</script>
 

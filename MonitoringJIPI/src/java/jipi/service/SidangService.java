@@ -21,4 +21,6 @@ public interface SidangService {
     public SidangDto updateDataForm(String kdsidang) throws Exception;
     public void doUpdateDataForm(SidangDto sidangDto) throws Exception;
     public List<SidangDto> searchSidang(String cariBerdasarkan, String cariKey);
+    public List<SidangDto> getListDataSidangByFilterForReport(String fakultas_filter, String jurusan_filter, String jenis_filter, String angkatan_filter, String urut_filter);
+
 }

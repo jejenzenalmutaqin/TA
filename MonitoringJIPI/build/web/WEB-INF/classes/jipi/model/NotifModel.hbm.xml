@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+  "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="jipi.model.NotifModel" table="notif_tbl">
+        <id name="kdnotif" column="kdnotif">
+            <generator class="assigned"/>
+        </id>
+        <property name="kdakses" column="kdakses"/>
+        <property name="nim" column="nim"/>
+        <property name="tglnotif" column="tglnotif"/>
+        <property name="subjeknotif" column="subjeknotif"/>
+        <property name="judulnotif" column="judulnotif"/>
+        <property name="isinotif" column="isinotif"/>
+        <property name="statusbaca" column="statusbaca"/>
+    </class>
+  
+
+</hibernate-mapping>

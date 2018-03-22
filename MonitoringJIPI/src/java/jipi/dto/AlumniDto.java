@@ -5,6 +5,8 @@
  */
 package jipi.dto;
 
+import org.springframework.web.multipart.MultipartFile;
+
 /**
  *
  * @author hp
@@ -31,6 +33,15 @@ public class AlumniDto {
     String pengembangan;
     String status;
     String tampungannim;
+    MultipartFile file;
+
+    public MultipartFile getFile() {
+        return file;
+    }
+
+    public void setFile(MultipartFile file) {
+        this.file = file;
+    }
 
     public String getTampungannim() {
         return tampungannim;

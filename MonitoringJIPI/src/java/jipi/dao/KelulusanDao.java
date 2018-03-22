@@ -21,5 +21,6 @@ public interface KelulusanDao {
     public List<KelulusanModel> getListKelulusanUpdate(String kdkelulusan);
     public void updateKelulusan(KelulusanModel kelulusanModel);
     public List<Object[]> getListCariDataKelulusanNativeQuery(String cariBerdasarkan, String cariKey);
+    public List<Object[]> getListDataKelulusanForReport(String fakultas_filter, String jurusan_filter,String angkatan_filter);
     public List<ViewKelulusanModel> getListDataKelulusan(String fJurusan,Integer fAngkatan);
 }

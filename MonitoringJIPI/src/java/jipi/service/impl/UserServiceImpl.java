@@ -8,6 +8,7 @@ package jipi.service.impl;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.transaction.Transactional;
@@ -37,12 +38,7 @@ public class UserServiceImpl implements UserService{
     @Override
     public void saveDataUser(UserDto userDto) throws Exception {
         UserModel dataModel = new UserModel();
-//        String no = "";
-//        no = userDao.getLastNumberUser();
-//        int noInt = Integer.parseInt(no);
-//        noInt++;
-//        no = String.valueOf(noInt);
-        dataModel.setKduser(userDto.getKduser());
+        dataModel.setKduser("U"+generateKode());
         dataModel.setUsername(userDto.getUsername());
         dataModel.setPassword(userDto.getPassword());
         dataModel.setAkses(userDto.getAkses());
@@ -272,6 +268,16 @@ public class UserServiceImpl implements UserService{
             }
         }
         return listUserDto;
+    }
+    
+    public String generateKode(){
+        Random random = new Random();
+        char[] kode = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890".toCharArray();
+        String tamp="";
+        for (int lenght = 0; lenght < 7; lenght++) {
+            tamp+= kode[random.nextInt(kode.length)];
+        }
+        return tamp;
     }
     
 }

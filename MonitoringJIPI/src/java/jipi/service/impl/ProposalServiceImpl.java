@@ -7,9 +7,13 @@ package jipi.service.impl;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.transaction.Transactional;
 import jipi.dao.ProposalDao;
 import jipi.dao.UserDao;
+import jipi.dto.MahasiswaDto;
 import jipi.dto.ProposalDto;
 import jipi.dto.viewPengajuanProposalDto;
 import jipi.model.JenisPengajuanModel;
@@ -46,7 +50,7 @@ public class ProposalServiceImpl implements ProposalService{
     public void saveDataProposal(ProposalDto proposalDto) throws Exception {
         ProposalModel dataModel = new ProposalModel();
         
-        dataModel.setKdproposal(proposalDto.getKdproposal());
+        dataModel.setKdproposal("P"+generateKode());
         
         dataModel.setKdjenisproposal(proposalDto.getKdjenisproposal());
         
@@ -271,6 +275,79 @@ public class ProposalServiceImpl implements ProposalService{
             }
         }
         return listProposalDto;
+    }
+
+    @Override
+    public List<ProposalDto> getListDataProposalByFilterForReport(String fakultas_filter, String jurusan_filter, String jenis_filter, String angkatan_filter) {
+        List<ProposalDto> listProposalDto = new ArrayList();
+        List<Object[]> listDataObject = proposalDao.getListDataProposalForReport(fakultas_filter, jurusan_filter, jenis_filter, angkatan_filter);
+        if (listDataObject != null){
+            for (Object[] object : listDataObject){
+                ProposalDto dto = new ProposalDto();
+                JenisPengajuanModel jm = new JenisPengajuanModel();
+                MahasiswaModel mm = new MahasiswaModel();
+                if (object[0] != null){
+                    dto.setKdproposal(object[0].toString());
+                }
+                if (object[1] != null){
+                    dto.setKdjenisproposal(object[1].toString());
+                    jm = jenisPengajuanService.getJenisPengajuanById(object[1].toString());
+                    dto.setKdjenisproposal(jm.getNamajenispengajuan());
+                }
+                if (object[2] != null){
+                    dto.setNim(object[2].toString());
+                }
+                if (object[3] != null){
+                    dto.setJudulproposal(object[3].toString());
+                }
+                if (object[4] != null){
+                    dto.setPerubahanjudul(object[4].toString());
+                    try {
+                        mm = mahasiswaService.getMahasiswaById(object[2].toString());
+                    } catch (Exception ex) {
+                        Logger.getLogger(ProposalServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    dto.setPerubahanjudul(mm.getNamamahasiswa());
+                }else{
+                   mm = mahasiswaService.getMahasiswaById(object[2].toString());
+                   dto.setPerubahanjudul(mm.getNamamahasiswa());
+                }
+                
+                if (object[5] != null){
+                    dto.setSkssudahtempuh(Integer.parseInt(object[5].toString()));
+                }
+                if (object[6] != null){
+                    dto.setSksproposal(Integer.parseInt(object[6].toString()));
+                }
+                if (object[7] != null){
+                    dto.setTglpengajuanproposal(object[7].toString());
+                }
+                if (object[8] != null){
+                    dto.setIpk(Double.parseDouble(object[8].toString()));
+                }
+                if (object[9] != null){
+                    dto.setStatusproposal(object[9].toString());
+                }
+                if (object[10] != null){
+                    dto.setDosenpembimbing(object[10].toString());
+                }
+                if (object[11] != null){
+                    dto.setEmail(object[11].toString());
+                }
+                listProposalDto.add(dto);
+            }
+        }
+        return listProposalDto;
+    }
+    
+    public String generateKode(){
+        Random random = new Random();
+        char[] kode = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890".toCharArray();
+        String tamp="";
+        for (int lenght = 0; lenght < 7; lenght++) {
+            tamp+= kode[random.nextInt(kode.length)];
+        }
+        return tamp;
     }
     
     @Override

@@ -26,5 +26,6 @@ public interface AlumniService {
     public List<AlumniViewDto> viewDataAlumni(String kdalumni) throws Exception;
     public List<AlumniDto> getListDataAlumniView();
     public List<AlumniDto> searchAlumniByJurusan(String jurusan, String fakultas, String angkatan);
+    public List<AlumniDto> getListDataAlumniByFilterForReport(String fakultas_filter, String jurusan_filter, String angkatan_filter);
     public List<ViewAlumniDto> getListPengajuanSidang(ViewAlumniDto dataFilter);
 }

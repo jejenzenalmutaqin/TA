@@ -136,6 +136,38 @@ public class AlumniDaoImpl extends HibernateUtil implements AlumniDao {
         dataList = query.list();
         return dataList;
     }
+
+    @Override
+    public List<Object[]> getListDataAlumniForReport(String fakultas_filter, String jurusan_filter, String angkatan_filter) {
+        List<Object[]> dataList = null;
+        String sql = "select p.kdalumni, p.nim, p.kdkelulusan, p.perusahaan, p.alamatperusahaan, p.daerahkerja, p.sektor, p.profesi, p.testimoni, p.tglmulaikerja, p.emailperusahaan, p.integritas, p.keahlian, p.inggris, p.teknologi, p.komunikasi, p.kerjasama,p.pengembangan from alumni_tbl p inner join mst_mahasiswa m inner join mst_jurusan j inner join mst_fakultas f \n" +
+                     "on p.nim = m.nim and m.kdjurusan = j.kdjurusan and j.kdfakultas = f.kdfakultas ";
+        String where="";
+        if(fakultas_filter.equals("seluruh")){
+            where =" ";
+        }else{
+            where = " and j.kdfakultas='"+fakultas_filter+"' ";
+            sql = sql + where;
+        }
+        if(jurusan_filter.equals("seluruh")){
+            where =" ";
+        }else{
+            where = " and m.kdjurusan='"+jurusan_filter+"' ";
+            sql = sql + where;
+        }
+        if(angkatan_filter.equals("seluruh")){
+            where =" ";
+        }else{
+            where = " and m.angkatan='"+angkatan_filter+"' ";
+            sql = sql + where;
+        }
+        sql = sql + where;
+        Query query = createNativeQuery(sql);
+        dataList = query.list();
+        return dataList;
+    }
+    
+    
     
     @Override
     public List<ViewAlumniModel> getListDataAlumni(String jurusan,Integer angkatan) {
@@ -160,5 +192,4 @@ public class AlumniDaoImpl extends HibernateUtil implements AlumniDao {
                 .setParameter(1, angkatan);        
         data = query.list();
         return data;
-    }
 }
