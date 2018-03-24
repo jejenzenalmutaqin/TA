@@ -28,6 +28,9 @@ import jipi.dto.NotifDto;
 import jipi.dto.ProposalDto;
 import jipi.dto.SidangDto;
 import jipi.dto.UserDto;
+import jipi.model.MahasiswaModel;
+import jipi.model.ProposalModel;
+import jipi.model.SidangModel;
 import jipi.service.AksesService;
 import jipi.service.AlumniService;
 import jipi.service.FakultasService;
@@ -100,6 +103,12 @@ public class AkdController {
         return "akd_pengajuanproposal";
     }
 
+//    @RequestMapping(value = "/hapusListProposal", method = RequestMethod.POST)
+//    @ResponseBody
+//    public String hapusData(String kdproposal, ModelMap model) throws Exception {
+//        proposalService.deleteDataProposal(kdproposal);
+//        return "redirect:akd_pengajuanproposal.htm";
+//    }
     @RequestMapping(value = "/hapusListProposal", method = RequestMethod.GET)
     public String hapusData(String kdproposal, ModelMap model) throws Exception {
         proposalService.deleteDataProposal(kdproposal);
@@ -615,5 +624,7 @@ public class AkdController {
         // forwards to the view named "Result"
         return "akd_kirimemail";
     }
+    
+    
 
 }

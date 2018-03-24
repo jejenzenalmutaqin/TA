@@ -1,14 +1,17 @@
 package jipi.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpServletRequest;
 import jipi.dto.ProposalDto;
+import jipi.dto.UserDto;
 import jipi.model.MahasiswaModel;
 import jipi.model.ProposalModel;
 import jipi.service.MahasiswaService;
 import jipi.service.ProposalService;
+import jipi.service.UserService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
@@ -21,7 +24,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-@RequestMapping("/sendEmail")
+@RequestMapping("/sendEmailProposal")
 public class SendEmailController {
 
     @Autowired
@@ -32,13 +35,18 @@ public class SendEmailController {
     
     @Autowired
     MahasiswaService mahasiswaService;
+    
+    @Autowired
+    UserService userService;
 
     @RequestMapping(method = RequestMethod.GET)
-    public String doSendEmail(String kdproposal, ModelMap model) {
-        System.out.println(kdproposal);
+    public String doSendEmail(String kdproposal, ModelMap model) throws Exception {
         ProposalModel pm = proposalService.getProposalById(kdproposal);
         MahasiswaModel mm = mahasiswaService.getMahasiswaById(pm.getNim());
-        
+        List<UserDto> akun = new ArrayList<>();
+        if(pm.getStatusproposal().equals("sudah")){
+            akun = userService.saveDataUserOtomatis(mm.getNim(), mm.getNamamahasiswa());
+        }
         System.out.println("masuk doSendEmail");
         // takes input from e-mail form
         String recipientAddress = pm.getEmail();
@@ -46,10 +54,11 @@ public class SendEmailController {
         String pesan="";
         if(pm.getStatusproposal().equals("belum")){
             System.out.println("masuk if");
-            pesan="Dear "+mm.getNamamahasiswa()+"\nProposal yang anda ajukan belum diterima\nSilahkan coba lagi\nTerimakasih";
+            pesan="Dear "+mm.getNamamahasiswa()+"\nProposal yang anda ajukan belum diterima\nSilahkan hubungi akademik untuk informasi lebih lanjut\nTerimakasih\n\nAkademik";
         }else{
             System.out.println("masuk else");
-            pesan="Dear "+mm.getNamamahasiswa()+"\nSelamat, proposal anda diterima\nDosen Pembimbing: "+pm.getDosenpembimbing()+"\nTerimakasih";
+            pesan="Dear "+mm.getNamamahasiswa()+"\nSelamat, proposal anda diterima\nDosen Pembimbing: "+pm.getDosenpembimbing()+"\nJudul Proposal: "+pm.getJudulproposal()+"\nSurat Tugas: sudah tersedia di akademik. Surat dikembalikan sebelum tanggal "+pm.getPerubahanjudul()+"\n";
+            pesan=pesan+"Untuk informasi lebih lanjut, silahkan untuk menggunakan Aplikasi Monitoring Penyusunan Tugas Akhir/Skripsi dan Sebaran Alumni Universitas Nasional Pasim dengan akun berikut:\nUsername: "+akun.get(0).getUsername()+"\nPassword: "+akun.get(0).getPassword()+"\nTerimakasih\n\nAkademik";
         }
         String subject = "PEMBERITAHUAN HASIL PENGAJUAN PROPOSAL";
         String message = pesan;

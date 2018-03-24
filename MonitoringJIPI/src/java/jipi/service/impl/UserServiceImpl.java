@@ -28,24 +28,25 @@ import org.springframework.stereotype.Service;
  */
 @Service
 @Transactional
-public class UserServiceImpl implements UserService{
+public class UserServiceImpl implements UserService {
+
     @Autowired
     UserDao userDao;
-    
+
     @Autowired
     AksesDao aksesDao;
-    
+
     @Override
     public void saveDataUser(UserDto userDto) throws Exception {
         UserModel dataModel = new UserModel();
-        dataModel.setKduser("U"+generateKode());
+        dataModel.setKduser("U" + generateKode());
         dataModel.setUsername(userDto.getUsername());
         dataModel.setPassword(userDto.getPassword());
         dataModel.setAkses(userDto.getAkses());
-        if(userDto.getAkses().equals("5") || userDto.getAkses().equals("6")) {
+        if (userDto.getAkses().equals("5") || userDto.getAkses().equals("6")) {
             dataModel.setNim(userDto.getNim());
             dataModel.setNip("");
-        }else{
+        } else {
             dataModel.setNim("");
             dataModel.setNip(userDto.getNim());
         }
@@ -58,33 +59,33 @@ public class UserServiceImpl implements UserService{
         List<UserDto> ListDto = new ArrayList<>();
         List<UserModel> data = userDao.getListDataUser();
         AksesModel am = new AksesModel();
-        if(data != null){
+        if (data != null) {
             for (UserModel ddm : data) {
                 UserDto dto = new UserDto();
-                if(ddm.getKduser() != null){
+                if (ddm.getKduser() != null) {
                     dto.setKduser(ddm.getKduser());
                 }
-                if(ddm.getUsername() != null){
+                if (ddm.getUsername() != null) {
                     dto.setUsername(ddm.getUsername());
                 }
-                if(ddm.getPassword() != null){
+                if (ddm.getPassword() != null) {
                     dto.setPassword(ddm.getPassword());
                 }
-                if(ddm.getAkses() != null){
+                if (ddm.getAkses() != null) {
                     try {
                         am = aksesDao.getAksesById(ddm.getAkses());
                     } catch (Exception ex) {
-                        
+
                     }
                     dto.setAkses(am.getNamaakses());
                 }
-                if(ddm.getNim() != null){
+                if (ddm.getNim() != null) {
                     dto.setNim(ddm.getNim());
                 }
-                if(ddm.getNip() != null){
-                     dto.setNip(ddm.getNip());
+                if (ddm.getNip() != null) {
+                    dto.setNip(ddm.getNip());
                 }
-                if(ddm.getKeterangan() != null){
+                if (ddm.getKeterangan() != null) {
                     dto.setKeterangan(ddm.getKeterangan());
                 }
                 ListDto.add(dto);
@@ -116,32 +117,32 @@ public class UserServiceImpl implements UserService{
     @Override
     public UserDto updateDataForm(String kduser) throws Exception {
         List<UserModel> dataList = userDao.getListUserUpdate(kduser);
-         UserDto dto = new UserDto();
-        if(dataList != null){
-            for (UserModel ddm : dataList) {  
-                if(ddm.getKduser() != null){
+        UserDto dto = new UserDto();
+        if (dataList != null) {
+            for (UserModel ddm : dataList) {
+                if (ddm.getKduser() != null) {
                     dto.setKduser(ddm.getKduser());
                 }
-                if(ddm.getUsername() != null){
+                if (ddm.getUsername() != null) {
                     dto.setUsername(ddm.getUsername());
                 }
-                if(ddm.getPassword() != null){
+                if (ddm.getPassword() != null) {
                     dto.setPassword(ddm.getPassword());
                 }
-                if(ddm.getAkses() != null){
+                if (ddm.getAkses() != null) {
                     dto.setAkses(ddm.getAkses());
                 }
-                if(ddm.getAkses().equals("5") || ddm.getAkses().equals("6")){
-                    dto.setNim(ddm.getNim()!=null?ddm.getNim():"");
-                    dto.setNip(ddm.getNip()!=null?ddm.getNip():"");
-                }else{
-                    dto.setNim(ddm.getNip()!=null?ddm.getNip():"");
-                    dto.setNip(ddm.getNip()!=null?ddm.getNip():"");
+                if (ddm.getAkses().equals("5") || ddm.getAkses().equals("6")) {
+                    dto.setNim(ddm.getNim() != null ? ddm.getNim() : "");
+                    dto.setNip(ddm.getNip() != null ? ddm.getNip() : "");
+                } else {
+                    dto.setNim(ddm.getNip() != null ? ddm.getNip() : "");
+                    dto.setNip(ddm.getNip() != null ? ddm.getNip() : "");
                 }
-                if(ddm.getKeterangan() != null){
+                if (ddm.getKeterangan() != null) {
                     dto.setKeterangan(ddm.getKeterangan());
                 }
-                
+
             }
         }
         return dto;
@@ -155,22 +156,22 @@ public class UserServiceImpl implements UserService{
             ddm.setUsername(userDto.getUsername());
             ddm.setPassword(userDto.getPassword());
             ddm.setAkses(userDto.getAkses());
-            if(userDto.getAkses().equals("5") || userDto.getAkses().equals("6")){
+            if (userDto.getAkses().equals("5") || userDto.getAkses().equals("6")) {
                 ddm.setNim(userDto.getNim());
                 ddm.setNip("");
-            }else{
+            } else {
                 ddm.setNim("");
                 ddm.setNip(userDto.getNim());
             }
             ddm.setKeterangan(userDto.getKeterangan());
-            
+
         } catch (Exception e) {
             e.printStackTrace();
         }
         userDao.updateUser(ddm);
     }
-    
-    public String generateKodeUser(){
+
+    public String generateKodeUser() {
         return null;
     }
 
@@ -180,34 +181,34 @@ public class UserServiceImpl implements UserService{
         List<Object[]> listDataObject = userDao.getListCariDataUserNativeQuery(cariBerdasarkan, cariKey);
         List<UserModel> data = userDao.getListDataUser();
         AksesModel am = new AksesModel();
-        if (listDataObject != null){
-            for (Object[] object : listDataObject){
+        if (listDataObject != null) {
+            for (Object[] object : listDataObject) {
                 UserDto dto = new UserDto();
-                if (object[0] != null){
+                if (object[0] != null) {
                     dto.setKduser(object[0].toString());
                 }
-                if (object[1] != null){
+                if (object[1] != null) {
                     dto.setUsername(object[1].toString());
                 }
-                if (object[2] != null){
+                if (object[2] != null) {
                     dto.setPassword(object[2].toString());
                 }
-                if (object[3] != null){
+                if (object[3] != null) {
 //                    dto.setAkses(object[3].toString());
                     try {
                         am = aksesDao.getAksesById(object[3].toString());
                     } catch (Exception ex) {
-                        
+
                     }
                     dto.setAkses(am.getNamaakses());
                 }
-                if (object[4] != null){
+                if (object[4] != null) {
                     dto.setNim(object[4].toString());
                 }
-                if (object[5] != null){
+                if (object[5] != null) {
                     dto.setNip(object[5].toString());
                 }
-                if (object[6] != null){
+                if (object[6] != null) {
                     dto.setKeterangan(object[6].toString());
                 }
                 listUserDto.add(dto);
@@ -230,7 +231,7 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public List<Object[]> getCountUsernameAndPasswordAndAksesService(String username, String password, String akses) {
-        List<Object[]> listDataObject =userDao.getCountUsernameAndPasswordAndAkses(username, password, akses);
+        List<Object[]> listDataObject = userDao.getCountUsernameAndPasswordAndAkses(username, password, akses);
         return listDataObject;
     }
 
@@ -240,28 +241,28 @@ public class UserServiceImpl implements UserService{
         List<Object[]> listDataObject = userDao.getListDataUserByLogin(username, password, akses);
         List<UserModel> data = userDao.getListDataUser();
         AksesModel am = new AksesModel();
-        if (listDataObject != null){
-            for (Object[] object : listDataObject){
+        if (listDataObject != null) {
+            for (Object[] object : listDataObject) {
                 UserDto dto = new UserDto();
-                if (object[0] != null){
+                if (object[0] != null) {
                     dto.setKduser(object[0].toString());
                 }
-                if (object[1] != null){
+                if (object[1] != null) {
                     dto.setUsername(object[1].toString());
                 }
-                if (object[2] != null){
+                if (object[2] != null) {
                     dto.setPassword(object[2].toString());
                 }
-                if (object[3] != null){
+                if (object[3] != null) {
                     dto.setAkses(object[3].toString());
                 }
-                if (object[4] != null){
+                if (object[4] != null) {
                     dto.setNim(object[4].toString());
                 }
-                if (object[5] != null){
+                if (object[5] != null) {
                     dto.setNip(object[5].toString());
                 }
-                if (object[6] != null){
+                if (object[6] != null) {
                     dto.setKeterangan(object[6].toString());
                 }
                 listUserDto.add(dto);
@@ -269,15 +270,92 @@ public class UserServiceImpl implements UserService{
         }
         return listUserDto;
     }
-    
-    public String generateKode(){
+
+    public String generateKode() {
         Random random = new Random();
         char[] kode = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890".toCharArray();
-        String tamp="";
+        String tamp = "";
         for (int lenght = 0; lenght < 7; lenght++) {
-            tamp+= kode[random.nextInt(kode.length)];
+            tamp += kode[random.nextInt(kode.length)];
         }
         return tamp;
     }
-    
+
+    @Override
+    public List<UserDto> saveDataUserOtomatis(String nim, String nama) throws Exception {
+        UserModel dataModel = new UserModel();
+        dataModel.setKduser("U" + generateKode());
+        dataModel.setUsername(nama.replaceAll("\\s+", "") + nim);
+        dataModel.setPassword(generateKode());
+        dataModel.setAkses("5");
+        dataModel.setNim(nim);
+        dataModel.setNip("");
+        dataModel.setKeterangan("mahasiswa");
+        userDao.saveDataUser(dataModel);
+        
+        UserDto user = new UserDto();
+        user.setUsername(dataModel.getUsername());
+        user.setPassword(dataModel.getPassword());
+        List<UserDto> result = new ArrayList<>();
+        result.add(user);
+        return result;
+    }
+
+    @Override
+    public UserDto updateDataFormMhs(String nim) throws Exception {
+        List<UserModel> dataList = userDao.getListUserUpdateMhs(nim);
+        UserDto dto = new UserDto();
+        if (dataList != null) {
+            for (UserModel ddm : dataList) {
+                if (ddm.getKduser() != null) {
+                    dto.setKduser(ddm.getKduser());
+                }
+                if (ddm.getUsername() != null) {
+                    dto.setUsername(ddm.getUsername());
+                }
+                if (ddm.getPassword() != null) {
+                    dto.setPassword(ddm.getPassword());
+                }
+                if (ddm.getAkses() != null) {
+                    dto.setAkses(ddm.getAkses());
+                }
+                if (ddm.getAkses().equals("5") || ddm.getAkses().equals("6")) {
+                    dto.setNim(ddm.getNim() != null ? ddm.getNim() : "");
+                    dto.setNip(ddm.getNip() != null ? ddm.getNip() : "");
+                } else {
+                    dto.setNim(ddm.getNip() != null ? ddm.getNip() : "");
+                    dto.setNip(ddm.getNip() != null ? ddm.getNip() : "");
+                }
+                if (ddm.getKeterangan() != null) {
+                    dto.setKeterangan(ddm.getKeterangan());
+                }
+
+            }
+        }
+        return dto;
+    }
+
+    @Override
+    public void doUpdateDataFormMhs(UserDto userDto) throws Exception {
+        UserModel ddm = new UserModel();
+        try {
+            ddm.setKduser(userDto.getKduser());
+            ddm.setUsername(userDto.getUsername());
+            ddm.setPassword(userDto.getPassword());
+            ddm.setAkses(userDto.getAkses());
+            if (userDto.getAkses().equals("5") || userDto.getAkses().equals("6")) {
+                ddm.setNim(userDto.getNim());
+                ddm.setNip("");
+            } else {
+                ddm.setNim("");
+                ddm.setNip(userDto.getNim());
+            }
+            ddm.setKeterangan(userDto.getKeterangan());
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        userDao.updateUserMhs(ddm);
+    }
+
 }

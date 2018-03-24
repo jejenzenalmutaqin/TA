@@ -133,7 +133,7 @@
                         <div class="panel panel-default">
                             <div class="panel-heading"> Form Tambah Data Pengajuan Proposal</div>
                             <div class="panel-body">
-                                <form:form class="form-horizontal" id="formTambahProposal" action="simpanDataPengajuanProposal.htm" method="post" modelAttribute="dto">
+                                <form:form class="form-horizontal" id="formTambahProposal" action="simpanDataPengajuanProposal.htm" method="post" modelAttribute="dto" name="formProposal">
                                     <fieldset>
                                         <!-- Kode input-->
                                         <form:hidden path="kdproposal" value="00" />
@@ -190,7 +190,7 @@
                                         <div class="form-group">
                                             <label class="col-md-3 control-label" >Tanggal Pengajuan Proposal</label>
                                             <div class="col-md-9">
-                                                <form:input path="tglpengajuanproposal" id="tg_pj" placeholder="Tanggal Pengajuan" class="form-control validate validate[required]"/>
+                                                <form:input path="tglpengajuanproposal" id="tg_pj1" placeholder="Tanggal Pengajuan" class="form-control validate validate[required]"/>
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -205,38 +205,39 @@
                                                 <form:input path="email" placeholder="Wajib di isi" class="form-control validate validate[required]"/>
                                             </div>
                                         </div>
-                                        <div class="form-group">
-                                            <label class="col-md-3 control-label" >Dosen Pembimbing</label>
-                                            <div class="col-md-9">
-                                                <form:input path="dosenpembimbing" placeholder="Di isi ketika sudah mendapatkan dosen pembimbing" class="form-control validate validate[required]"/>
-                                            </div>
-                                        </div>
-                                        <div class="form-group" id="status">
+                                        <div class="form-group" >
                                             <label class="col-md-3 control-label" >Status Proposal</label>
                                             <div class="col-md-3">
                                                 <!--                                                <input type="radio" name="statusproposal" value="belum" class="form-control" checked="true"/>Belum Diterima-->
-                                                <form:radiobutton path="statusproposal" value="belum" class="form-control" checked="true"/>Belum Diterima
+                                                <form:radiobutton path="statusproposal" value="belum" class="form-control" checked="true" onclick="hidup()"/>Belum Diterima
                                             </div>
                                             <div class="col-md-3">
                                                 <!--                                                <input type="radio" name="statusproposal" value="sudah" class="form-control"/>Sudah Diterima-->
-                                                <form:radiobutton path="statusproposal" value="sudah" class="form-control" onclick="tambahin()"/>Sudah Diterima
+                                                <form:radiobutton path="statusproposal" value="sudah" class="form-control" onclick="mati()"/>Sudah Diterima
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label" >Dosen Pembimbing</label>
+                                            <div class="col-md-9">
+                                                <form:input path="dosenpembimbing" id="dosen" placeholder="" class="form-control validate validate[required]" disabled="true"/>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label" >Tanggal Batas Menghubungi Dosen Pembimbing</label>
+                                            <div class="col-md-9">
+                                                <form:input path="perubahanjudul" placeholder="" class="form-control validate validate[required]" disabled="true" id="tanggal" />
                                             </div>
                                         </div>
                                         <script type="text/javascript">
-                                            function tambahin() {
-//        $(document).ready(function () {
-//            $("#status").change(function () {
-//                alert("masuk");
-//                if ($(this).val() == 'sudah') {
-//                    alert("test");
-//                    $('#tanggalBatas').append("<label class="col - md - 3 control - label" >Tanggal Batas Menemui Dosen Pembimbing</label><div class="col - md - 9"><form:input path="perubahanjudul" class="form-control"/></div>");
-//                } else {
-//                    alert("masuk else");
-//                }
-//            });
-//        });
-                                                alert("masuk onclik");
+                                                function mati() {
+                                            document.getElementById("tanggal").disabled = false;
+                                            document.getElementById("dosen").disabled = false;
                                             }
+                                                function hidup() {
+                                            document.getElementById("tanggal").disabled = true;
+                                            document.getElementById("dosen").disabled = true;
+    }
                                         </script>
                                         <div class="form-group" id="tanggalBatas">
 
@@ -281,48 +282,51 @@
 <script src="js/easypiechart-data.js"></script>
 <script src="js/bootstrap-datepicker.js"></script>
 <script type="text/javascript">
-                                            !function ($) {
-                                                $(document).on("click", "ul.nav li.parent > a > span.icon", function () {
-                                                    $(this).find('em:first').toggleClass("glyphicon-minus");
+                                                !function ($) {
+                                                    $(document).on("click", "ul.nav li.parent > a > span.icon", function () {
+                                                $(this).find('em:first').toggleClass("glyphicon-minus");
                                                 });
-                                                $(".sidebar span.icon").find('em:first').addClass("glyphicon-plus");
+                                            $(".sidebar span.icon").find('em:first').addClass("glyphicon-plus");
                                             }(window.jQuery);
 
-                                            $(function () {
-//    $("#tgl_pgj").datepicker({dateFormat: 'dd-mm-yy'});
-                                                $("#tgl_pgj").datepicker();
 
-                                            });
 
-                                            $(window).on('resize', function () {
-                                                if ($(window).width() > 768)
-                                                    $('#sidebar-collapse').collapse('show')
+                                                $(window).on('resize', function () {
+                                                    if ($(window).width() > 768)
+                                            $('#sidebar-collapse').collapse('show')
                                             })
-                                            $(window).on('resize', function () {
-                                                if ($(window).width() <= 767)
-                                                    $('#sidebar-collapse').collapse('hide')
+                                                $(window).on('resize', function () {
+                                                    if ($(window).width() <= 767)
+                                            $('#sidebar-collapse').collapse('hide')
                                             })
 
-
-                                            var jQuery_1_11_1 = $.noConflict(true);
-                                            jQuery_1_11_1(document).ready(function () {
-                                                jQuery_1_11_1("#sbm").click(function (evt) { //id tombol submit
-                                                    evt.preventDefault();
-                                                    var validate = jQuery_1_11_1('#formTambahProposal').validationEngine('validate'); // id form
-                                                    if (validate) {
-                                                        jQuery_1_11_1("#formTambahProposal").submit();
-                                                    } else {
-                                                        return false;
-                                                    }
-                                                });
-
-                                            });
-
-                                            $(function () {
+                                                $(function () {
                                                 //$("#tg_pj").datepicker({dateFormat: 'dd-mm-yy'});
-                                                $("#tg_pj").datepicker();
+                                            $("#tg_pj1").datepicker();
 
                                             });
+                                            
+                                                $(function () {
+                                                //$("#tg_pj").datepicker({dateFormat: 'dd-mm-yy'});
+                                            $("#tanggal").datepicker();
+
+                                            });
+
+//                                            var jQuery_1_11_1 = $.noConflict(true);
+//                                            jQuery_1_11_1(document).ready(function () {
+//                                                jQuery_1_11_1("#sbm").click(function (evt) { //id tombol submit
+//                                                    evt.preventDefault();
+//                                                    var validate = jQuery_1_11_1('#formTambahProposal').validationEngine('validate'); // id form
+//                                                    if (validate) {
+//                                                        jQuery_1_11_1("#formTambahProposal").submit();
+//                                                    } else {
+//                                                        return false;
+//                                                    }
+//                                                });
+//
+//                                            });
+
+
 
 
 

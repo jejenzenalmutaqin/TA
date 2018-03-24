@@ -65,7 +65,7 @@
                                     <form:hidden path="kduser" value="-"/>
                                     <form:hidden path="nim" value="-"/>
                                     <form:hidden path="nip" value="-"/>
-                                    <%--<form:hidden path="keterangan" value="-"/>--%>
+                                    <form:hidden path="keterangan" value="${dto.keterangan}" id="keterangan_login"/>
                                     <div class="form-group">
                                         <label class="col-md-3 control-label" style="color: #2aabd2"></label>
                                         <div class="col-md-8 widget-right">

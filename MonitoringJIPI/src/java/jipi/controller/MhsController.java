@@ -9,6 +9,7 @@ import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.util.List;
+import jipi.dto.AksesDto;
 import jipi.dto.AlumniDto;
 import jipi.dto.AlumniViewDto;
 import jipi.dto.FakultasDto;
@@ -25,6 +26,7 @@ import jipi.service.JurusanService;
 import jipi.service.MahasiswaService;
 import jipi.service.NotifService;
 import jipi.service.ProposalService;
+import jipi.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -51,8 +53,13 @@ public class MhsController {
     @Autowired
     JurusanService jurusanService;
     
+
     @Autowired
     NotifService notifService;
+
+	@Autowired
+    UserService userService;
+	
 
     @RequestMapping(value = "/mhs_index", method = RequestMethod.GET)
     public String tampilanIndexMhs(String nim, ModelMap model) {
@@ -94,9 +101,11 @@ public class MhsController {
         }
         return "mhs_notifikasi";
     }
-    
+   
+   
+
     @RequestMapping(value = "/hapusnotif", method = RequestMethod.GET)
-    public String hapusNotifikasi(String nim, String kdnotif,ModelMap model) {
+    public String hapusNotifikasi(String nim, String kdnotif, ModelMap model) {
         try {
             MahasiswaDto mahasiswaDto = mahasiswaService.getDtoMahasiswa(nim);
             model.addAttribute("dto", mahasiswaDto);
@@ -109,6 +118,7 @@ public class MhsController {
         return "mhs_notifikasi";
     }
     
+
     @RequestMapping(value = "/openAndEditNotif", method = RequestMethod.GET)
     public String tampilanDetailNotifikasi(String nim, String kdnotif, ModelMap model) {
         try {
@@ -129,10 +139,31 @@ public class MhsController {
     
 
     @RequestMapping(value = "/mhs_ubahakun", method = RequestMethod.GET)
-    public String ubahAkun(ModelMap model) {
-        UserDto userDto = new UserDto();
-        model.addAttribute("userDto", userDto);
+    public String ubahAkun(String nim, ModelMap model) throws Exception {
+
+        List<AksesDto> listAkses = null;
+        try {
+//            listAkses = aksesService.getListDataAkses();
+//            System.out.println(listJenisPengajuan);
+//            model.addAttribute("listAkses", listAkses);
+            UserDto userDto = userService.updateDataFormMhs(nim);
+            model.addAttribute("userDto", userDto);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return "mhs_ubahakun";
+    }
+
+	@RequestMapping(value = "/editDataBaru", method = RequestMethod.GET)
+    public String editData(UserDto userDto, ModelMap model) throws Exception {
+        MahasiswaDto mahasiswaDto = mahasiswaService.getDtoMahasiswa(userDto.getNim());
+        model.addAttribute("listMahasiswa", mahasiswaDto);
+        System.out.println(mahasiswaDto.toString() + "===========================INI NIM " + mahasiswaDto.getNim());
+        MahasiswaDto mahasiswaDto2 = mahasiswaService.getDtoMahasiswa(userDto.getNim());
+        model.addAttribute("dto", mahasiswaDto2);
+        System.out.println(mahasiswaDto.toString() + "===================================INI ININ 2"+mahasiswaDto2.getNim());
+        userService.doUpdateDataFormMhs(userDto);
+        return "mhs_profil";
     }
 
     @RequestMapping(value = "/berandaalumni", method = RequestMethod.GET)
@@ -167,6 +198,10 @@ public class MhsController {
     public String cariAlumni(String nim, String cariBerdasarkan, String cariKey, ModelMap model) throws Exception {
         List<AlumniDto> listDto = alumniService.searchAlumni(cariBerdasarkan, cariKey);
         model.addAttribute("listDto", listDto);
+		List<FakultasDto> listFakultas = fakultasService.getListDataFakultas();
+        model.addAttribute("listFakultas", listFakultas);
+        List<JurusanDto> listJurusan = jurusanService.getListDataJurusan();
+        model.addAttribute("listJurusan", listJurusan);
         MahasiswaDto mahasiswaDto = mahasiswaService.getDtoMahasiswa(nim);
         model.addAttribute("dto", mahasiswaDto);
 //        return "redirect:akd_datauser.htm";
@@ -198,6 +233,7 @@ public class MhsController {
                 if (!dir.exists()) {
                     dir.mkdirs();//mkdirs() untuk membuat sebuah direktori baru, terdapat pd klas file
                 }
+
                 File serverFile = new File(dir.getAbsolutePath()
                         + File.separator + alumniDto.getFile().getOriginalFilename());
                 BufferedOutputStream stream = new BufferedOutputStream(
@@ -227,6 +263,7 @@ public class MhsController {
         return "mhs_viewAlumni";
     }
     
+
     @RequestMapping(value = "/caridataalumnibyjurusan", method = RequestMethod.POST)
     public String cariAlumniByJurusan(String nim, String jurusan, String fakultas, String angkatan, ModelMap model) throws Exception {
         List<AlumniDto> listDto = alumniService.searchAlumniByJurusan(jurusan, fakultas, angkatan);

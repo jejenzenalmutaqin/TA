@@ -7,6 +7,7 @@ package jipi.service;
 
 import java.util.List;
 import jipi.dto.MahasiswaDto;
+import jipi.dto.UserDto;
 import jipi.model.MahasiswaModel;
 import jipi.model.ProposalModel;
 
@@ -24,4 +25,8 @@ public interface MahasiswaService {
     public void deleteDataMahasiswa(String nim);
     public MahasiswaDto getDtoMahasiswa(String nim) throws Exception;
     public MahasiswaModel getMahasiswaByNim(String nim) throws Exception;
+    public UserDto getDataUserByNim(String nim) throws Exception;
+    public void doUpdateDataForm(UserDto userDto) throws Exception;
+    public MahasiswaDto getDtoMahasiswaByDto(MahasiswaDto dto) throws Exception;
+
 }

@@ -154,5 +154,19 @@ public class UserDaoImpl extends HibernateUtil implements UserDao{
         return dataList;
     }
 
+    @Override
+    public List<UserModel> getListUserUpdateMhs(String nim) {
+        List<UserModel> dataList = null;
+        String sql = "select model from UserModel model where nim=:nimedit";
+        Query query = createQuery(sql).setParameter("nimedit", nim);
+        dataList = query.list();
+        return dataList;
+    }
+
+    @Override
+    public void updateUserMhs(UserModel userModel) {
+        getSession().saveOrUpdate(userModel);
+    }
+
     
 }

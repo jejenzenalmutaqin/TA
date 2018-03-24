@@ -41,7 +41,7 @@
                 <a class="navbar-brand" href="#"><span>APLIKASI MONITORING PENYUSUNAN TUGAS AKHIR/SKRIPSI</span> UNIVERSITAS NASIONAL PASIM</a>
                 <ul class="user-menu">
                     <li class="dropdown pull-right">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> Akademik <span class="caret"></span></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> ${dto.namamahasiswa} <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
                             <li><a href="#"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> Profile</a></li>
                             <li><a href="#"><svg class="glyph stroked gear"><use xlink:href="#stroked-gear"></use></svg> Settings</a></li>
@@ -94,7 +94,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-5">
+                <div class="col-lg-12">
                     <form:form action="#" style="width: 1000px" class="posisi" modelAttribute="listMahasiswa">
                         <fieldset class="h">
                             <table>
@@ -150,64 +150,97 @@
                                         <td><b>Asal Sekolah</b></td>
                                         <td>&nbsp;:&nbsp;&nbsp;</td>
                                         <td><c:out value="${listMahasiswa.asalsekolah}"></c:out></td>
-                                </tr>
-                                <tr>
-                                    <td></td><td></td>
-                                    <td><b>Jurusan Sekolah</b></td>
-                                    <td>&nbsp;:&nbsp;&nbsp;</td>
-                                    <td><c:out value="${listMahasiswa.jurusanasalsekolah}"></c:out></td>
-                                </tr>
-                                <tr>
-                                    <td></td><td></td>
-                                    <td><b>Jurusan Sekarang</b></td>
-                                    <td>&nbsp;:&nbsp;&nbsp;</td>
-                                    <td><c:out value="${listMahasiswa.kdjurusan}"></c:out></td>
-                                </tr>
-                                <tr>
-                                    <td rowspan="7">
-                                    </td><td></td>
-                                    <td colspan="4" style="text-align: center; background-color: gray;color: orange"><b>Data Profil Orangtua</b></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td></td><td></td>
-                                    <td><b>Nama Ayah</b></td>
-                                    <td>&nbsp;:&nbsp;&nbsp;</td>
-                                    <td><c:out value="${listMahasiswa.namaayah}"></c:out></td>
-                                </tr>
-                                <tr>
-                                    <td></td><td></td>
-                                    <td><b>Nama Ibu</b></td>
-                                    <td>&nbsp;:&nbsp;&nbsp;</td>
-                                    <td><c:out value="${listMahasiswa.namaibu}"></c:out></td>
-                                </tr>
-                                <tr>
-                                    <td></td><td></td>
-                                    <td><b>Pendidikan Ayah</b></td>
-                                    <td>&nbsp;:&nbsp;&nbsp;</td>
-                                    <td><c:out value="${listMahasiswa.pendidikanayah}"></c:out></td>
-                                </tr>
-                                <tr>
-                                    <td></td><td></td>
-                                    <td><b>Pendidikan ibu</b></td>
-                                    <td>&nbsp;:&nbsp;&nbsp;</td>
-                                    <td><c:out value="${listMahasiswa.pendidikanibu}"></c:out></td>
-                                </tr>
-                                <tr>
-                                    <td></td><td></td>
-                                    <td><b>Alamat Orangtua</b></td>
-                                    <td>&nbsp;:&nbsp;&nbsp;</td>
-                                    <td><c:out value="${listMahasiswa.alamatortu}"></c:out></td>
-                                </tr>
-                                <tr>
-                                    <td></a></td><td></td>
-                                    <td><b>Nomor Telp. Orangtua</b></td>
-                                    <td>&nbsp;:&nbsp;&nbsp;</td>
-                                    <td><c:out value="${listMahasiswa.tlportu}"></c:out></td>
-                                </tr>
-                                <tr>
-                                    <td><a href="mhs_ubahakun.htm"style="text-decoration: none;" target="_parent"><input type="button"value="Ubah Akun ?"/></a></td>
+
+                                    </tr>
+                                    <tr>
+                                        <td></td><td></td>
+                                        <td><b>Jurusan Sekolah</b></td>
+                                        <td>&nbsp;:&nbsp;&nbsp;</td>
+                                        <td><c:out value="${listMahasiswa.jurusanasalsekolah}"></c:out></td>
+
+
+
+                                    </tr>
+                                    <tr>
+                                        <td></td><td></td>
+                                        <td><b>Jurusan Sekarang</b></td>
+                                        <td>&nbsp;:&nbsp;&nbsp;</td>
+                                        <td><c:out value="${listMahasiswa.kdjurusan}"></c:out></td>
+
+
+
+
+                                    </tr>
+                                    <tr>
+                                        <td rowspan="7">
+                                        </td><td></td>
+                                        <td colspan="4" style="text-align: center; background-color: gray;color: orange"><b>Data Profil Orangtua</b></td>
+
+
+
+
+
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td></td><td></td>
+                                        <td><b>Nama Ayah</b></td>
+                                        <td>&nbsp;:&nbsp;&nbsp;</td>
+                                        <td><c:out value="${listMahasiswa.namaayah}"></c:out></td>
+
+
+
+                                    </tr>
+                                    <tr>
+                                        <td></td><td></td>
+                                        <td><b>Nama Ibu</b></td>
+                                        <td>&nbsp;:&nbsp;&nbsp;</td>
+                                        <td><c:out value="${listMahasiswa.namaibu}"></c:out></td>
+
+
+
+                                    </tr>
+                                    <tr>
+                                        <td></td><td></td>
+                                        <td><b>Pendidikan Ayah</b></td>
+                                        <td>&nbsp;:&nbsp;&nbsp;</td>
+                                        <td><c:out value="${listMahasiswa.pendidikanayah}"></c:out></td>
+
+
+
+                                    </tr>
+                                    <tr>
+                                        <td></td><td></td>
+                                        <td><b>Pendidikan ibu</b></td>
+                                        <td>&nbsp;:&nbsp;&nbsp;</td>
+                                        <td><c:out value="${listMahasiswa.pendidikanibu}"></c:out></td>
+
+
+
+                                    </tr>
+                                    <tr>
+                                        <td></td><td></td>
+                                        <td><b>Alamat Orangtua</b></td>
+                                        <td>&nbsp;:&nbsp;&nbsp;</td>
+                                        <td><c:out value="${listMahasiswa.alamatortu}"></c:out></td>
+
+
+                                    </tr>
+                                    <tr>
+                                        <td></a></td><td></td>
+                                        <td><b>Nomor Telp. Orangtua</b></td>
+                                        <td>&nbsp;:&nbsp;&nbsp;</td>
+                                        <td><c:out value="${listMahasiswa.tlportu}"></c:out></td>
+
+
+                                    </tr>
+
+                                    <tr>
+                                    <c:url var="panggilUbahAkun" value="/mhs_ubahakun.htm">
+                                        <c:param name="nim" value="${listMahasiswa.nim}" />
+                                    </c:url>
+                                    <td><a href="${panggilUbahAkun}"style="text-decoration: none;" target="_parent"><input type="button"value="Ubah Akun ?"/></a></td>
                                     <td></td><td></td>
                                     <td></td>
                                     <td></td>

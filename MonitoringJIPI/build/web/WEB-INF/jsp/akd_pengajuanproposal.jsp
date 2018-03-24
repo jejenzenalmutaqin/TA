@@ -157,7 +157,7 @@
                             <div class="panel-heading dark-overlay">Tabel Pengajuan Proposal</div>
                             <div class="panel-body">
 
-                                <table style="color: white" border="2">
+                                <table style="color: white" border="2" id="tabelProposal">
                                     <tr>
                                         <th class="col-md-2 control-label">Jenis Proposal</th>
                                         <th class="col-md-2 control-label">NIM</th>
@@ -179,25 +179,49 @@
                                             <td align="center" class="col-md-2 control-label">${listProp.tglpengajuanproposal}</td>
                                             <td align="center" class="col-md-2 control-label">${listProp.dosenpembimbing}</td>
                                             <td align="center" class="col-md-2 control-label">${listProp.statusproposal}</td>
+                                        
+                                        <c:url var="hapusList" value="/hapusListProposal.htm">
+                                            <c:param name="kdproposal" value="${listProp.kdproposal}"/>
+                                        </c:url>
+                                        <c:url var="editList" value="/editProposal.htm">
+                                            <c:param name="kdproposal" value="${listProp.kdproposal}"/>
+                                        </c:url>
+                                        <c:url var="share" value="/sendEmailProposal.htm">
+                                            <c:param name="kdproposal" value="${listProp.kdproposal}"/>
+                                        </c:url>
+                                        <c:set var="param" value="${listProp.kdproposal}"/>
+                                        <td align="center"><a href="${hapusList}"><label style="color: red" class="col-md-3 control-img" >Hapus</label></a></td>
 
-                                            <c:url var="hapusList" value="/hapusListProposal.htm">
-                                                <c:param name="kdproposal" value="${listProp.kdproposal}"/>
-                                            </c:url>
-                                            <c:url var="editList" value="/editProposal.htm">
-                                                <c:param name="kdproposal" value="${listProp.kdproposal}"/>
-                                            </c:url>
-                                            <c:url var="share" value="/sendEmail.htm">
-                                                <c:param name="kdproposal" value="${listProp.kdproposal}"/>
-                                            </c:url>
-                                            <td align="center"><a href="${hapusList}"><label style="color: red" class="col-md-3 control-img" >Hapus</label></a></td>
-                                            <td align="center"><a href="${editList}"><label style="color: greenyellow" class="col-md-3 control-img" >Edit</label></a></td>
-                                        
-                                            <td align="center"><a href="${share}"><label style="color: yellow" class="col-md-3 control-img" >Bagikan</label></a></td>
-                                        
+                                        <td align="center"><a href="${editList}"><label style="color: greenyellow" class="col-md-3 control-img" >Edit</label></a></td>
+
+                                        <td align="center"><a href="${share}"><label style="color: yellow" class="col-md-3 control-img" >Bagikan</label></a></td>
+
                                         </tr>            
                                         <%--<c:set var="index" value="${index+1}"/>--%>
                                     </c:forEach>
                                 </table>
+                                <script type="text/javascript">
+                                    function deleteConfirm() {
+                                        var doIt = confirm('Apakah anda yakin akan menghapus data ini?');
+                                        if (doIt) {
+                                            var xx = document.getElementById("kodetersembunyi").value;
+                                            $.ajax({
+                                                type: "POST",
+                                                url: "hapusListProposal.htm",
+                                                data: "kdproposal=" + xx,
+                                                success: function (response) {
+                                                    alert("Hapus Data Berhasil");
+                                                    location.reload();
+                                                },
+                                                error: function (e) {
+                                                    alert('Error: ' + e);
+                                                }
+                                            });
+                                        } else {
+
+                                        }
+                                    }
+                                </script>
                                 <script>
                                     $(function () {
                                         $('#hover, #striped, #condensed').click(function () {
@@ -256,36 +280,36 @@
         <script src="js/easypiechart-data.js"></script>
         <script src="js/bootstrap-datepicker.js"></script>
         <script type="text/javascript">
-                                        !function ($) {
-                                            $(document).on("click", "ul.nav li.parent > a > span.icon", function () {
-                                                $(this).find('em:first').toggleClass("glyphicon-minus");
-                                            });
-                                            $(".sidebar span.icon").find('em:first').addClass("glyphicon-plus");
-                                        }(window.jQuery);
-
-                                        $(window).on('resize', function () {
-                                            if ($(window).width() > 768)
-                                                $('#sidebar-collapse').collapse('show')
-                                        })
-                                        $(window).on('resize', function () {
-                                            if ($(window).width() <= 767)
-                                                $('#sidebar-collapse').collapse('hide')
-                                        })
-
-                                        $("#bb").focusout(function () {// id asal
-                                            var bb = $('#bb').val();
-                                            $.ajax({
-                                                type: "POST",
-                                                url: "otomatisDataSiswa1.htm",
-                                                data: "banyakBulan" + bb,
-                                                success: function (response) {
-                                                    $("#ket").val(response);// id yang dituju
-                                                },
-                                                error: function (e) {
-                                                    alert('Error: ' + e);
-                                                }
-                                            });
+                                    !function ($) {
+                                        $(document).on("click", "ul.nav li.parent > a > span.icon", function () {
+                                            $(this).find('em:first').toggleClass("glyphicon-minus");
                                         });
+                                        $(".sidebar span.icon").find('em:first').addClass("glyphicon-plus");
+                                    }(window.jQuery);
+
+                                    $(window).on('resize', function () {
+                                        if ($(window).width() > 768)
+                                            $('#sidebar-collapse').collapse('show')
+                                    })
+                                    $(window).on('resize', function () {
+                                        if ($(window).width() <= 767)
+                                            $('#sidebar-collapse').collapse('hide')
+                                    })
+
+                                    $("#bb").focusout(function () {// id asal
+                                        var bb = $('#bb').val();
+                                        $.ajax({
+                                            type: "POST",
+                                            url: "otomatisDataSiswa1.htm",
+                                            data: "banyakBulan" + bb,
+                                            success: function (response) {
+                                                $("#ket").val(response);// id yang dituju
+                                            },
+                                            error: function (e) {
+                                                alert('Error: ' + e);
+                                            }
+                                        });
+                                    });
 
         </script>	
     </body>

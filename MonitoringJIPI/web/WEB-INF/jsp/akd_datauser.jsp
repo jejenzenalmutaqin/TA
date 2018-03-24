@@ -165,13 +165,13 @@
                                 
                                 <table style="color: white" border="4">
                                     <tr>
-                                        <th class="col-md-2 control-label">Kode User</th>
-                                        <th class="col-md-2 control-label">Username</th>
-                                        <th class="col-md-2 control-label">Password</th>
-                                        <th class="col-md-2 control-label">Akses</th>
-                                        <th class="col-md-2 control-label">NIM</th>
-                                        <th class="col-md-2 control-label">NIP</th>
-                                        <th class="col-md-2 control-label">Keterangan</th>
+                                        <th style="text-align: center" class="col-md-2 control-label">Kode User</th>
+                                        <th style="text-align: center" class="col-md-2 control-label">Username</th>
+                                        <th style="text-align: center" class="col-md-2 control-label">Password</th>
+                                        <th style="text-align: center" class="col-md-2 control-label">Akses</th>
+                                        <th style="text-align: center" class="col-md-2 control-label">NIM</th>
+                                        <th style="text-align: center" class="col-md-2 control-label">NIP</th>
+                                        <th style="text-align: center" class="col-md-2 control-label">Keterangan</th>
                                         <th style="text-align: center" colspan="2" class="col-md-3 control-label">Action</th>
                                     </tr>
                                     

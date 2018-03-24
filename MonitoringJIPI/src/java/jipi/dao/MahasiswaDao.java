@@ -6,7 +6,10 @@
 package jipi.dao;
 
 import java.util.List;
+import jipi.dto.MahasiswaDto;
+import jipi.dto.UserDto;
 import jipi.model.MahasiswaModel;
+import jipi.model.UserModel;
 
 /**
  *
@@ -21,4 +24,7 @@ public interface MahasiswaDao {
     public List<MahasiswaModel> getListMahasiswa(String nim);
     public void deleteDataMahasiswa(String nim);
     public MahasiswaModel getMahasiswaByNim(String nim) throws Exception;
+    public List<UserModel> getDataUserByNim(String nim) throws Exception;
+    public void updateUser(UserModel userModel);
+    public List<MahasiswaModel> getDataMhsByDto(MahasiswaDto nim) throws Exception;
 }

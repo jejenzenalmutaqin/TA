@@ -139,9 +139,8 @@
                                         <div class="form-group">
                                             <label class="col-md-3 control-label" >Cari Berdasarkan NIM / Nama</label>
                                             <div class="col-md-9">
-                                                <input type="text" id="txCari" placeholder="Masukan Kata Kunci NIM/Nama" name="cariKey" class="form-control"><br>
+                                                <input type="text" id="txCari" placeholder="Masukan Kata Kunci NIM/Nama" name="cariKey" class="form-control validate validate[required]"><br>
                                             </div>
-
                                         </div>
 
                                         <div class="form-group">

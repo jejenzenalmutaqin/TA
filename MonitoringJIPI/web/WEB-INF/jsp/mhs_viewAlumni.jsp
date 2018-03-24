@@ -44,7 +44,7 @@
                     <a class="navbar-brand" href="#"><span>APLIKASI MONITORING PENYUSUNAN TUGAS AKHIR/SKRIPSI</span> UNIVERSITAS NASIONAL PASIM</a>
                     <ul class="user-menu">
                         <li class="dropdown pull-right">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> Akademik <span class="caret"></span></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> ${dto.namamahasiswa} <span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
                                 <li><a href="#"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> Profile</a></li>
                                 <li><a href="#"><svg class="glyph stroked gear"><use xlink:href="#stroked-gear"></use></svg> Settings</a></li>
@@ -83,25 +83,24 @@
 
         </div><!--/.sidebar-->
         <!--        begin-content-->
+
         <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">			
             <div class="row">
                 <ol class="breadcrumb">
-                    <li><a href="akd_index.htm"><svg class="glyph stroked home"><use xlink:href="#stroked-home"></use></svg></a></li>
+                    <li><a href="mhs_index.htm"><svg class="glyph stroked home"><use xlink:href="#stroked-home"></use></svg></a></li>
                     <li class="active">Detail ALumni</li>
                 </ol>
             </div><!--/.row-->
-
-            <div class="row">
-                <div class="col-lg-12">
-                    <h1 class="page-header">Detail Alumni</h1>
-
-                </div>
-            </div><!--/.row-->
-
             <center>
                 <div class="row">
-                    <div class="col-lg-5">
-                        <c:forEach var="listAlumni" items="${listDto}"> 
+                    <div class="col-lg-12">
+                        <h1 class="page-header">Detail Alumni</h1>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <c:forEach var="listAlumni" items="${listDto}">
                             <fieldset class="h">
                                 <table>
                                     <tr>
@@ -109,7 +108,7 @@
                                             <img src="img/${listAlumni.foto}" width="350px" height="420px"/>
                                         </td>
                                         <td>&nbsp;&nbsp;&nbsp;</td>
-                                        <td colspan="4" style="text-align: center; background-color: gray;color: orange"><b>Data Profil Pribadi</b></td>
+                                        <td colspan="4" class="col-md-12" style="text-align: center; background-color: gray;color: orange"><b>DATA PRIBADI</b></td>
                                         <td></td>
                                         <td></td>
 
@@ -119,7 +118,7 @@
                                         <td></td>
                                         <td><b>NIM</b></td>
                                         <td>&nbsp;:&nbsp;&nbsp;</td>
-                                        <td><c:out value="${listAlumni.nim}"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.</c:out></td>
+                                        <td><c:out value="${listAlumni.nim}"></c:out></td>
                                         </tr>
                                         <tr>
                                             <td></td><td></td>
@@ -154,7 +153,7 @@
                                         <tr>
                                             <td rowspan="7">
                                             </td><td></td>
-                                            <td colspan="4" style="text-align: center; background-color: gray;color: orange"><b>Data Pekerjaan</b></td>
+                                            <td colspan="4" style="text-align: center; background-color: gray;color: orange"><b>DATA PEKERJAAN</b></td>
                                             <td></td>
                                             <td></td>
                                         </tr>
@@ -194,7 +193,12 @@
                                             <td>&nbsp;:&nbsp;&nbsp;</td>
                                             <td><c:out value="${listAlumni.testimoni}"></c:out></td>
                                         </tr>
-                                        
+                                        <tr>
+                                            <td></td>
+                                            <td></td><td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
                                     </table>
                                 </fieldset>
                         </c:forEach>
@@ -207,8 +211,14 @@
             </center>
 
 
+            <div class="row">
 
-        </div>	<!--/.main-->
+            </div><!--/.row-->
+
+            <div class="row">
+
+            </div><!--/.row-->
+        </div>
 
 
 
@@ -256,8 +266,7 @@
 
 
     $(function () {
-        //$("#tg_pj").datepicker({dateFormat: 'dd-mm-yy'});
-        $("#tg_ls").datepicker();
+        //$("#tg_pj").datepicker({dateFormat: 'dd-mm-yy'});         $("#tg_ls").datepicker();
 
     });
     $(function () {

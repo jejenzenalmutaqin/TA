@@ -8,7 +8,15 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+
+
+
+
+
 <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+
+
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -45,7 +53,7 @@
                     <a class="navbar-brand" href="#"><span>APLIKASI MONITORING PENYUSUNAN TUGAS AKHIR/SKRIPSI</span> UNIVERSITAS NASIONAL PASIM</a>
                     <ul class="user-menu">
                         <li class="dropdown pull-right">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> Akademik <span class="caret"></span></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg>${dto.namamahasiswa}<span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
                                 <li><a href="#"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> Profile</a></li>
                                 <li><a href="#"><svg class="glyph stroked gear"><use xlink:href="#stroked-gear"></use></svg> Settings</a></li>
@@ -108,7 +116,6 @@
                             <div class="panel-heading"> Form Edit Data Alumni</div>
                             <div class="panel-body">
                                 <c:set var="nimTampung" value="${dto.nim}"/>
-                                <c:out value="${nimTampung}"/>
                                 <form:form class="form-horizontal" id="formEditAlumni" action="editAlumniMhs.htm" method="post" modelAttribute="alumniDto" enctype="multipart/form-data">
                                     <form:hidden path="integritas" value="${alumniDto.integritas}"/>
                                     <form:hidden path="keahlian" value="${alumniDto.keahlian}"/>
@@ -234,6 +241,7 @@
 
 
 
+
             </center>
 
 
@@ -320,5 +328,8 @@
 //                    }
 //                });
 //            });
+
+
+
 
 </script>

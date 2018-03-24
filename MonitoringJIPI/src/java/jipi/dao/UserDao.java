@@ -26,4 +26,6 @@ public interface UserDao {
     public List<Object[]> getCountUsernameAndPassword(String username, String password);
     public List<Object[]> getCountUsernameAndPasswordAndAkses(String username, String password, String akses);
     public List<Object[]> getListDataUserByLogin(String username, String password, String akses);
+    public List<UserModel> getListUserUpdateMhs(String kduser);
+    public void updateUserMhs(UserModel userModel);
 }

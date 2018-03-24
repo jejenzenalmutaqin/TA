@@ -25,5 +25,8 @@ public interface UserService {
     public List<Object[]> getCountUsernameAndPasswordService(String username, String password);
     public List<Object[]> getCountUsernameAndPasswordAndAksesService(String username, String password, String akses);
     public List<UserDto> getListDataUserByLogin(String username, String password, String akses);
+    public UserDto updateDataFormMhs(String nim) throws Exception;
+    public void doUpdateDataFormMhs(UserDto userDto) throws Exception;
+    public List<UserDto> saveDataUserOtomatis(String nim, String nama) throws Exception;
     
 }

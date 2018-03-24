@@ -174,10 +174,13 @@ public class ProposalServiceImpl implements ProposalService{
 //                if(ddm.getIpk() != null){
                     dto.setIpk(ddm.getIpk());
 //                }
-                if(ddm.getSksproposal() != null){
+                if(ddm.getStatusproposal() != null){
                     dto.setStatusproposal(ddm.getStatusproposal());
                 }
                 if(ddm.getDosenpembimbing() != null){
+                    dto.setDosenpembimbing(ddm.getDosenpembimbing());
+                }
+                if(ddm.getEmail()!= null){
                     dto.setEmail(ddm.getEmail());
                 }
             }
@@ -200,6 +203,7 @@ public class ProposalServiceImpl implements ProposalService{
             ddm.setIpk(proposalDto.getIpk());
             ddm.setStatusproposal(proposalDto.getStatusproposal());
             ddm.setDosenpembimbing(proposalDto.getDosenpembimbing());
+            ddm.setPerubahanjudul(proposalDto.getPerubahanjudul());
             ddm.setEmail(proposalDto.getEmail());
         } catch (Exception e) {
             e.printStackTrace();

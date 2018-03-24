@@ -191,7 +191,7 @@
                                         <div class="form-group">
                                             <label class="col-md-3 control-label" >Tanggal Pengajuan Proposal</label>
                                             <div class="col-md-9">
-                                                <form:input path="tglpengajuanproposal" id="tgl_pgj" value="${dto.tglpengajuanproposal}" class="form-control validate validate[required]"/>
+                                                <form:input path="tglpengajuanproposal" id="tgl_pgj_edit" value="${dto.tglpengajuanproposal}" class="form-control validate validate[required]"/>
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -206,21 +206,40 @@
                                                 <form:input path="email" value="${dto.email}" class="form-control validate validate[required]"/>
                                             </div>
                                         </div>
-                                        <div class="form-group">
-                                            <label class="col-md-3 control-label" >Dosen Pembimbing</label>
-                                            <div class="col-md-9">
-                                                <form:input path="dosenpembimbing" value="${dto.dosenpembimbing}" class="form-control validate validate[required]"/>
-                                            </div>
-                                        </div>
                                         <div class="form-group" value="${dto.statusproposal}">
                                             <label class="col-md-3 control-label" >Status Proposal</label>
                                             <div class="col-md-3">
-                                                    <form:radiobutton path="statusproposal" value="belum" class="form-control"/>Belum Diterima
+                                                <!--                                                <input type="radio" name="statusproposal" value="belum" class="form-control" checked="true"/>Belum Diterima-->
+                                                <form:radiobutton path="statusproposal" value="belum" class="form-control" checked="true" />Belum Diterima
                                             </div>
                                             <div class="col-md-3">
-                                                    <form:radiobutton path="statusproposal" value="sudah" class="form-control"/>Sudah Diterima
+                                                <!--                                                <input type="radio" name="statusproposal" value="sudah" class="form-control"/>Sudah Diterima-->
+                                                <form:radiobutton path="statusproposal" value="sudah" class="form-control" />Sudah Diterima
                                             </div>
                                         </div>
+                                        <div class="form-group" >
+                                            <label class="col-md-3 control-label" >Dosen Pembimbing</label>
+                                            <div class="col-md-9">
+                                                <form:input path="dosenpembimbing" value="${dto.dosenpembimbing}" id="dosen_edit"  class="form-control validate validate[required]"/>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group" >
+                                            <label class="col-md-3 control-label" >Tanggal Batas Menghubungi Dosen Pembimbing</label>
+                                            <div class="col-md-9">
+                                                <form:input path="perubahanjudul" value="${dto.perubahanjudul}" class="form-control validate validate[required]" id="tanggal_edit" />
+                                            </div>
+                                        </div>
+                                        <script type="text/javascript">
+                                                function mati() {
+                                            document.getElementById("tanggal_edit").disabled = false;
+                                            document.getElementById("dosen_edit").disabled = false;
+                                            }
+                                                function hidup() {
+                                            document.getElementById("tanggal_edit").disabled = true;
+                                            document.getElementById("dosen_edit").disabled = true;
+    }
+                                        </script>
                                         <div class="form-group">
                                             <div class="col-md-12 widget-right">
                                                 <input type="submit" class="btn btn-primary btn-md pull-right"  id="sbm" value="Edit" />
@@ -294,7 +313,17 @@
     
     $(function() {
     //$("#tg_pj").datepicker({dateFormat: 'dd-mm-yy'});
-    $( "#tgl_pgj" ).datepicker();
+    $( "#tgl_pgj_edit" ).datepicker();
+    
+    });
+    $(function() {
+    //$("#tg_pj").datepicker({dateFormat: 'dd-mm-yy'});
+    $( "#tanggal_edit" ).datepicker();
+    
+    });
+    $(function() {
+    //$("#tg_pj").datepicker({dateFormat: 'dd-mm-yy'});
+    $( "#dosen_edit" ).datepicker();
     
     });
     

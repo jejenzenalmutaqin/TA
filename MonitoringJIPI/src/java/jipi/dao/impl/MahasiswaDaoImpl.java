@@ -7,7 +7,9 @@ package jipi.dao.impl;
 
 import java.util.List;
 import jipi.dao.MahasiswaDao;
+import jipi.dto.MahasiswaDto;
 import jipi.model.MahasiswaModel;
+import jipi.model.UserModel;
 import org.hibernate.Query;
 
 /**
@@ -86,6 +88,38 @@ public class MahasiswaDaoImpl extends HibernateUtil implements MahasiswaDao{
             e.printStackTrace();
         }
         return (MahasiswaModel) query.uniqueResult();
+    }
+
+    @Override
+    public List<UserModel> getDataUserByNim(String nim) throws Exception {
+        List<UserModel> dataList = null;
+        String sql = "select model from UserModel model where nim=:nim";
+        Query query = createQuery(sql).setParameter("nim", nim);
+        dataList = query.list();
+        System.out.println("SOUT DI DAO IMP : "+dataList.size());
+        return dataList;
+    }
+
+
+    @Override
+    public void updateUser(UserModel userModel) {
+        System.out.println("MASUK FUNGSI SAVE OR UPDATE : "+userModel.getNim());
+        System.out.println("MASUK FUNGSI DOUPDATEDATFORM"+userModel.getAkses());
+        System.out.println("MASUK FUNGSI DOUPDATEDATFORM"+userModel.getNim());
+        System.out.println("MASUK FUNGSI DOUPDATEDATFORM"+userModel.getNip());
+        System.out.println("MASUK FUNGSI DOUPDATEDATFORM"+userModel.getUsername());
+        System.out.println("MASUK FUNGSI DOUPDATEDATFORM"+userModel.getPassword());
+        System.out.println("MASUK FUNGSI DOUPDATEDATFORM"+userModel.getKeterangan());
+        getSession().saveOrUpdate(userModel);
+    }
+
+    @Override
+    public List<MahasiswaModel> getDataMhsByDto(MahasiswaDto dto) throws Exception {
+    List<MahasiswaModel> dataList = null;
+        String sql = "select model from MahasiswaModel model where nim=:nim";
+        Query query = createQuery(sql).setParameter("nim", dto.getNim());
+        dataList = query.list();
+        return dataList;
     }
     
 }

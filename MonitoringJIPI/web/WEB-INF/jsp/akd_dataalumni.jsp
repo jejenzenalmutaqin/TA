@@ -159,14 +159,14 @@
                                 
                                 <table style="color: white"  border="4">
                                     <tr>
-                                        <th class="col-md-2 control-label">Kode Alumni</th>
-                                        <th class="col-md-2 control-label">Nama</th>
-                                        <th class="col-md-2 control-label">Kode Kelulusan</th>
-                                        <th class="col-md-2 control-label">Perusahaan</th>
-                                        <th class="col-md-2 control-label">Alamat Perusahaan</th>
-                                        <th class="col-md-2 control-label">Daerah Kerja</th>
-                                        <th class="col-md-2 control-label">Sektor</th>
-                                        <th class="col-md-2 control-label">Profesi</th>
+                                        <th class="col-md-2 control-label" style="text-align: center">Kode Alumni</th>
+                                        <th class="col-md-2 control-label" style="text-align: center">Nama</th>
+                                        <th class="col-md-2 control-label" style="text-align: center">Kode Kelulusan</th>
+                                        <th class="col-md-2 control-label" style="text-align: center">Perusahaan</th>
+                                        <th class="col-md-2 control-label" style="text-align: center">Alamat Perusahaan</th>
+                                        <th class="col-md-2 control-label" style="text-align: center">Daerah Kerja</th>
+                                        <th class="col-md-2 control-label" style="text-align: center">Sektor</th>
+                                        <th class="col-md-2 control-label" style="text-align: center">Profesi</th>
                                         <th style="text-align: center" colspan="3" class="col-md-3 control-label">Action</th>
                                     </tr>
                                     
